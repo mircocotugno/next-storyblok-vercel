@@ -2,9 +2,15 @@ import { storyblokInit, apiPlugin } from "@storyblok/react";
 import type { ComponentType } from "react";
 import { StoryblokComponent } from "@storyblok/react";
 
+import Page from "@/components/page";
+import Post from "@/components/post";
+import Project from "@/components/project";
+
 // mappa nome-blocco → componente React
 const components: Record<string, ComponentType<any>> = {
-  // es: page: Page, hero: Hero, feature: Feature
+  page: Page,
+  post: Post,
+  project: Project,
 };
 
 export function initStoryblok() {

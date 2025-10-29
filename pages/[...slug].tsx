@@ -10,8 +10,7 @@ import { sbVersion, sbCacheVersion } from "@/lib/sbVersion";
 export default function DynamicPage({ story }: any) {
   const live = useStoryblokState(story);
   console.log(live);
-  return <div>{live.name}</div>;
-  // return <StoryblokComponent blok={live.content} />;
+  return <StoryblokComponent blok={live.content} />;
 }
 
 export const getStaticProps: GetStaticProps = async ({ params, preview }) => {

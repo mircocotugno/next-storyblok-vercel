@@ -9,8 +9,7 @@ export default function Home({ story }: any) {
   // abilita live-update in preview editor
   const live = useStoryblokState(story);
   console.log(live);
-  return <div>{live.name}</div>;
-  // return <StoryblokComponent blok={live.content} />;
+  return <StoryblokComponent blok={live.content} />;
 }
 
 export async function getStaticProps({ preview }: { preview?: boolean }) {
