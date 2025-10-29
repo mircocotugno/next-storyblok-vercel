@@ -1,0 +1,1224 @@
+[
+  {
+    "name": "carousel",
+    "display_name": "Carosello",
+    "description": "",
+    "created_at": "2025-10-28T22:40:18.476Z",
+    "updated_at": "2025-10-28T22:50:02.368Z",
+    "id": 106502629283422,
+    "schema": {
+      "assets": {
+        "type": "multiasset",
+        "pos": 0,
+        "display_name": "Risorse",
+        "required": true,
+        "filetypes": [
+          "images"
+        ],
+        "id": "o2L1LupuR3a70TsGZVW26Q"
+      },
+      "styles": {
+        "type": "section",
+        "pos": 1,
+        "id": "r-WM-RmTRCO8HcbECLeE6g",
+        "keys": [
+          "mode"
+        ]
+      },
+      "mode": {
+        "type": "option",
+        "pos": 2,
+        "use_uuid": true,
+        "display_name": "Modalità",
+        "options": [
+          {
+            "_uid": "4fce8a1b-79df-452b-89ba-8d103cdf2ab6",
+            "name": "Presentazione",
+            "value": "slider"
+          },
+          {
+            "_uid": "22c33b5c-9105-4cfd-9758-7ec4f1799d5e",
+            "value": "gallery",
+            "name": "Galleria"
+          },
+          {
+            "_uid": "2c02bfc5-78c7-418a-ab54-76c7706900a7",
+            "value": "grid",
+            "name": "Griglia"
+          }
+        ],
+        "id": "65aJgwJSRziKaYKi4es61Q"
+      },
+      "overlay": {
+        "type": "boolean",
+        "pos": 3,
+        "display_name": "Mostra a tutto schermo",
+        "inline_label": true,
+        "id": "bFfkEPpDQKq81Z5twySD3A"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Carosello",
+    "component_group_uuid": "dc6b874b-a598-4ed7-81b1-fbc14789894d",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "columns",
+    "display_name": "Colonne",
+    "description": null,
+    "created_at": "2025-10-28T21:50:02.369Z",
+    "updated_at": "2025-10-28T23:43:23.641Z",
+    "id": 106490275313102,
+    "schema": {
+      "id": {
+        "type": "text",
+        "display_name": "Ancora",
+        "id": "Fh-RzjOTROGsy4b9wib5aA"
+      },
+      "body": {
+        "type": "bloks",
+        "display_name": "Colonne",
+        "restrict_components": true,
+        "component_whitelist": [
+          "text",
+          "image",
+          "wrapper"
+        ],
+        "required": true,
+        "id": "0xUpOOAJSrG8f_ug0DEXcA"
+      },
+      "styles": {
+        "type": "section",
+        "display_name": "Stile",
+        "keys": [
+          "themes",
+          "margin",
+          "justify"
+        ],
+        "id": "nrvI1t7bR4u2BTqXT6RxQA"
+      },
+      "theme": {
+        "type": "option",
+        "display_name": "Tema",
+        "options": [
+          {
+            "name": "Primari",
+            "value": "primary"
+          },
+          {
+            "name": "Secondari",
+            "value": "secondary"
+          }
+        ],
+        "id": "wk15dpbOTv2Ed6cUZqZmcw"
+      },
+      "margin": {
+        "type": "option",
+        "display_name": "Margini",
+        "options": [
+          {
+            "name": "Fini",
+            "value": "slim"
+          },
+          {
+            "name": "Spessi",
+            "value": "thick"
+          },
+          {
+            "name": "Riempi",
+            "value": "screen"
+          }
+        ],
+        "id": "UHAOuzLLRqqV7otasfXgSg"
+      },
+      "justify": {
+        "type": "option",
+        "display_name": "Giustifica",
+        "options": [
+          {
+            "name": "Distribuita",
+            "value": "spaced"
+          },
+          {
+            "name": "Centro",
+            "value": "center"
+          },
+          {
+            "name": "Destra",
+            "value": "right"
+          }
+        ],
+        "id": "wE07QzyzReurpCPDfA_MFQ"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Colonne",
+    "component_group_uuid": "dc6b874b-a598-4ed7-81b1-fbc14789894d",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "cover",
+    "display_name": "Copertina",
+    "description": null,
+    "created_at": "2025-10-28T21:24:04.557Z",
+    "updated_at": "2025-10-28T23:23:30.308Z",
+    "id": 106483894511018,
+    "schema": {
+      "id": {
+        "type": "text",
+        "display_name": "Ancora",
+        "id": "U5D3u-GaR8aS-rkJKrNuPg"
+      },
+      "body": {
+        "type": "bloks",
+        "display_name": "Contenuti",
+        "restrict_components": true,
+        "component_whitelist": [
+          "text",
+          "image",
+          "link"
+        ],
+        "required": true,
+        "id": "H_4TYwWSQEiW4H3CH1CVCQ"
+      },
+      "image": {
+        "type": "asset",
+        "display_name": "Immagine",
+        "description": "Consigliato 1920x1024px",
+        "filetypes": [
+          "images"
+        ],
+        "id": "IUYFzthCSP2xrtRo6q5Brw"
+      },
+      "styles": {
+        "type": "section",
+        "display_name": "Stile",
+        "keys": [
+          "palette",
+          "margin",
+          "justify",
+          "dark",
+          "blurred"
+        ],
+        "id": "6CdAE7HTQEei05ZJ7UYqOg"
+      },
+      "theme": {
+        "type": "option",
+        "display_name": "Tema",
+        "options": [
+          {
+            "name": "Primari",
+            "value": "primary"
+          },
+          {
+            "name": "Secondari",
+            "value": "secondary"
+          }
+        ],
+        "id": "n55-UQ7GT3CFyITxGhPQ4A"
+      },
+      "margin": {
+        "type": "option",
+        "display_name": "Margini",
+        "options": [
+          {
+            "name": "Fini",
+            "value": "slim"
+          },
+          {
+            "name": "Spessi",
+            "value": "thick"
+          },
+          {
+            "name": "Riempi",
+            "value": "screen"
+          }
+        ],
+        "id": "47tUJRBYRTqhh8bmyg6tcw"
+      },
+      "justify": {
+        "type": "option",
+        "display_name": "Giustifica",
+        "options": [
+          {
+            "name": "Sinistra",
+            "value": "left"
+          },
+          {
+            "name": "Centro",
+            "value": "center"
+          },
+          {
+            "name": "Destra",
+            "value": "right"
+          }
+        ],
+        "id": "QTKVkMR1TY2JbNFficH00g"
+      },
+      "dark": {
+        "type": "boolean",
+        "display_name": "Tema scuro",
+        "inline_label": true,
+        "id": "UuVor7YGSt20Y38qFhYspQ"
+      },
+      "blurred": {
+        "type": "boolean",
+        "display_name": "Sfoca sfondo",
+        "inline_label": true,
+        "id": "bYuYHYqUQr2dmm-6cygYag"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Copertina",
+    "component_group_uuid": "dc6b874b-a598-4ed7-81b1-fbc14789894d",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "field",
+    "display_name": "Campo",
+    "description": "",
+    "created_at": "2025-10-28T23:49:10.864Z",
+    "updated_at": "2025-10-29T00:16:16.561Z",
+    "id": 106519555545110,
+    "schema": {
+      "id": {
+        "type": "text",
+        "pos": 0,
+        "id": "PdDonbj7Rh-5jox-bByptQ"
+      },
+      "input": {
+        "type": "option",
+        "pos": 1,
+        "use_uuid": true,
+        "id": "lp7RP2PiTOGp5lZQzy8O3g"
+      },
+      "label": {
+        "type": "text",
+        "pos": 2,
+        "id": "FSmg9mIgS8Oamr-MoZpI2Q"
+      },
+      "placeholder": {
+        "type": "text",
+        "pos": 3,
+        "id": "Wnp-q7zORAWi-DF0uQA2gA"
+      },
+      "options": {
+        "type": "options",
+        "pos": 4,
+        "is_reference_type": true,
+        "source": "internal_stories",
+        "entry_appearance": "card",
+        "allow_advanced_search": true,
+        "id": "0QmL7HyATj2q4KJGrGJozQ"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Campo",
+    "component_group_uuid": "e768cdf7-844e-4459-b1b9-e4f287a341c9",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "footer",
+    "display_name": "Calce",
+    "description": null,
+    "created_at": "2025-10-28T20:36:57.093Z",
+    "updated_at": "2025-10-28T23:24:14.986Z",
+    "id": 106472313222505,
+    "schema": {
+      "image": {
+        "type": "asset",
+        "display_name": "Logo",
+        "filetypes": [
+          "images"
+        ],
+        "id": "VmZRplFgQvyhoh3gIhuovg"
+      },
+      "body": {
+        "type": "bloks",
+        "display_name": "Contenuti",
+        "restrict_components": true,
+        "maximum": 6,
+        "component_whitelist": [
+          "text"
+        ],
+        "id": "SBBCVrGPRl6Uu_vav1iHBQ"
+      },
+      "copyright": {
+        "type": "markdown",
+        "display_name": "Copyright",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "italic",
+          "link"
+        ],
+        "required": true,
+        "id": "t5_oRuHyTCuOL3X5j0EHmQ"
+      },
+      "terms": {
+        "type": "markdown",
+        "display_name": "Termini",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "italic",
+          "link"
+        ],
+        "required": true,
+        "id": "fny38U_wQbaWemZZ5Lv3Dw"
+      },
+      "fixed": {
+        "type": "boolean",
+        "display_name": "Blocca scorrimento",
+        "inline_label": true,
+        "id": "j66Otub1RlqJsuTQ7yxzQQ"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Calce",
+    "component_group_uuid": "dc6b874b-a598-4ed7-81b1-fbc14789894d",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "form",
+    "display_name": "Modulo",
+    "description": "",
+    "created_at": "2025-10-28T23:07:27.613Z",
+    "updated_at": "2025-10-28T23:45:28.535Z",
+    "id": 106509302228774,
+    "schema": {
+      "event": {
+        "type": "option",
+        "pos": 0,
+        "use_uuid": true,
+        "id": "8qpT8aByRfKlMuHL0TKYvg",
+        "required": true,
+        "options": [
+          {
+            "_uid": "d3c9483b-896e-4215-9b74-6fafaf17c315",
+            "name": "Contatto",
+            "value": "contact"
+          },
+          {
+            "_uid": "0a580d31-e378-4839-8b54-c55ea80c3fb8",
+            "value": "download",
+            "name": "Scarica"
+          }
+        ]
+      },
+      "lists": {
+        "type": "options",
+        "pos": 1,
+        "id": "BQCvSf4bTnGvZQ3ZxXTJhg",
+        "options": [
+          {
+            "_uid": "dcc9363a-5c3f-497f-8f00-553a846bfc2b",
+            "name": "Tutti",
+            "value": ""
+          }
+        ],
+        "description": "Inserire le liste e relativi id"
+      },
+      "label": {
+        "type": "text",
+        "pos": 2,
+        "display_name": "Etichetta",
+        "description": "",
+        "required": true,
+        "id": "vJi7g7XpREqmWKJBqppRlw"
+      },
+      "fields": {
+        "type": "bloks",
+        "pos": 3,
+        "id": "d9CVhnRaSAmnYdUttag9Rg"
+      },
+      "settings": {
+        "type": "section",
+        "pos": 4,
+        "id": "gPXWC8o1T9624MtCyTzgFA",
+        "keys": [
+          "display",
+          "identify"
+        ]
+      },
+      "display": {
+        "type": "option",
+        "pos": 5,
+        "use_uuid": true,
+        "display_name": "Mostra",
+        "options": [
+          {
+            "_uid": "028ec763-4c41-4012-a9da-94cfcedce3d1",
+            "name": "Sopra",
+            "value": "modal"
+          },
+          {
+            "_uid": "e0d59bac-df62-471f-a651-3b93230b9f5e",
+            "value": "drawer",
+            "name": "Lato"
+          }
+        ],
+        "id": "kmClRfbVTx2f1UZNg2RIOw"
+      },
+      "identify": {
+        "type": "boolean",
+        "pos": 6,
+        "id": "8b6eHTvCRLKOYnGS3RGs9g",
+        "display_name": "Identifica utente"
+      },
+      "messages": {
+        "type": "section",
+        "pos": 7,
+        "keys": [
+          "success",
+          "error"
+        ],
+        "id": "GacU2o8ITMOqG7akN4n0kw"
+      },
+      "success": {
+        "type": "markdown",
+        "pos": 8,
+        "id": "7pb-EKCvQFyIcAQ8x7BQLQ"
+      },
+      "error": {
+        "type": "markdown",
+        "pos": 9,
+        "id": "vpHgsDeUTzS-bHN0pGQXWA"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Modulo",
+    "component_group_uuid": "dc6b874b-a598-4ed7-81b1-fbc14789894d",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "header",
+    "display_name": "Navigatore",
+    "description": null,
+    "created_at": "2025-10-28T20:36:56.934Z",
+    "updated_at": "2025-10-28T23:25:02.461Z",
+    "id": 106472312567144,
+    "schema": {
+      "image": {
+        "type": "asset",
+        "display_name": "Logo",
+        "filetypes": [
+          "images"
+        ],
+        "id": "-IIzrCMXQQ6EFxaSRqJNIw"
+      },
+      "links": {
+        "type": "bloks",
+        "display_name": "Collegamenti",
+        "restrict_components": true,
+        "component_whitelist": [
+          "link"
+        ],
+        "id": "P0PiG2hITdOC5qJW6KxMCw"
+      },
+      "fixed": {
+        "type": "boolean",
+        "display_name": "Blocca scorrimento",
+        "inline_label": true,
+        "id": "dKXeeckFS3iU-E8kCg0-nA"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Navigatore",
+    "component_group_uuid": "dc6b874b-a598-4ed7-81b1-fbc14789894d",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "image",
+    "display_name": "Immagine",
+    "description": null,
+    "created_at": "2025-10-28T22:14:38.971Z",
+    "updated_at": "2025-10-28T22:50:11.161Z",
+    "id": 106496323470896,
+    "schema": {
+      "asset": {
+        "type": "asset",
+        "display_name": "Risorsa",
+        "filetypes": [
+          "images"
+        ],
+        "id": "dUgdtJtFTk-JfXXtmaaa-A"
+      },
+      "styles": {
+        "type": "section",
+        "display_name": "Stile",
+        "keys": [
+          "width",
+          "size"
+        ],
+        "id": "DfnRiJV-TyG42NiAVq86IQ"
+      },
+      "width": {
+        "type": "options",
+        "display_name": "Larghezza",
+        "options": [
+          {
+            "name": "Un terzo",
+            "value": "1/3"
+          },
+          {
+            "name": "Metà",
+            "value": "1/2"
+          },
+          {
+            "name": "Due terzi",
+            "value": "2/3"
+          },
+          {
+            "name": "Intera",
+            "value": "1/1"
+          }
+        ],
+        "id": "nRTva4x5TLWuotURlZUsUA"
+      },
+      "size": {
+        "type": "option",
+        "display_name": "Dimensione",
+        "options": [
+          {
+            "name": "Piccola",
+            "value": "small"
+          },
+          {
+            "name": "Media",
+            "value": "medium"
+          },
+          {
+            "name": "Grande",
+            "value": "large"
+          }
+        ],
+        "id": "-rRbA5jzRuOzHqXtcKG3hg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Immagine",
+    "component_group_uuid": "e768cdf7-844e-4459-b1b9-e4f287a341c9",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "link",
+    "display_name": "Collegamento",
+    "description": null,
+    "created_at": "2025-10-28T22:37:05.827Z",
+    "updated_at": "2025-10-28T22:39:17.543Z",
+    "id": 106501840193115,
+    "schema": {
+      "label": {
+        "type": "text",
+        "display_name": "Etichetta",
+        "id": "DtfpB0z3QEOIFxqFIJQvSA",
+        "required": true,
+        "customize_toolbar": true
+      },
+      "href": {
+        "type": "multilink",
+        "display_name": "Destinazione",
+        "component_whitelist": [
+          "page"
+        ],
+        "allow_target_blank": true,
+        "allow_custom_attributes": true,
+        "email_link_type": true,
+        "asset_link_type": true,
+        "show_anchor": true,
+        "id": "A7HzWMIIR9uIUQmyr-WOXQ",
+        "required": true,
+        "restrict_content_types": true
+      },
+      "button": {
+        "type": "boolean",
+        "display_name": "Mostra come pulsante",
+        "inline_label": true,
+        "id": "0RFQZGy0Q6yha5ts8P-qGg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Collegamento",
+    "component_group_uuid": "e768cdf7-844e-4459-b1b9-e4f287a341c9",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "page",
+    "display_name": "Pagina",
+    "description": null,
+    "created_at": "2025-10-28T17:24:08.417Z",
+    "updated_at": "2025-10-28T23:46:06.435Z",
+    "id": 106424927925163,
+    "schema": {
+      "header": {
+        "type": "option",
+        "display_name": "Navigatore",
+        "source": "internal_stories",
+        "filter_content_type": [
+          "header"
+        ],
+        "id": "XlsZE7hnQ1qxc2pXJziUkQ"
+      },
+      "body": {
+        "type": "bloks",
+        "display_name": "Sezioni",
+        "restrict_components": true,
+        "component_whitelist": [
+          "cover",
+          "carousel",
+          "columns",
+          "form"
+        ],
+        "id": "DXW4luftTlCPUXn4nODRyg"
+      },
+      "footer": {
+        "type": "option",
+        "display_name": "Calce",
+        "source": "internal_stories",
+        "filter_content_type": [
+          "footer"
+        ],
+        "id": "G3dcBKDVQyGTjN3h3MpJkw"
+      },
+      "meta": {
+        "type": "section",
+        "display_name": "SEO",
+        "keys": [
+          "title",
+          "description",
+          "image"
+        ],
+        "id": "uVhpRDvERx2U0Htbvs82Bg"
+      },
+      "title": {
+        "type": "text",
+        "display_name": "Titolo",
+        "description": "Consigliati 50-60 caratteri",
+        "maximum": 80,
+        "id": "AgR2DgRWRhyRC_gtVkmB5Q"
+      },
+      "description": {
+        "type": "text",
+        "display_name": "Descrizione",
+        "description": "Consigliati 120-160 caratteri",
+        "maximum": 180,
+        "id": "hgVh4Nd4StO6OpFU6Lmf4g"
+      },
+      "image": {
+        "type": "asset",
+        "display_name": "Immagine",
+        "description": "Consigliato 1200x630 px",
+        "filetypes": [
+          "images"
+        ],
+        "id": "A0OF82S0RPW7FocnoLz54Q"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": "<div>\n<p class=\"font-16 font-medium\">{{it.title}}</p>\n<p class=\"font-14 text-gray\">{{it.description}}</p>\n</div>",
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Pagina",
+    "component_group_uuid": "ac16639b-e20f-44d8-9ce9-ec5943824752",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "post",
+    "display_name": "Articolo",
+    "description": "",
+    "created_at": "2025-10-28T23:22:09.485Z",
+    "updated_at": "2025-10-28T23:46:45.287Z",
+    "id": 106512914376557,
+    "schema": {
+      "title": {
+        "type": "text",
+        "display_name": "Titolo",
+        "description": "Consigliati 50-60 caratteri",
+        "maximum": 80,
+        "required": true,
+        "id": "AgR2DgRWRhyRC_gtVkmB5Q"
+      },
+      "description": {
+        "type": "text",
+        "display_name": "Descrizione",
+        "description": "Consigliati 120-160 caratteri",
+        "maximum": 180,
+        "required": true,
+        "id": "hgVh4Nd4StO6OpFU6Lmf4g"
+      },
+      "image": {
+        "type": "asset",
+        "display_name": "Immagine",
+        "description": "Consigliato 1200x630px",
+        "filetypes": [
+          "images"
+        ],
+        "id": "A0OF82S0RPW7FocnoLz54Q"
+      },
+      "author": {
+        "type": "text",
+        "display_name": "Autore",
+        "id": "1pDGYTHNTSWE5Rms9sFk2w"
+      },
+      "body": {
+        "type": "bloks",
+        "display_name": "Contenuti",
+        "restrict_components": true,
+        "component_whitelist": [
+          "columns",
+          "form"
+        ],
+        "id": "DXW4luftTlCPUXn4nODRyg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Articolo",
+    "component_group_uuid": "ac16639b-e20f-44d8-9ce9-ec5943824752",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "project",
+    "display_name": "Progetto",
+    "description": "",
+    "created_at": "2025-10-28T23:32:51.146Z",
+    "updated_at": "2025-10-29T00:12:54.243Z",
+    "id": 106515542624206,
+    "schema": {
+      "title": {
+        "type": "text",
+        "display_name": "Titolo",
+        "description": "Consigliati 50-60 caratteri",
+        "maximum": 80,
+        "required": true,
+        "id": "AgR2DgRWRhyRC_gtVkmB5Q"
+      },
+      "description": {
+        "type": "text",
+        "display_name": "Descrizione",
+        "description": "Consigliati 120-160 caratteri",
+        "maximum": 180,
+        "required": true,
+        "id": "hgVh4Nd4StO6OpFU6Lmf4g"
+      },
+      "image": {
+        "type": "asset",
+        "display_name": "Immagine",
+        "description": "Consigliato 1200x630px",
+        "filetypes": [
+          "images"
+        ],
+        "id": "A0OF82S0RPW7FocnoLz54Q"
+      },
+      "author": {
+        "type": "text",
+        "display_name": "Autore",
+        "id": "oNsK_cmmTT6WPFfqs_Ryow"
+      },
+      "body": {
+        "type": "bloks",
+        "display_name": "Contenuti",
+        "restrict_components": true,
+        "component_whitelist": [
+          "cover",
+          "carousel",
+          "form",
+          "columns"
+        ],
+        "id": "DXW4luftTlCPUXn4nODRyg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Progetto",
+    "component_group_uuid": "ac16639b-e20f-44d8-9ce9-ec5943824752",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "steps",
+    "display_name": "Passaggi",
+    "description": "",
+    "created_at": "2025-10-28T23:47:49.450Z",
+    "updated_at": "2025-10-29T00:13:33.295Z",
+    "id": 106519222073365,
+    "schema": {
+      "id": {
+        "type": "text",
+        "display_name": "Ancora",
+        "id": "Fh-RzjOTROGsy4b9wib5aA",
+        "pos": 0
+      },
+      "body": {
+        "type": "bloks",
+        "pos": 1,
+        "id": "776p-TXpTQGuUQXWMYyszQ",
+        "restrict_type": "",
+        "restrict_components": true,
+        "component_whitelist": [
+          "wrapper"
+        ]
+      },
+      "styles": {
+        "type": "section",
+        "pos": 2,
+        "keys": [
+          "timeline"
+        ],
+        "id": "yKg_qkNgSGGasLr31p8Bxw"
+      },
+      "timeline": {
+        "type": "boolean",
+        "use_uuid": true,
+        "id": "ZURL5epyScOqmTZ2LTWMaQ",
+        "display_name": "Mostra come linea temporale",
+        "pos": 3
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Passaggi",
+    "component_group_uuid": "dc6b874b-a598-4ed7-81b1-fbc14789894d",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "text",
+    "display_name": "Testo",
+    "description": null,
+    "created_at": "2025-10-28T22:14:38.831Z",
+    "updated_at": "2025-10-28T22:37:05.634Z",
+    "id": 106496322897455,
+    "schema": {
+      "headline": {
+        "type": "markdown",
+        "display_name": "Intestazione",
+        "customize_toolbar": true,
+        "allow_multiline": true,
+        "toolbar": [
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "bold",
+          "italic",
+          "list",
+          "link"
+        ],
+        "id": "DtfpB0z3QEOIFxqFIJQvSA"
+      },
+      "content": {
+        "type": "markdown",
+        "display_name": "Contenuto",
+        "customize_toolbar": true,
+        "allow_multiline": true,
+        "toolbar": [
+          "bold",
+          "italic",
+          "list",
+          "link"
+        ],
+        "id": "A7HzWMIIR9uIUQmyr-WOXQ"
+      },
+      "styles": {
+        "type": "section",
+        "display_name": "Stile",
+        "keys": [
+          "width",
+          "size",
+          "justify"
+        ],
+        "id": "PzuO8GlxTninKVkxrgzExg"
+      },
+      "width": {
+        "type": "options",
+        "display_name": "Larghezza",
+        "options": [
+          {
+            "name": "Un terzo",
+            "value": "1/3"
+          },
+          {
+            "name": "Metà",
+            "value": "1/2"
+          },
+          {
+            "name": "Due terzi",
+            "value": "2/3"
+          },
+          {
+            "name": "Intera",
+            "value": "1/1"
+          }
+        ],
+        "id": "Tr6EY4B2RQ-augcvepa3NA"
+      },
+      "size": {
+        "type": "option",
+        "display_name": "Dimensione",
+        "options": [
+          {
+            "name": "Piccola",
+            "value": "small"
+          },
+          {
+            "name": "Media",
+            "value": "medium"
+          },
+          {
+            "name": "Grande",
+            "value": "large"
+          }
+        ],
+        "id": "0RFQZGy0Q6yha5ts8P-qGg"
+      },
+      "justify": {
+        "type": "option",
+        "display_name": "Giustifica",
+        "options": [
+          {
+            "name": "Distribuita",
+            "value": "spaced"
+          },
+          {
+            "name": "Centro",
+            "value": "center"
+          },
+          {
+            "name": "Destra",
+            "value": "right"
+          }
+        ],
+        "id": "dv2TckpFSnCQ6vQ7GnPLBg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Testo",
+    "component_group_uuid": "e768cdf7-844e-4459-b1b9-e4f287a341c9",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "wrapper",
+    "display_name": "Contenitore",
+    "description": "",
+    "created_at": "2025-10-28T22:57:46.496Z",
+    "updated_at": "2025-10-28T23:05:16.629Z",
+    "id": 106506921973459,
+    "schema": {
+      "body": {
+        "type": "bloks",
+        "pos": 0,
+        "id": "776p-TXpTQGuUQXWMYyszQ",
+        "restrict_type": "",
+        "restrict_components": true,
+        "component_whitelist": [
+          "text",
+          "link",
+          "image"
+        ]
+      },
+      "styles": {
+        "type": "section",
+        "pos": 1,
+        "keys": [
+          "width",
+          "mode"
+        ],
+        "id": "yKg_qkNgSGGasLr31p8Bxw"
+      },
+      "mode": {
+        "type": "option",
+        "pos": 2,
+        "use_uuid": true,
+        "id": "ZURL5epyScOqmTZ2LTWMaQ",
+        "display_name": "Modalità",
+        "options": [
+          {
+            "_uid": "961029e5-a660-4057-b126-05501d1594ae",
+            "name": "Tessera",
+            "value": "card"
+          },
+          {
+            "_uid": "7c16397b-a8f7-44ee-ad6f-367d8e132bad",
+            "value": "accordion",
+            "name": "Fisarmonica"
+          },
+          {
+            "_uid": "605ab02c-6e9e-45c8-96f7-a8dc9635fae1",
+            "value": "menu",
+            "name": "Menu"
+          }
+        ]
+      },
+      "width": {
+        "type": "options",
+        "pos": 3,
+        "id": "eKXAmC6oRzG57JjmiCcLTw"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": "<p class=\"font-16 font-medium\">{{it.mode}}</p>",
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Contenitore",
+    "component_group_uuid": "e768cdf7-844e-4459-b1b9-e4f287a341c9",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  }
+]
