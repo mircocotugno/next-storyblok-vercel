@@ -1,5 +1,9 @@
 import type { Page } from "@/sbComponentType";
 
-export default function Page({ blok }: { blok: Page }) {
-  return <div>{blok.title}</div>;
+export interface PageComponent {
+  blok: Page;
+}
+
+export default function Page({ blok }: PageComponent) {
+  return <div>{blok.component}</div>;
 }

@@ -3,6 +3,7 @@
 import type { ISbStoryData } from '@storyblok/js';
 import type { StoryblokAsset, StoryblokMultilink, StoryblokMultiasset } from '../storyblok.d.ts';
 export interface Carousel {
+  id?: string;
   assets: StoryblokMultiasset;
   styles?: unknown;
   mode?: "" | "slider" | "gallery" | "grid";

@@ -1,5 +1,9 @@
 import type { Post } from "@/sbComponentType";
 
-export default function Post({ blok }: { blok: Post }) {
-  return <div>{blok.title}</div>;
+export interface PostComponent {
+  blok: Post;
+}
+
+export default function Post({ blok }: PostComponent) {
+  return <div>{blok.component}</div>;
 }

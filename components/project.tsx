@@ -1,5 +1,9 @@
 import type { Project } from "@/sbComponentType";
 
-export default function Project({ blok }: { blok: Project }) {
-  return <div>{blok.title}</div>;
+export interface ProjectComponent {
+  blok: Project;
+}
+
+export default function Project({ blok }: ProjectComponent) {
+  return <div>{blok.component}</div>;
 }
