@@ -371,7 +371,7 @@
     "display_name": "Calce",
     "description": null,
     "created_at": "2025-10-28T20:36:57.093Z",
-    "updated_at": "2025-10-28T23:24:14.986Z",
+    "updated_at": "2025-10-30T11:27:56.202Z",
     "id": 106472313222505,
     "schema": {
       "image": {
@@ -415,12 +415,6 @@
         ],
         "required": true,
         "id": "fny38U_wQbaWemZZ5Lv3Dw"
-      },
-      "fixed": {
-        "type": "boolean",
-        "display_name": "Blocca scorrimento",
-        "inline_label": true,
-        "id": "j66Otub1RlqJsuTQ7yxzQQ"
       }
     },
     "image": null,

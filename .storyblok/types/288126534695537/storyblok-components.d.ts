@@ -60,7 +60,6 @@ export interface Footer {
   body?: Text[];
   copyright: string;
   terms: string;
-  fixed?: boolean;
   component: "footer";
   _uid: string;
   [k: string]: unknown;
