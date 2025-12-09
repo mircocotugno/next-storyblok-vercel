@@ -1,7 +1,12 @@
 import type { Wrapper } from "@/sbComponentType";
+import {
+  SbBlokData,
+  storyblokEditable,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export interface WrapperComponent {
-  blok: Wrapper;
+  blok: Wrapper & SbBlokData;
 }
 
 export default function Wrapper({ blok }: WrapperComponent) {

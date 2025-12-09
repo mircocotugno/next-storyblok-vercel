@@ -1,4 +1,9 @@
 import type { Steps } from "@/sbComponentType";
+import {
+  SbBlokData,
+  storyblokEditable,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export interface StepsComponent {
   blok: Steps;

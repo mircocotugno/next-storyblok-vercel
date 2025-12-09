@@ -1,4 +1,9 @@
 import type { Link } from "@/sbComponentType";
+import {
+  SbBlokData,
+  storyblokEditable,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export interface LinkComponent {
   blok: Link;

@@ -1,4 +1,9 @@
 import type { Image } from "@/sbComponentType";
+import {
+  SbBlokData,
+  storyblokEditable,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export interface ImageComponent {
   blok: Image;

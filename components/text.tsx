@@ -1,4 +1,9 @@
 import type { Text } from "@/sbComponentType";
+import {
+  SbBlokData,
+  storyblokEditable,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export interface TextComponent {
   blok: Text;

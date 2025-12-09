@@ -1,4 +1,9 @@
 import type { Form } from "@/sbComponentType";
+import {
+  SbBlokData,
+  storyblokEditable,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export interface FormComponent {
   blok: Form;

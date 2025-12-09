@@ -1,4 +1,9 @@
 import type { Footer } from "@/sbComponentType";
+import {
+  SbBlokData,
+  storyblokEditable,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export interface FooterComponent {
   blok: Footer;

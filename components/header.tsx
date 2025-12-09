@@ -1,4 +1,9 @@
 import type { Header } from "@/sbComponentType";
+import {
+  SbBlokData,
+  storyblokEditable,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export interface HeaderComponent {
   blok: Header;

@@ -1,9 +1,14 @@
 import type { Columns } from "@/sbComponentType";
+import {
+  SbBlokData,
+  storyblokEditable,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export interface ColumnsComponent {
-  blok: Columns;
+  blok: Columns & SbBlokData;
 }
 
 export default function Columns({ blok }: ColumnsComponent) {
-  return <div>{blok.component}</div>;
+  return <div {...storyblokEditable(blok)}> {blok.component}</div>;
 }

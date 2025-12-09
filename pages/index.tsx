@@ -1,28 +1,30 @@
 import {
+  getStoryblokApi,
+  ISbStoryData,
   StoryblokComponent,
   useStoryblokState,
-  getStoryblokApi,
 } from "@storyblok/react";
-import { sbVersion, sbCacheVersion } from "@/lib/sbVersion";
+import { relations } from "./_app";
 
-export default function Home({ story }: any) {
-  // abilita live-update in preview editor
-  const live = useStoryblokState(story);
-  console.log(live);
-  return <StoryblokComponent blok={live.content} />;
+export default function Home({ story }: { story: ISbStoryData | null }) {
+  const home = useStoryblokState(story, {
+    resolveRelations: relations.join(","),
+    preventClicks: true,
+  });
+  return <StoryblokComponent blok={home?.content} />;
 }
 
-export async function getStaticProps({ preview }: { preview?: boolean }) {
-  const version = sbVersion(preview);
-  const sb = getStoryblokApi();
-  const { data } = await sb.get("cdn/stories/home", {
-    version,
-    cv: sbCacheVersion(version), // evita cache CDN quando in draft
+export const getStaticProps = async () => {
+  const storyblokApi = getStoryblokApi();
+  const response = await storyblokApi.getStory("home", {
+    version: "draft",
+    resolve_relations: relations.join(","),
   });
 
   return {
-    props: { story: data.story },
-    // in locale puoi abbassare; in prod alza (300–900) o usa solo webhook
-    revalidate: version === "draft" ? 1 : 60,
+    props: {
+      story: response.data ? response.data.story : null,
+    },
+    revalidate: 10,
   };
-}
+};

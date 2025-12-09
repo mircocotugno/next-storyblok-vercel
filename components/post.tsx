@@ -1,4 +1,9 @@
 import type { Post } from "@/sbComponentType";
+import {
+  SbBlokData,
+  storyblokEditable,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export interface PostComponent {
   blok: Post;
