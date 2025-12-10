@@ -4,22 +4,30 @@ import type { ISbStoryData } from '@storyblok/js';
 import type { StoryblokAsset, StoryblokMultilink, StoryblokMultiasset } from '../storyblok.d.ts';
 export interface Carousel {
   id?: string;
-  assets: StoryblokMultiasset;
-  styles?: unknown;
-  mode?: "" | "slider" | "gallery" | "grid";
-  overlay?: boolean;
+  body: Cover[];
+  full_height?: boolean;
   component: "carousel";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface Checkbox {
+  id?: string;
+  label?: string;
+  default?: boolean;
+  required?: boolean;
+  hidden?: boolean;
+  component: "checkbox";
   _uid: string;
   [k: string]: unknown;
 }
 
 export interface Columns {
   id?: string;
-  body: (Text | Image | Wrapper)[];
+  body: (Text | Image | Wrapper | Gallery)[];
   styles?: unknown;
-  theme?: "" | "primary" | "secondary";
   margin?: "" | "slim" | "thick" | "screen";
-  justify?: "" | "spaced" | "center" | "right";
+  dark?: boolean;
   component: "columns";
   _uid: string;
   [k: string]: unknown;
@@ -27,30 +35,15 @@ export interface Columns {
 
 export interface Cover {
   id?: string;
+  styles?: unknown;
   body: (Text | Image | Link)[];
   image?: StoryblokAsset;
-  styles?: unknown;
   theme?: "" | "primary" | "secondary";
   margin?: "" | "slim" | "thick" | "screen";
   justify?: "" | "left" | "center" | "right";
   dark?: boolean;
   blurred?: boolean;
   component: "cover";
-  _uid: string;
-  [k: string]: unknown;
-}
-
-export interface Field {
-  id?: string;
-  input?: {
-    [k: string]: unknown;
-  };
-  label?: string;
-  placeholder?: string;
-  options?: {
-    [k: string]: unknown;
-  }[];
-  component: "field";
   _uid: string;
   [k: string]: unknown;
 }
@@ -69,23 +62,7 @@ export interface Form {
   event: "" | "contact" | "download";
   lists?: ""[];
   label: string;
-  fields?: (
-    | Carousel
-    | Columns
-    | Cover
-    | Field
-    | Footer
-    | Form
-    | Header
-    | Image
-    | Link
-    | Page
-    | Post
-    | Project
-    | Steps
-    | Text
-    | Wrapper
-  )[];
+  fields?: (Checkbox | Input | Picker | Select | Slider)[];
   settings?: unknown;
   display?: "" | "modal" | "drawer";
   identify?: boolean;
@@ -93,6 +70,17 @@ export interface Form {
   success?: string;
   error?: string;
   component: "form";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface Gallery {
+  styles?: unknown;
+  assets: StoryblokMultiasset;
+  size?: "" | "brand" | "image";
+  width?: "" | "1/3" | "1/2" | "2/3" | "1/1";
+  overlay?: boolean;
+  component: "gallery";
   _uid: string;
   [k: string]: unknown;
 }
@@ -109,9 +97,22 @@ export interface Header {
 export interface Image {
   asset?: StoryblokAsset;
   styles?: unknown;
-  width?: ("" | "1/3" | "1/2" | "2/3" | "1/1")[];
+  width?: "" | "1/3" | "1/2" | "2/3" | "1/1";
   size?: "" | "small" | "medium" | "large";
   component: "image";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface Input {
+  id?: string;
+  label?: string;
+  placeholder?: string;
+  type: "" | "email" | "text" | "tel" | "file";
+  required?: boolean;
+  hidden?: boolean;
+  area?: boolean;
+  component: "input";
   _uid: string;
   [k: string]: unknown;
 }
@@ -125,6 +126,14 @@ export interface Link {
   [k: string]: unknown;
 }
 
+export interface Option {
+  name: string;
+  value: string;
+  component: "option";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface Page {
   header?: ISbStoryData<Header> | string;
   body?: (Cover | Carousel | Columns | Form)[];
@@ -134,6 +143,17 @@ export interface Page {
   description?: string;
   image?: StoryblokAsset;
   component: "page";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface Picker {
+  id?: string;
+  label?: string;
+  default?: string;
+  required?: boolean;
+  hidden?: boolean;
+  component: "picker";
   _uid: string;
   [k: string]: unknown;
 }
@@ -160,6 +180,34 @@ export interface Project {
   [k: string]: unknown;
 }
 
+export interface Select {
+  id?: string;
+  label?: string;
+  placeholder?: string;
+  options: Option[];
+  multiple?: boolean;
+  required?: boolean;
+  hidden?: boolean;
+  component: "select";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface Slider {
+  id?: string;
+  label?: string;
+  default?: string;
+  step?: string;
+  min: string;
+  max: string;
+  unit?: "" | "distance " | "surface" | "currency";
+  required?: boolean;
+  hidden?: boolean;
+  component: "slider";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface Steps {
   id?: string;
   body?: Wrapper[];
@@ -171,11 +219,10 @@ export interface Steps {
 }
 
 export interface Text {
+  styles?: unknown;
   headline?: string;
   content?: string;
-  styles?: unknown;
-  width?: ("" | "1/3" | "1/2" | "2/3" | "1/1")[];
-  size?: "" | "small" | "medium" | "large";
+  width?: "" | "1/3" | "1/2" | "2/3" | "1/1";
   justify?: "" | "spaced" | "center" | "right";
   component: "text";
   _uid: string;
@@ -184,11 +231,9 @@ export interface Text {
 
 export interface Wrapper {
   body?: (Text | Link | Image)[];
+  width?: "" | "1/3" | "1/2" | "2/3" | "1/1";
   styles?: unknown;
   mode?: "" | "card" | "accordion" | "menu";
-  width?: {
-    [k: string]: unknown;
-  }[];
   component: "wrapper";
   _uid: string;
   [k: string]: unknown;

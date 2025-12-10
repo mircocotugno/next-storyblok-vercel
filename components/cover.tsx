@@ -1,11 +1,11 @@
-import type { Cover } from "@/sbComponentType";
+import type { Carousel, Cover, Page } from "@/sbComponentType";
 
 import {
   SbBlokData,
   storyblokEditable,
   StoryblokComponent,
 } from "@storyblok/react";
-import Image from "next/image";
+import { default as NextImage } from "next/image";
 
 import { tv } from "tailwind-variants";
 
@@ -17,12 +17,7 @@ export default function Cover({ blok }: CoverComponent) {
   const { section, container, wrapper, background } = classes();
   const image = blok.image;
   return (
-    <section
-      className={section()}
-      {...storyblokEditable(blok)}
-      key={blok._uid}
-      id={blok.id}
-    >
+    <section id={blok.id} className={section()} {...storyblokEditable(blok)}>
       <div className={container()}>
         <div className={wrapper()}>
           {blok.body?.map((child) => (
@@ -32,7 +27,7 @@ export default function Cover({ blok }: CoverComponent) {
       </div>
       {image && (
         <div className={background()}>
-          <Image src={image.filename || ""} alt={image.alt || ""} fill />
+          <NextImage src={image.filename || ""} alt={image.alt || ""} fill />
         </div>
       )}
     </section>

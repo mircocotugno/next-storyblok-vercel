@@ -4,7 +4,7 @@
     "display_name": "Carosello",
     "description": "",
     "created_at": "2025-10-28T22:40:18.476Z",
-    "updated_at": "2025-10-29T12:28:22.873Z",
+    "updated_at": "2025-11-18T14:31:39.153Z",
     "id": 106502629283422,
     "schema": {
       "id": {
@@ -12,54 +12,22 @@
         "pos": 0,
         "id": "pENgOh9NRHyGwTjRVZqn1w"
       },
-      "assets": {
-        "type": "multiasset",
-        "pos": 1,
-        "display_name": "Risorse",
+      "body": {
+        "type": "bloks",
+        "display_name": "Contenuti",
+        "restrict_components": true,
+        "component_whitelist": [
+          "cover"
+        ],
         "required": true,
-        "filetypes": [
-          "images"
-        ],
-        "id": "o2L1LupuR3a70TsGZVW26Q"
+        "id": "H_4TYwWSQEiW4H3CH1CVCQ"
       },
-      "styles": {
-        "type": "section",
-        "pos": 2,
-        "id": "r-WM-RmTRCO8HcbECLeE6g",
-        "keys": [
-          "mode"
-        ]
-      },
-      "mode": {
-        "type": "option",
-        "pos": 3,
-        "use_uuid": true,
-        "display_name": "Modalità",
-        "options": [
-          {
-            "_uid": "4fce8a1b-79df-452b-89ba-8d103cdf2ab6",
-            "name": "Presentazione",
-            "value": "slider"
-          },
-          {
-            "_uid": "22c33b5c-9105-4cfd-9758-7ec4f1799d5e",
-            "value": "gallery",
-            "name": "Galleria"
-          },
-          {
-            "_uid": "2c02bfc5-78c7-418a-ab54-76c7706900a7",
-            "value": "grid",
-            "name": "Griglia"
-          }
-        ],
-        "id": "65aJgwJSRziKaYKi4es61Q"
-      },
-      "overlay": {
+      "full_height": {
         "type": "boolean",
         "pos": 4,
-        "display_name": "Mostra a tutto schermo",
+        "display_name": "Tutta altezza",
         "inline_label": true,
-        "id": "bFfkEPpDQKq81Z5twySD3A"
+        "id": "Y0cxZzxKQGSrDXfJSZZQOw"
       }
     },
     "image": null,
@@ -79,11 +47,62 @@
     "metadata": {}
   },
   {
+    "name": "checkbox",
+    "display_name": "Casella",
+    "description": "",
+    "created_at": "2025-11-06T22:45:31.489Z",
+    "updated_at": "2025-11-06T22:53:30.798Z",
+    "id": 109688960986190,
+    "schema": {
+      "id": {
+        "type": "text",
+        "pos": 0,
+        "id": "zAxQLCk2R-eBOqDln7tbbg"
+      },
+      "label": {
+        "type": "text",
+        "pos": 1,
+        "id": "JQ_u4-TASR-ZbQtJzh5Rbg"
+      },
+      "default": {
+        "type": "boolean",
+        "pos": 2,
+        "id": "kBGpkUMrSkK5PptdNwaljg",
+        "display_name": "Predefinito"
+      },
+      "required": {
+        "type": "boolean",
+        "pos": 3,
+        "id": "5fVJ3MPFTB6ed4PENnt3HQ"
+      },
+      "hidden": {
+        "type": "boolean",
+        "pos": 4,
+        "id": "iU0LRftwSSWYZq3JIY4aHg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": "<p>{{it.id}} {{@if(it.required)}} - obbligatorio{{/if}}</p>",
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Casella",
+    "component_group_uuid": "3ffcccba-7ab3-4386-a91b-3df1f5b0f213",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "columns",
     "display_name": "Colonne",
     "description": null,
     "created_at": "2025-10-28T21:50:02.369Z",
-    "updated_at": "2025-10-28T23:43:23.641Z",
+    "updated_at": "2025-11-18T14:18:22.173Z",
     "id": 106490275313102,
     "schema": {
       "id": {
@@ -98,7 +117,8 @@
         "component_whitelist": [
           "text",
           "image",
-          "wrapper"
+          "wrapper",
+          "gallery"
         ],
         "required": true,
         "id": "0xUpOOAJSrG8f_ug0DEXcA"
@@ -107,26 +127,10 @@
         "type": "section",
         "display_name": "Stile",
         "keys": [
-          "themes",
           "margin",
-          "justify"
+          "dark"
         ],
         "id": "nrvI1t7bR4u2BTqXT6RxQA"
-      },
-      "theme": {
-        "type": "option",
-        "display_name": "Tema",
-        "options": [
-          {
-            "name": "Primari",
-            "value": "primary"
-          },
-          {
-            "name": "Secondari",
-            "value": "secondary"
-          }
-        ],
-        "id": "wk15dpbOTv2Ed6cUZqZmcw"
       },
       "margin": {
         "type": "option",
@@ -147,24 +151,11 @@
         ],
         "id": "UHAOuzLLRqqV7otasfXgSg"
       },
-      "justify": {
-        "type": "option",
-        "display_name": "Giustifica",
-        "options": [
-          {
-            "name": "Distribuita",
-            "value": "spaced"
-          },
-          {
-            "name": "Centro",
-            "value": "center"
-          },
-          {
-            "name": "Destra",
-            "value": "right"
-          }
-        ],
-        "id": "wE07QzyzReurpCPDfA_MFQ"
+      "dark": {
+        "type": "boolean",
+        "display_name": "Tema scuro",
+        "inline_label": true,
+        "id": "UuVor7YGSt20Y38qFhYspQ"
       }
     },
     "image": null,
@@ -188,13 +179,26 @@
     "display_name": "Copertina",
     "description": null,
     "created_at": "2025-10-28T21:24:04.557Z",
-    "updated_at": "2025-10-28T23:23:30.308Z",
+    "updated_at": "2025-11-18T14:02:23.133Z",
     "id": 106483894511018,
     "schema": {
       "id": {
         "type": "text",
         "display_name": "Ancora",
         "id": "U5D3u-GaR8aS-rkJKrNuPg"
+      },
+      "styles": {
+        "type": "section",
+        "display_name": "Stile",
+        "keys": [
+          "palette",
+          "margin",
+          "justify",
+          "dark",
+          "blurred",
+          "theme"
+        ],
+        "id": "6CdAE7HTQEei05ZJ7UYqOg"
       },
       "body": {
         "type": "bloks",
@@ -216,18 +220,6 @@
           "images"
         ],
         "id": "IUYFzthCSP2xrtRo6q5Brw"
-      },
-      "styles": {
-        "type": "section",
-        "display_name": "Stile",
-        "keys": [
-          "palette",
-          "margin",
-          "justify",
-          "dark",
-          "blurred"
-        ],
-        "id": "6CdAE7HTQEei05ZJ7UYqOg"
       },
       "theme": {
         "type": "option",
@@ -312,61 +304,6 @@
     "metadata": {}
   },
   {
-    "name": "field",
-    "display_name": "Campo",
-    "description": "",
-    "created_at": "2025-10-28T23:49:10.864Z",
-    "updated_at": "2025-10-29T00:16:16.561Z",
-    "id": 106519555545110,
-    "schema": {
-      "id": {
-        "type": "text",
-        "pos": 0,
-        "id": "PdDonbj7Rh-5jox-bByptQ"
-      },
-      "input": {
-        "type": "option",
-        "pos": 1,
-        "use_uuid": true,
-        "id": "lp7RP2PiTOGp5lZQzy8O3g"
-      },
-      "label": {
-        "type": "text",
-        "pos": 2,
-        "id": "FSmg9mIgS8Oamr-MoZpI2Q"
-      },
-      "placeholder": {
-        "type": "text",
-        "pos": 3,
-        "id": "Wnp-q7zORAWi-DF0uQA2gA"
-      },
-      "options": {
-        "type": "options",
-        "pos": 4,
-        "is_reference_type": true,
-        "source": "internal_stories",
-        "entry_appearance": "card",
-        "allow_advanced_search": true,
-        "id": "0QmL7HyATj2q4KJGrGJozQ"
-      }
-    },
-    "image": null,
-    "preview_field": null,
-    "is_root": false,
-    "preview_tmpl": null,
-    "is_nestable": true,
-    "all_presets": [],
-    "preset_id": null,
-    "real_name": "Campo",
-    "component_group_uuid": "e768cdf7-844e-4459-b1b9-e4f287a341c9",
-    "color": null,
-    "icon": null,
-    "internal_tags_list": [],
-    "internal_tag_ids": [],
-    "content_type_asset_preview": null,
-    "metadata": {}
-  },
-  {
     "name": "footer",
     "display_name": "Calce",
     "description": null,
@@ -438,7 +375,7 @@
     "display_name": "Modulo",
     "description": "",
     "created_at": "2025-10-28T23:07:27.613Z",
-    "updated_at": "2025-10-28T23:45:28.535Z",
+    "updated_at": "2025-11-07T08:43:30.270Z",
     "id": 106509302228774,
     "schema": {
       "event": {
@@ -483,8 +420,18 @@
       },
       "fields": {
         "type": "bloks",
+        "restrict_components": true,
+        "component_whitelist": [
+          "checkbox",
+          "input",
+          "picker",
+          "select",
+          "slider"
+        ],
         "pos": 3,
-        "id": "d9CVhnRaSAmnYdUttag9Rg"
+        "id": "d9CVhnRaSAmnYdUttag9Rg",
+        "restrict_type": "",
+        "component_group_whitelist": []
       },
       "settings": {
         "type": "section",
@@ -557,6 +504,99 @@
     "metadata": {}
   },
   {
+    "name": "gallery",
+    "display_name": "Galleria",
+    "description": "",
+    "created_at": "2025-11-18T14:18:20.393Z",
+    "updated_at": "2025-11-18T14:18:20.393Z",
+    "id": 113811048014602,
+    "schema": {
+      "styles": {
+        "type": "section",
+        "pos": 2,
+        "id": "r-WM-RmTRCO8HcbECLeE6g",
+        "keys": [
+          "width",
+          "size",
+          "overlay"
+        ]
+      },
+      "assets": {
+        "type": "multiasset",
+        "pos": 1,
+        "display_name": "Risorse",
+        "required": true,
+        "filetypes": [
+          "images"
+        ],
+        "id": "o2L1LupuR3a70TsGZVW26Q"
+      },
+      "size": {
+        "type": "option",
+        "pos": 4,
+        "display_name": "Dimensione",
+        "options": [
+          {
+            "name": "Marchio",
+            "value": "brand",
+            "_uid": "75b98409-6877-438a-9818-264a7fae9555"
+          },
+          {
+            "name": "Immagine",
+            "value": "image",
+            "_uid": "e5c93fbf-d22e-45e6-bf36-d00a815825cb"
+          }
+        ],
+        "id": "J1c1b2jTR8O6Y3KX1YHkRQ"
+      },
+      "width": {
+        "type": "option",
+        "display_name": "Larghezza",
+        "options": [
+          {
+            "name": "Un terzo",
+            "value": "1/3"
+          },
+          {
+            "name": "Metà",
+            "value": "1/2"
+          },
+          {
+            "name": "Due terzi",
+            "value": "2/3"
+          },
+          {
+            "name": "Intera",
+            "value": "1/1"
+          }
+        ],
+        "id": "nRTva4x5TLWuotURlZUsUA"
+      },
+      "overlay": {
+        "type": "boolean",
+        "pos": 5,
+        "display_name": "Mostra a tutto schermo",
+        "inline_label": true,
+        "id": "bFfkEPpDQKq81Z5twySD3A"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Galleria",
+    "component_group_uuid": "dc6b874b-a598-4ed7-81b1-fbc14789894d",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "header",
     "display_name": "Navigatore",
     "description": null,
@@ -609,7 +649,7 @@
     "display_name": "Immagine",
     "description": null,
     "created_at": "2025-10-28T22:14:38.971Z",
-    "updated_at": "2025-10-28T22:50:11.161Z",
+    "updated_at": "2025-11-02T21:22:43.044Z",
     "id": 106496323470896,
     "schema": {
       "asset": {
@@ -630,7 +670,7 @@
         "id": "DfnRiJV-TyG42NiAVq86IQ"
       },
       "width": {
-        "type": "options",
+        "type": "option",
         "display_name": "Larghezza",
         "options": [
           {
@@ -689,6 +729,92 @@
     "metadata": {}
   },
   {
+    "name": "input",
+    "display_name": "Campo",
+    "description": "",
+    "created_at": "2025-11-06T22:32:28.394Z",
+    "updated_at": "2025-11-07T08:38:32.487Z",
+    "id": 109685753433030,
+    "schema": {
+      "id": {
+        "type": "text",
+        "pos": 0,
+        "id": "zAxQLCk2R-eBOqDln7tbbg"
+      },
+      "label": {
+        "type": "text",
+        "pos": 1,
+        "id": "JQ_u4-TASR-ZbQtJzh5Rbg"
+      },
+      "placeholder": {
+        "type": "text",
+        "pos": 2,
+        "id": "kBGpkUMrSkK5PptdNwaljg"
+      },
+      "type": {
+        "type": "option",
+        "pos": 3,
+        "use_uuid": true,
+        "required": true,
+        "options": [
+          {
+            "_uid": "1b56a202-26ff-4131-acde-a997573664d1",
+            "name": "Email",
+            "value": "email"
+          },
+          {
+            "_uid": "24b5cf21-e88b-443f-8c8d-61be65d248ce",
+            "value": "text",
+            "name": "Testo"
+          },
+          {
+            "_uid": "7e5985a3-4b28-465d-8246-6b3d1aaf6ad7",
+            "value": "tel",
+            "name": "Telefono"
+          },
+          {
+            "_uid": "cb3af65b-50e9-4dab-a688-998d83640165",
+            "value": "file",
+            "name": "File"
+          }
+        ],
+        "id": "QTMIlpo4QPaD3M6HHYNLJg",
+        "display_name": "Tipo"
+      },
+      "required": {
+        "type": "boolean",
+        "pos": 4,
+        "id": "5fVJ3MPFTB6ed4PENnt3HQ"
+      },
+      "hidden": {
+        "type": "boolean",
+        "pos": 5,
+        "id": "iU0LRftwSSWYZq3JIY4aHg"
+      },
+      "area": {
+        "type": "boolean",
+        "pos": 6,
+        "display_name": "Area di testo",
+        "id": "3EAaZs5lQsubLZScYF3IOw"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": "<p>{{it.id}} {{@if(it.required)}} - obbligatorio{{/if}}</p>",
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Campo",
+    "component_group_uuid": "3ffcccba-7ab3-4386-a91b-3df1f5b0f213",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "link",
     "display_name": "Collegamento",
     "description": null,
@@ -734,6 +860,45 @@
     "preset_id": null,
     "real_name": "Collegamento",
     "component_group_uuid": "e768cdf7-844e-4459-b1b9-e4f287a341c9",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "option",
+    "display_name": "Opzione",
+    "description": "",
+    "created_at": "2025-11-06T21:51:54.737Z",
+    "updated_at": "2025-11-07T08:08:14.607Z",
+    "id": 109675785169591,
+    "schema": {
+      "name": {
+        "type": "text",
+        "pos": 0,
+        "display_name": "Nome",
+        "id": "sOV9xo8yR7G1vywmuFypjA",
+        "required": true
+      },
+      "value": {
+        "type": "text",
+        "pos": 1,
+        "display_name": "Valore",
+        "id": "DH-lMOghQZ-LYvHYbTUPsw",
+        "required": true
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": "<p>{{it.name}}<span>: {{it.value}}</span></p>\n",
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Opzione",
+    "component_group_uuid": "3ffcccba-7ab3-4386-a91b-3df1f5b0f213",
     "color": null,
     "icon": null,
     "internal_tags_list": [],
@@ -822,6 +987,57 @@
     "preset_id": null,
     "real_name": "Pagina",
     "component_group_uuid": "ac16639b-e20f-44d8-9ce9-ec5943824752",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "picker",
+    "display_name": "Calendario",
+    "description": "",
+    "created_at": "2025-11-06T22:45:31.572Z",
+    "updated_at": "2025-11-07T08:18:38.593Z",
+    "id": 109688961326159,
+    "schema": {
+      "id": {
+        "type": "text",
+        "pos": 0,
+        "id": "zAxQLCk2R-eBOqDln7tbbg"
+      },
+      "label": {
+        "type": "text",
+        "pos": 1,
+        "id": "JQ_u4-TASR-ZbQtJzh5Rbg"
+      },
+      "default": {
+        "type": "datetime",
+        "pos": 2,
+        "id": "kBGpkUMrSkK5PptdNwaljg",
+        "display_name": "Predefinito"
+      },
+      "required": {
+        "type": "boolean",
+        "pos": 3,
+        "id": "5fVJ3MPFTB6ed4PENnt3HQ"
+      },
+      "hidden": {
+        "type": "boolean",
+        "pos": 4,
+        "id": "iU0LRftwSSWYZq3JIY4aHg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": "<p>{{it.id}} {{@if(it.required)}} - obbligatorio{{/if}}</p>",
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Calendario",
+    "component_group_uuid": "3ffcccba-7ab3-4386-a91b-3df1f5b0f213",
     "color": null,
     "icon": null,
     "internal_tags_list": [],
@@ -962,6 +1178,167 @@
     "metadata": {}
   },
   {
+    "name": "select",
+    "display_name": "Selezione",
+    "description": "",
+    "created_at": "2025-11-06T22:45:31.244Z",
+    "updated_at": "2025-11-06T22:49:29.303Z",
+    "id": 109688959986765,
+    "schema": {
+      "id": {
+        "type": "text",
+        "pos": 0,
+        "id": "zAxQLCk2R-eBOqDln7tbbg"
+      },
+      "label": {
+        "type": "text",
+        "pos": 1,
+        "id": "JQ_u4-TASR-ZbQtJzh5Rbg"
+      },
+      "placeholder": {
+        "type": "text",
+        "pos": 2,
+        "id": "kBGpkUMrSkK5PptdNwaljg"
+      },
+      "options": {
+        "type": "bloks",
+        "pos": 3,
+        "required": true,
+        "restrict_type": "",
+        "restrict_components": true,
+        "component_whitelist": [
+          "option"
+        ],
+        "id": "MCJivbE8TmmHXkaJSyBKig"
+      },
+      "multiple": {
+        "type": "boolean",
+        "pos": 4,
+        "id": "Of6n9LP2QVizFEggpaSRYg"
+      },
+      "required": {
+        "type": "boolean",
+        "pos": 5,
+        "id": "5fVJ3MPFTB6ed4PENnt3HQ"
+      },
+      "hidden": {
+        "type": "boolean",
+        "pos": 6,
+        "id": "iU0LRftwSSWYZq3JIY4aHg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": "<p>{{it.id}} {{@if(it.required)}} - obbligatorio{{/if}}</p>",
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Selezione",
+    "component_group_uuid": "3ffcccba-7ab3-4386-a91b-3df1f5b0f213",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "slider",
+    "display_name": "Cursore",
+    "description": "",
+    "created_at": "2025-11-06T22:42:58.948Z",
+    "updated_at": "2025-11-06T23:01:50.198Z",
+    "id": 109688336186411,
+    "schema": {
+      "id": {
+        "type": "text",
+        "pos": 0,
+        "id": "zAxQLCk2R-eBOqDln7tbbg"
+      },
+      "label": {
+        "type": "text",
+        "pos": 1,
+        "id": "JQ_u4-TASR-ZbQtJzh5Rbg"
+      },
+      "default": {
+        "type": "number",
+        "pos": 2,
+        "display_name": "Predefinito",
+        "id": "TrHBC3NdQd2LL7Y9AHHpxg"
+      },
+      "step": {
+        "type": "number",
+        "pos": 3,
+        "display_name": "Incremento",
+        "id": "Q8-FGXGbR-uEvCRDbYMKvw"
+      },
+      "min": {
+        "type": "number",
+        "pos": 4,
+        "id": "qVk-rfKqTQq-WXsidUmH4Q",
+        "display_name": "Minimo",
+        "required": true
+      },
+      "max": {
+        "type": "number",
+        "pos": 5,
+        "id": "9zZG9x5hRmOL1dz75TiwrQ",
+        "required": true,
+        "display_name": "Massimo"
+      },
+      "unit": {
+        "type": "option",
+        "pos": 6,
+        "use_uuid": true,
+        "options": [
+          {
+            "_uid": "8578ab95-54c5-423f-b9e8-1280d88765db",
+            "name": "Distanza",
+            "value": "distance "
+          },
+          {
+            "_uid": "70252bc5-192b-4247-a040-52451d4c6e7d",
+            "value": "surface",
+            "name": "Superficie"
+          },
+          {
+            "_uid": "04241356-46e8-4825-9c52-c176ff96f741",
+            "value": "currency",
+            "name": "Valuta"
+          }
+        ],
+        "display_name": "Unità",
+        "id": "l4hyFK7FTZqbJub98f9bzA"
+      },
+      "required": {
+        "type": "boolean",
+        "pos": 7,
+        "id": "5fVJ3MPFTB6ed4PENnt3HQ"
+      },
+      "hidden": {
+        "type": "boolean",
+        "pos": 8,
+        "id": "iU0LRftwSSWYZq3JIY4aHg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": "<p>{{it.id}} {{@if(it.required)}} - obbligatorio{{/if}}</p>",
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Cursore",
+    "component_group_uuid": "3ffcccba-7ab3-4386-a91b-3df1f5b0f213",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "steps",
     "display_name": "Passaggi",
     "description": "",
@@ -1022,9 +1399,18 @@
     "display_name": "Testo",
     "description": null,
     "created_at": "2025-10-28T22:14:38.831Z",
-    "updated_at": "2025-10-28T22:37:05.634Z",
+    "updated_at": "2025-11-17T23:33:01.743Z",
     "id": 106496322897455,
     "schema": {
+      "styles": {
+        "type": "section",
+        "display_name": "Stile",
+        "keys": [
+          "width",
+          "justify"
+        ],
+        "id": "PzuO8GlxTninKVkxrgzExg"
+      },
       "headline": {
         "type": "markdown",
         "display_name": "Intestazione",
@@ -1042,7 +1428,8 @@
           "list",
           "link"
         ],
-        "id": "DtfpB0z3QEOIFxqFIJQvSA"
+        "id": "DtfpB0z3QEOIFxqFIJQvSA",
+        "rich_markdown": true
       },
       "content": {
         "type": "markdown",
@@ -1055,20 +1442,11 @@
           "list",
           "link"
         ],
-        "id": "A7HzWMIIR9uIUQmyr-WOXQ"
-      },
-      "styles": {
-        "type": "section",
-        "display_name": "Stile",
-        "keys": [
-          "width",
-          "size",
-          "justify"
-        ],
-        "id": "PzuO8GlxTninKVkxrgzExg"
+        "id": "A7HzWMIIR9uIUQmyr-WOXQ",
+        "rich_markdown": true
       },
       "width": {
-        "type": "options",
+        "type": "option",
         "display_name": "Larghezza",
         "options": [
           {
@@ -1089,25 +1467,6 @@
           }
         ],
         "id": "Tr6EY4B2RQ-augcvepa3NA"
-      },
-      "size": {
-        "type": "option",
-        "display_name": "Dimensione",
-        "options": [
-          {
-            "name": "Piccola",
-            "value": "small"
-          },
-          {
-            "name": "Media",
-            "value": "medium"
-          },
-          {
-            "name": "Grande",
-            "value": "large"
-          }
-        ],
-        "id": "0RFQZGy0Q6yha5ts8P-qGg"
       },
       "justify": {
         "type": "option",
@@ -1150,7 +1509,7 @@
     "display_name": "Contenitore",
     "description": "",
     "created_at": "2025-10-28T22:57:46.496Z",
-    "updated_at": "2025-10-28T23:05:16.629Z",
+    "updated_at": "2025-11-06T21:35:45.107Z",
     "id": 106506921973459,
     "schema": {
       "body": {
@@ -1164,6 +1523,29 @@
           "link",
           "image"
         ]
+      },
+      "width": {
+        "type": "option",
+        "display_name": "Larghezza",
+        "options": [
+          {
+            "name": "Un terzo",
+            "value": "1/3"
+          },
+          {
+            "name": "Metà",
+            "value": "1/2"
+          },
+          {
+            "name": "Due terzi",
+            "value": "2/3"
+          },
+          {
+            "name": "Intera",
+            "value": "1/1"
+          }
+        ],
+        "id": "Tr6EY4B2RQ-augcvepa3NA"
       },
       "styles": {
         "type": "section",
@@ -1197,11 +1579,6 @@
             "name": "Menu"
           }
         ]
-      },
-      "width": {
-        "type": "options",
-        "pos": 3,
-        "id": "eKXAmC6oRzG57JjmiCcLTw"
       }
     },
     "image": null,
