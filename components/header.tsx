@@ -23,19 +23,16 @@ export interface HeaderComponent {
 
 export default function Header({ blok }: HeaderComponent) {
   const [isOpen, setOpen] = useState(false);
-  const logo = blok.image;
   return (
     <HeroNavbar {...storyblokEditable(blok)} onMenuOpenChange={setOpen}>
-      {logo && (
+      {blok.image?.filename && (
         <HeroNavbarBrand>
-          {logo && (
-            <NextImage
-              src={logo.filename || ""}
-              alt={logo.alt || ""}
-              width={128}
-              height={64}
-            />
-          )}
+          <NextImage
+            src={blok.image.filename}
+            alt={blok.image.alt || ""}
+            width={128}
+            height={64}
+          />
         </HeroNavbarBrand>
       )}
       <HeroNavbarContent>

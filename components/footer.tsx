@@ -14,14 +14,13 @@ export interface FooterComponent {
 
 export default function Footer({ blok }: FooterComponent) {
   const { footer, container, column, copyright, terms } = classes();
-  const logo = blok.image;
   return (
     <footer className={footer()}>
       <div className={container()}>
-        {logo && (
+        {blok.image?.filename && (
           <NextImage
-            src={logo.filename || ""}
-            alt={logo.alt || ""}
+            src={blok.image.filename}
+            alt={blok.image.alt || ""}
             width={128}
             height={64}
           />
