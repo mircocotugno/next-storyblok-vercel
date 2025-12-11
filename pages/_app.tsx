@@ -3,6 +3,7 @@ import "swiper/css";
 import type { AppProps } from "next/app";
 import { HeroUIProvider } from "@heroui/react";
 import { apiPlugin, storyblokInit } from "@storyblok/react";
+import { fontSans, fontSerif } from "@/config/font";
 
 export const relations = ["page.header", "page.footer"];
 
@@ -52,3 +53,8 @@ export default function App({ Component, pageProps }: AppProps) {
     </HeroUIProvider>
   );
 }
+
+export const fonts = {
+  sans: fontSans.style.fontFamily,
+  serif: fontSerif.style.fontFamily,
+};
