@@ -41,6 +41,6 @@ export default function Link({ blok }: LinkComponent) {
 const classes = tv({
   slots: {
     button: "",
-    link: "",
+    link: "text-inherit",
   },
 });

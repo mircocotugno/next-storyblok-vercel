@@ -25,6 +25,6 @@ export const getStaticProps = async () => {
     props: {
       story: response.data ? response.data.story : null,
     },
-    revalidate: 10,
+    revalidate: 3600,
   };
 };

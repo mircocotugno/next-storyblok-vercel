@@ -10,13 +10,18 @@ export interface PageComponent {
 export default function Page({ blok }: PageComponent) {
   const header = typeof blok.header === "string" ? null : blok.header?.content;
   const footer = typeof blok.footer === "string" ? null : blok.footer?.content;
+
   return (
     <Fragment>
       <Meta blok={blok} />
       {header && <StoryblokComponent blok={header} />}
-      <main>
+      <main className={`${!!header ? "-mt-12 lg:-mt-16" : null}`}>
         {blok.body?.map((child) => (
-          <StoryblokComponent blok={child} key={child._uid} />
+          <StoryblokComponent
+            blok={child}
+            key={child._uid}
+            parent={blok.component}
+          />
         ))}
       </main>
       {footer && <StoryblokComponent blok={footer} />}

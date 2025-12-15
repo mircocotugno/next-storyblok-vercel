@@ -30,7 +30,7 @@ export const getStaticProps = async ({ params }: StaticProps) => {
     props: {
       story: response.data ? response.data.story : null,
     },
-    revalidate: 10,
+    revalidate: 3600,
   };
 };
 

@@ -49,7 +49,7 @@ storyblokInit({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <HeroUIProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </HeroUIProvider>
   );
 }
