@@ -102,13 +102,25 @@
     "display_name": "Colonne",
     "description": null,
     "created_at": "2025-10-28T21:50:02.369Z",
-    "updated_at": "2025-11-18T14:18:22.173Z",
+    "updated_at": "2025-12-16T20:37:00.432Z",
     "id": 106490275313102,
     "schema": {
       "id": {
         "type": "text",
         "display_name": "Ancora",
-        "id": "Fh-RzjOTROGsy4b9wib5aA"
+        "id": "Fh-RzjOTROGsy4b9wib5aA",
+        "pos": 0
+      },
+      "styles": {
+        "type": "section",
+        "display_name": "Stile",
+        "keys": [
+          "theme",
+          "margin",
+          "dark"
+        ],
+        "id": "nrvI1t7bR4u2BTqXT6RxQA",
+        "pos": 1
       },
       "body": {
         "type": "bloks",
@@ -121,16 +133,8 @@
           "gallery"
         ],
         "required": true,
-        "id": "0xUpOOAJSrG8f_ug0DEXcA"
-      },
-      "styles": {
-        "type": "section",
-        "display_name": "Stile",
-        "keys": [
-          "margin",
-          "dark"
-        ],
-        "id": "nrvI1t7bR4u2BTqXT6RxQA"
+        "id": "0xUpOOAJSrG8f_ug0DEXcA",
+        "pos": 2
       },
       "margin": {
         "type": "option",
@@ -149,13 +153,34 @@
             "value": "screen"
           }
         ],
-        "id": "UHAOuzLLRqqV7otasfXgSg"
+        "id": "UHAOuzLLRqqV7otasfXgSg",
+        "pos": 3
       },
       "dark": {
         "type": "boolean",
         "display_name": "Tema scuro",
         "inline_label": true,
-        "id": "UuVor7YGSt20Y38qFhYspQ"
+        "id": "UuVor7YGSt20Y38qFhYspQ",
+        "pos": 4
+      },
+      "theme": {
+        "type": "option",
+        "pos": 5,
+        "use_uuid": true,
+        "options": [
+          {
+            "_uid": "eaea5451-aa92-414e-b415-6e5b0c6a48d2",
+            "name": "Primario",
+            "value": "primary"
+          },
+          {
+            "_uid": "839f09f2-90e7-4dcb-9e5c-9bf4ee1caa1b",
+            "value": "secondary",
+            "name": "Secondario"
+          }
+        ],
+        "display_name": "Tema",
+        "id": "hqo3P0xiRD-UJ-cglU4t3A"
       }
     },
     "image": null,
@@ -308,7 +333,7 @@
     "display_name": "Calce",
     "description": null,
     "created_at": "2025-10-28T20:36:57.093Z",
-    "updated_at": "2025-10-30T11:27:56.202Z",
+    "updated_at": "2025-12-12T10:30:43.870Z",
     "id": 106472313222505,
     "schema": {
       "image": {
@@ -339,7 +364,9 @@
           "link"
         ],
         "required": true,
-        "id": "t5_oRuHyTCuOL3X5j0EHmQ"
+        "id": "t5_oRuHyTCuOL3X5j0EHmQ",
+        "allow_multiline": true,
+        "rich_markdown": true
       },
       "terms": {
         "type": "markdown",
@@ -351,7 +378,9 @@
           "link"
         ],
         "required": true,
-        "id": "fny38U_wQbaWemZZ5Lv3Dw"
+        "id": "fny38U_wQbaWemZZ5Lv3Dw",
+        "allow_multiline": true,
+        "rich_markdown": true
       }
     },
     "image": null,
@@ -601,7 +630,7 @@
     "display_name": "Navigatore",
     "description": null,
     "created_at": "2025-10-28T20:36:56.934Z",
-    "updated_at": "2025-10-28T23:25:02.461Z",
+    "updated_at": "2025-12-15T19:31:47.384Z",
     "id": 106472312567144,
     "schema": {
       "image": {
@@ -619,7 +648,8 @@
         "component_whitelist": [
           "link"
         ],
-        "id": "P0PiG2hITdOC5qJW6KxMCw"
+        "id": "P0PiG2hITdOC5qJW6KxMCw",
+        "maximum": 5
       },
       "fixed": {
         "type": "boolean",
@@ -1399,7 +1429,7 @@
     "display_name": "Testo",
     "description": null,
     "created_at": "2025-10-28T22:14:38.831Z",
-    "updated_at": "2025-11-17T23:33:01.743Z",
+    "updated_at": "2025-12-16T14:41:37.998Z",
     "id": 106496322897455,
     "schema": {
       "styles": {
@@ -1407,9 +1437,11 @@
         "display_name": "Stile",
         "keys": [
           "width",
-          "justify"
+          "justify",
+          "small"
         ],
-        "id": "PzuO8GlxTninKVkxrgzExg"
+        "id": "PzuO8GlxTninKVkxrgzExg",
+        "pos": 0
       },
       "headline": {
         "type": "markdown",
@@ -1429,13 +1461,14 @@
           "link"
         ],
         "id": "DtfpB0z3QEOIFxqFIJQvSA",
-        "rich_markdown": true
+        "rich_markdown": true,
+        "pos": 1
       },
       "content": {
         "type": "markdown",
         "display_name": "Contenuto",
         "customize_toolbar": true,
-        "allow_multiline": true,
+        "allow_multiline": false,
         "toolbar": [
           "bold",
           "italic",
@@ -1443,30 +1476,41 @@
           "link"
         ],
         "id": "A7HzWMIIR9uIUQmyr-WOXQ",
-        "rich_markdown": true
+        "rich_markdown": true,
+        "pos": 2
       },
       "width": {
         "type": "option",
         "display_name": "Larghezza",
         "options": [
           {
+            "_uid": "6b2a1845-c798-4985-905b-d486bc13d584",
+            "value": "1/4",
+            "name": "Un quarto"
+          },
+          {
             "name": "Un terzo",
-            "value": "1/3"
+            "value": "1/3",
+            "_uid": "5f57bff5-2bea-4904-8cd3-1f6cecd2e02e"
           },
           {
             "name": "Metà",
-            "value": "1/2"
+            "value": "1/2",
+            "_uid": "0cd8f9f4-6ccc-46b7-a425-fb56278a7189"
           },
           {
             "name": "Due terzi",
-            "value": "2/3"
+            "value": "2/3",
+            "_uid": "b5e6613c-ecc8-472c-a9f6-229fc27a6268"
           },
           {
             "name": "Intera",
-            "value": "1/1"
+            "value": "1/1",
+            "_uid": "66f72485-6c2d-4bc7-953c-3450ae688649"
           }
         ],
-        "id": "Tr6EY4B2RQ-augcvepa3NA"
+        "id": "Tr6EY4B2RQ-augcvepa3NA",
+        "pos": 3
       },
       "justify": {
         "type": "option",
@@ -1485,7 +1529,14 @@
             "value": "right"
           }
         ],
-        "id": "dv2TckpFSnCQ6vQ7GnPLBg"
+        "id": "dv2TckpFSnCQ6vQ7GnPLBg",
+        "pos": 4
+      },
+      "small": {
+        "type": "boolean",
+        "pos": 5,
+        "display_name": "Caratteri piccoli",
+        "id": "O98S5wvkQ42ose5gJGXzSQ"
       }
     },
     "image": null,

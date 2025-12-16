@@ -11,6 +11,7 @@ export default function Home({ story }: { story: ISbStoryData | null }) {
     resolveRelations: relations.join(","),
     preventClicks: true,
   });
+  if (!home) return null;
   return <StoryblokComponent blok={home?.content} />;
 }
 

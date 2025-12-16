@@ -11,6 +11,7 @@ export default function Slug({ story }: { story: ISbStoryData | null }) {
     resolveRelations: relations.join(","),
     preventClicks: true,
   });
+  if (!slug) return null;
   return <StoryblokComponent blok={slug?.content} />;
 }
 
@@ -38,11 +39,12 @@ export const getStaticPaths = async () => {
   const storyblokApi = getStoryblokApi();
   const response = await storyblokApi.getStories({
     version: "draft",
+    content_type: "page",
   });
 
   const paths = response.data.stories.map((story: ISbStoryData) => {
     const slug = story.full_slug === "home" ? [] : story.full_slug.split("/");
-    return { params: { slug } };
+    return { params: { slug: slug } };
   });
 
   return { paths, fallback: "blocking" };

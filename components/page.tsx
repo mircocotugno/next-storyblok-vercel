@@ -1,5 +1,5 @@
 import type { Page } from "@/sbComponentType";
-import Meta from "@/components/meta";
+import Meta from "@/components/Meta";
 import { StoryblokComponent } from "@storyblok/react";
 import { Fragment } from "react";
 
@@ -15,7 +15,7 @@ export default function Page({ blok }: PageComponent) {
     <Fragment>
       <Meta blok={blok} />
       {header && <StoryblokComponent blok={header} />}
-      <main className={`${!!header ? "-mt-12 lg:-mt-16" : null}`}>
+      <main className={`${!!header ? "-mt-12 md:-mt-16 lg:-mt-20" : null}`}>
         {blok.body?.map((child) => (
           <StoryblokComponent
             blok={child}

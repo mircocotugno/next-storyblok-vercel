@@ -5,7 +5,6 @@ import {
   storyblokEditable,
   StoryblokComponent,
 } from "@storyblok/react";
-import { default as NextImage } from "next/image";
 
 import { tv } from "tailwind-variants";
 
@@ -19,15 +18,22 @@ export default function Cover({ blok, parent }: CoverComponent) {
   const image = blok.image;
 
   return (
-    <section id={blok.id} className={cover({})} {...storyblokEditable(blok)}>
+    <section
+      id={blok.id}
+      className={cover({
+        dark: blok.dark,
+        hasHeader: parent === "page",
+        theme: blok.theme || undefined,
+      })}
+      {...storyblokEditable(blok)}
+    >
       <div
         className={container({
-          margin: blok.margin,
-          justify: blok.justify,
-          hasHeader: parent === "page",
+          margin: blok.margin || undefined,
+          justify: blok.justify || undefined,
         })}
       >
-        <div className={wrapper()}>
+        <div className={wrapper({ blurred: blok.blurred, dark: blok.dark })}>
           {blok.body?.map((child) => (
             <StoryblokComponent
               blok={child}
@@ -38,14 +44,10 @@ export default function Cover({ blok, parent }: CoverComponent) {
         </div>
       </div>
       {image && (
-        <div className={background()}>
-          <NextImage
-            style={{ width: "100%" }}
-            src={image.filename || ""}
-            alt={image.alt || ""}
-            fill
-          />
-        </div>
+        <div
+          style={{ backgroundImage: `url(${blok.image?.filename})` }}
+          className={background({ theme: blok.theme || undefined })}
+        />
       )}
     </section>
   );
@@ -53,67 +55,82 @@ export default function Cover({ blok, parent }: CoverComponent) {
 
 const classes = tv({
   slots: {
-    cover: "px-4 sm:px-6 md:px-8 relative",
+    cover: "cover px-4 sm:px-6 md:px-8 relative z-0",
     container:
-      "max-w-5xl lg:max-w-7xl -mx-4 gap-y-4 md:gap-y-6 lg:gap-y-8 flex flex-wrap",
-    wrapper: "px-4 w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 z-10",
-    background: "absolute inset-0 z-0 overflow-hidden",
+      "container py-6 md:py-9 lg:py-12 max-w-5xl lg:max-w-7xl -mx-4 gap-y-4 md:gap-y-6 lg:gap-y-8 flex flex-wrap items-center",
+    wrapper: "wrapper px-4 w-full sm:w-2/3 md:w-1/2 space-y-3 z-10",
+    background: "background absolute inset-0 -z-1 bg-cover bg-center",
   },
   variants: {
-    margin: {
-      "": {
-        container: "py-6",
-        wrapper: "space-y-3",
+    theme: {
+      primary: {
+        cover: "bg-primary",
       },
+      secondary: {
+        cover: "bg-secondary",
+      },
+    },
+    margin: {
       slim: {
-        container: "py-3",
+        container: "py-1.5 md:py-2 lg:py-3",
         wrapper: "space-y-1.5",
       },
       thick: {
-        container: "py-12",
+        container: "py-12 md:py-14 lg:py-16",
         wrapper: "space-y-3",
       },
       screen: {
-        container: "py-18 min-h-screen",
+        container: "py-18 md:py-20 lg:py-24 min-h-screen item-center",
         wrapper: "space-y-3",
       },
     },
-    // justify?: "" | "left" | "center" | "right";
     justify: {
-      "": {},
-      left: { container: "" },
+      left: { container: "justify-start text-left" },
       center: { container: "justify-center text-center" },
       right: { container: "justify-end text-right" },
     },
+    dark: {
+      true: { cover: "text-background bg-foreground" },
+    },
+    blurred: {
+      true: {
+        wrapper:
+          "relative z-0 before:absolute before:-inset-24 before:-z-20 before:mask-[url(/mask.png)] before:mask-size-[100%100%] before:backdrop-blur-2xl",
+      },
+    },
     hasHeader: {
-      true: "first:pt-12 first:lg:pt-16",
+      true: { cover: "first:pt-12 first:md:pt-16 first:lg:pt-20" },
     },
   },
   compoundVariants: [
     {
       margin: "screen",
       hasHeader: true,
-      class:
-        "first:min-h-[100vh - 2rem] md:first:min-h-[100vh - 3rem] lg:first:min-h-[100vh - 4rem]",
+      class: {
+        cover:
+          "first:min-h-[100vh - 2rem] md:first:min-h-[100vh - 3rem] lg:first:min-h-[100vh - 4rem]",
+      },
+    },
+    {
+      theme: "primary",
+      dark: true,
+      class: {
+        cover: "bg-primary-50",
+      },
+    },
+    {
+      theme: "secondary",
+      dark: true,
+      class: {
+        cover: "bg-secondary-50",
+      },
+    },
+    {
+      theme: undefined,
+      dark: true,
+      class: {
+        cover: "bg-background",
+      },
     },
   ],
 });
-
-/*
-  slots: {
-    columns: "px-2 xs:px-4 sm:px-6 md:px-8",
-    container:
-      "py-6 max-w-5xl lg:max-w-7xl -mx-3 gap-y-4 md:gap-y-6 lg:gap-y-8 flex flex-wrap",
-  },
-  variants: {
-    margin: {
-      "": {},
-      slim: { container: "py-3" },
-      thick: { container: "py-12" },
-      screen: { container: "py-18 min-h-screen" },
-    },
-    dark: {
-      true: { columns: "text-background bg-foreground" },
-    },
-  },
-*/

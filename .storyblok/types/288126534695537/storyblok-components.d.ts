@@ -24,10 +24,11 @@ export interface Checkbox {
 
 export interface Columns {
   id?: string;
-  body: (Text | Image | Wrapper | Gallery)[];
   styles?: unknown;
+  body: (Text | Image | Wrapper | Gallery)[];
   margin?: "" | "slim" | "thick" | "screen";
   dark?: boolean;
+  theme?: "" | "primary" | "secondary";
   component: "columns";
   _uid: string;
   [k: string]: unknown;
@@ -222,8 +223,9 @@ export interface Text {
   styles?: unknown;
   headline?: string;
   content?: string;
-  width?: "" | "1/3" | "1/2" | "2/3" | "1/1";
+  width?: "" | "1/4" | "1/3" | "1/2" | "2/3" | "1/1";
   justify?: "" | "spaced" | "center" | "right";
+  small?: boolean;
   component: "text";
   _uid: string;
   [k: string]: unknown;

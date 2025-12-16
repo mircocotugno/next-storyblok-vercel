@@ -7,21 +7,21 @@ import { fontSans, fontSerif } from "@/config/font";
 
 export const relations = ["page.header", "page.footer"];
 
-import Page from "@/components/page";
-import Post from "@/components/post";
-import Project from "@/components/project";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import Cover from "@/components/cover";
-import Columns from "@/components/columns";
-import Steps from "@/components/steps";
-import Carousel from "@/components/carousel";
-import Form from "@/components/form";
-import Text from "@/components/text";
-import Image from "@/components/image";
-import Link from "@/components/link";
-import Wrapper from "@/components/wrapper";
-import Field from "@/components/field";
+import Page from "@/components/Page";
+import Post from "@/components/Post";
+import Project from "@/components/Project";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Cover from "@/components/Cover";
+import Columns from "@/components/Columns";
+import Steps from "@/components/Steps";
+import Carousel from "@/components/Carousel";
+import Form from "@/components/Form";
+import Text from "@/components/Text";
+import Image from "@/components/Image";
+import Link from "@/components/Link";
+import Wrapper from "@/components/Wrapper";
+import Field from "@/components/Field";
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN || "",
