@@ -95,8 +95,10 @@ export interface Gallery {
 }
 
 export interface Grid {
+  id?: string;
+  heading?: string;
   list: "posts" | "projects";
-  filter?: boolean;
+  filters?: boolean;
   component: "grid";
   _uid: string;
   [k: string]: unknown;
@@ -191,7 +193,7 @@ export interface Project {
   description: string;
   image?: StoryblokAsset;
   author?: string;
-  type?: "" | "type_one";
+  type?: "" | "type_one" | "type_two";
   contexts?: string;
   body?: (Cover | Carousel | Form | Columns)[];
   component: "project";

@@ -695,12 +695,33 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-12-17T08:50:01.289Z",
-    "updated_at": "2025-12-17T09:14:46.593Z",
+    "updated_at": "2025-12-17T10:35:46.479Z",
     "id": 123993298099022,
     "schema": {
+      "id": {
+        "type": "text",
+        "pos": 0,
+        "id": "h2LfCUrfQGCDt6dw5P3tag",
+        "display_name": "Id"
+      },
+      "heading": {
+        "type": "markdown",
+        "pos": 1,
+        "id": "cer1YBOPRm-w_Y-nUnGtYg",
+        "rich_markdown": true,
+        "customize_toolbar": true,
+        "toolbar": [
+          "h2",
+          "h3",
+          "h4",
+          "bold",
+          "italic"
+        ],
+        "display_name": "Intestazione"
+      },
       "list": {
         "type": "option",
-        "pos": 0,
+        "pos": 2,
         "use_uuid": true,
         "display_name": "Lista",
         "options": [
@@ -719,10 +740,13 @@
         "required": true,
         "exclude_empty_option": true
       },
-      "filter": {
+      "filters": {
         "type": "boolean",
-        "pos": 1,
-        "id": "gOQT6pJuTmSXEjn5cLqxfw"
+        "pos": 3,
+        "id": "gOQT6pJuTmSXEjn5cLqxfw",
+        "tooltip": true,
+        "description": "Mosta filtri",
+        "inline_label": true
       }
     },
     "image": null,
@@ -1264,7 +1288,7 @@
     "display_name": "Progetto",
     "description": "",
     "created_at": "2025-10-28T23:32:51.146Z",
-    "updated_at": "2025-12-16T20:47:13.841Z",
+    "updated_at": "2025-12-17T19:34:42.299Z",
     "id": 106515542624206,
     "schema": {
       "title": {
@@ -1303,7 +1327,13 @@
         "options": [
           {
             "name": "Tipo 1",
-            "value": "type_one"
+            "value": "type_one",
+            "_uid": "aeb3a11f-31f1-48ff-bd28-f6fc060e2aac"
+          },
+          {
+            "_uid": "f47f570b-747a-42c4-8c34-ae0c7c849fa3",
+            "value": "type_two",
+            "name": "Tipo 2"
           }
         ],
         "id": "Kr5JaDNVSjiWammAG8nktQ"
