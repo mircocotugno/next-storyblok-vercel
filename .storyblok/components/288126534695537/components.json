@@ -626,6 +626,56 @@
     "metadata": {}
   },
   {
+    "name": "grid",
+    "display_name": null,
+    "description": "",
+    "created_at": "2025-12-17T08:50:01.289Z",
+    "updated_at": "2025-12-17T09:12:49.287Z",
+    "id": 123993298099022,
+    "schema": {
+      "list": {
+        "type": "option",
+        "pos": 0,
+        "use_uuid": true,
+        "display_name": "Lista",
+        "options": [
+          {
+            "_uid": "d8f68a32-48de-4b75-8b7d-bf0bbc4fc928",
+            "name": "Articoli",
+            "value": "posts"
+          },
+          {
+            "_uid": "c48bd0bc-1a96-473f-ac4f-0fb4d51236f5",
+            "value": "projects",
+            "name": "Progetti"
+          }
+        ],
+        "id": "mY6pp2HZSUyrrNnWI-sMtg",
+        "required": true
+      },
+      "filter": {
+        "type": "boolean",
+        "pos": 1,
+        "id": "gOQT6pJuTmSXEjn5cLqxfw"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "grid",
+    "component_group_uuid": "dc6b874b-a598-4ed7-81b1-fbc14789894d",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "header",
     "display_name": "Navigatore",
     "description": null,
@@ -941,7 +991,7 @@
     "display_name": "Pagina",
     "description": null,
     "created_at": "2025-10-28T17:24:08.417Z",
-    "updated_at": "2025-10-28T23:46:06.435Z",
+    "updated_at": "2025-12-17T09:00:21.203Z",
     "id": 106424927925163,
     "schema": {
       "header": {
@@ -961,9 +1011,11 @@
           "cover",
           "carousel",
           "columns",
-          "form"
+          "form",
+          "grid"
         ],
-        "id": "DXW4luftTlCPUXn4nODRyg"
+        "id": "DXW4luftTlCPUXn4nODRyg",
+        "component_denylist": []
       },
       "footer": {
         "type": "option",
@@ -1080,7 +1132,7 @@
     "display_name": "Articolo",
     "description": "",
     "created_at": "2025-10-28T23:22:09.485Z",
-    "updated_at": "2025-10-28T23:46:45.287Z",
+    "updated_at": "2025-12-17T09:06:54.399Z",
     "id": 106512914376557,
     "schema": {
       "title": {
@@ -1121,7 +1173,8 @@
           "columns",
           "form"
         ],
-        "id": "DXW4luftTlCPUXn4nODRyg"
+        "id": "DXW4luftTlCPUXn4nODRyg",
+        "component_denylist": []
       }
     },
     "image": null,
@@ -1145,7 +1198,7 @@
     "display_name": "Progetto",
     "description": "",
     "created_at": "2025-10-28T23:32:51.146Z",
-    "updated_at": "2025-10-29T00:12:54.243Z",
+    "updated_at": "2025-12-16T20:47:13.841Z",
     "id": 106515542624206,
     "schema": {
       "title": {
@@ -1177,6 +1230,23 @@
         "type": "text",
         "display_name": "Autore",
         "id": "oNsK_cmmTT6WPFfqs_Ryow"
+      },
+      "type": {
+        "type": "option",
+        "display_name": "Tipologia",
+        "options": [
+          {
+            "name": "Tipo 1",
+            "value": "type_one"
+          }
+        ],
+        "id": "Kr5JaDNVSjiWammAG8nktQ"
+      },
+      "contexts": {
+        "type": "text",
+        "display_name": "Contensti",
+        "descriprion": "Separare da virgola",
+        "id": "B2mtOlb5S8Smm9zdtoGr7w"
       },
       "body": {
         "type": "bloks",

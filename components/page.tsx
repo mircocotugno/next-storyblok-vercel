@@ -2,12 +2,14 @@ import type { Page } from "@/sbComponentType";
 import Meta from "@/components/Meta";
 import { StoryblokComponent } from "@storyblok/react";
 import { Fragment } from "react";
+import { ListsProps } from "@/pages";
 
 export interface PageComponent {
   blok: Page;
+  lists: ListsProps;
 }
 
-export default function Page({ blok }: PageComponent) {
+export default function Page({ blok, lists }: PageComponent) {
   const header = typeof blok.header === "string" ? null : blok.header?.content;
   const footer = typeof blok.footer === "string" ? null : blok.footer?.content;
 
@@ -21,6 +23,7 @@ export default function Page({ blok }: PageComponent) {
             blok={child}
             key={child._uid}
             parent={blok.component}
+            lists={lists}
           />
         ))}
       </main>

@@ -86,6 +86,14 @@ export interface Gallery {
   [k: string]: unknown;
 }
 
+export interface Grid {
+  list: "" | "posts" | "projects";
+  filter?: boolean;
+  component: "grid";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface Header {
   image?: StoryblokAsset;
   links?: Link[];
@@ -137,7 +145,7 @@ export interface Option {
 
 export interface Page {
   header?: ISbStoryData<Header> | string;
-  body?: (Cover | Carousel | Columns | Form)[];
+  body?: (Cover | Carousel | Columns | Form | Grid)[];
   footer?: ISbStoryData<Footer> | string;
   meta?: unknown;
   title?: string;
@@ -175,6 +183,8 @@ export interface Project {
   description: string;
   image?: StoryblokAsset;
   author?: string;
+  type?: "" | "type_one";
+  contexts?: string;
   body?: (Cover | Carousel | Form | Columns)[];
   component: "project";
   _uid: string;

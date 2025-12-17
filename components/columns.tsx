@@ -12,13 +12,13 @@ export interface ColumnsComponent {
 }
 
 export default function Columns({ blok, parent }: ColumnsComponent) {
-  const { columns, container } = classes();
+  const { setion, container } = classes();
   console.log(blok.component);
 
   return (
     <section
       id={blok?.id}
-      className={columns({
+      className={setion({
         theme: blok.theme || undefined,
         dark: blok.dark,
         hasHeader: parent === "page",
@@ -40,7 +40,7 @@ export default function Columns({ blok, parent }: ColumnsComponent) {
 
 const classes = tv({
   slots: {
-    columns: "px-4 sm:px-6 md:px-8",
+    setion: "px-4 sm:px-6 md:px-8",
     container:
       "py-6 max-w-5xl lg:max-w-7xl -mx-4 gap-y-4 md:gap-y-6 lg:gap-y-8 flex flex-wrap",
   },
@@ -58,17 +58,17 @@ const classes = tv({
     },
     theme: {
       primary: {
-        columns: "bg-primary-200",
+        setion: "bg-primary-200",
       },
       secondary: {
-        columns: "bg-secondary-200",
+        setion: "bg-secondary-200",
       },
     },
     dark: {
-      true: { columns: "text-background bg-background" },
+      true: { setion: "text-background bg-background" },
     },
     hasHeader: {
-      true: { columns: "first:pt-12 first:md:pt-16 first:lg:pt-20" },
+      true: { setion: "first:pt-12 first:md:pt-16 first:lg:pt-20" },
     },
   },
   compoundVariants: [
@@ -76,14 +76,14 @@ const classes = tv({
       theme: "primary",
       dark: true,
       class: {
-        columns: "bg-primary-800",
+        setion: "bg-primary-800",
       },
     },
     {
       theme: "secondary",
       dark: true,
       class: {
-        columns: "bg-secondary-800",
+        setion: "bg-secondary-800",
       },
     },
   ],

@@ -16,6 +16,7 @@ import Cover from "@/components/Cover";
 import Columns from "@/components/Columns";
 import Steps from "@/components/Steps";
 import Carousel from "@/components/Carousel";
+import Grid from "@/components/Grid";
 import Form from "@/components/Form";
 import Text from "@/components/Text";
 import Image from "@/components/Image";
@@ -37,6 +38,7 @@ storyblokInit({
     columns: Columns,
     steps: Steps,
     carousel: Carousel,
+    grid: Grid,
     form: Form,
     text: Text,
     image: Image,

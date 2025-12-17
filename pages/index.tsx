@@ -1,30 +1,64 @@
+import type { Project, Post } from "@/sbComponentType";
 import {
   getStoryblokApi,
   ISbStoryData,
   StoryblokComponent,
   useStoryblokState,
 } from "@storyblok/react";
-import { relations } from "./_app";
 
-export default function Home({ story }: { story: ISbStoryData | null }) {
-  const home = useStoryblokState(story, {
+import { relations } from "@/pages/_app";
+
+export type ListsProps = {
+  projects?: ISbStoryData<Project>[] | null;
+  posts?: ISbStoryData<Post>[] | null;
+};
+
+export interface LayoutComponent {
+  story: ISbStoryData | null;
+  lists: ListsProps;
+}
+
+export default function Home({ story, lists }: LayoutComponent) {
+  const page = useStoryblokState(story, {
     resolveRelations: relations.join(","),
     preventClicks: true,
   });
-  if (!home) return null;
-  return <StoryblokComponent blok={home?.content} />;
+  if (!page) return null;
+  return <StoryblokComponent blok={page?.content} lists={lists} />;
 }
 
 export const getStaticProps = async () => {
   const storyblokApi = getStoryblokApi();
-  const response = await storyblokApi.getStory("home", {
+  const _story = await storyblokApi.getStory("home", {
     version: "draft",
     resolve_relations: relations.join(","),
   });
 
+  const story = _story.data ? _story.data.story : null;
+
+  const _projects = await storyblokApi.getStories({
+    version: "draft",
+    content_type: "project",
+    sort_by: "created_at:asc",
+  });
+
+  const projects = _projects.data ? _projects.data.stories : null;
+
+  const _posts = await storyblokApi.getStories({
+    version: "draft",
+    content_type: "post",
+    sort_by: "created_at:asc",
+  });
+
+  const posts = _posts.data ? _posts.data.stories : null;
+
   return {
     props: {
-      story: response.data ? response.data.story : null,
+      story,
+      lists: {
+        projects,
+        posts,
+      },
     },
     revalidate: 3600,
   };

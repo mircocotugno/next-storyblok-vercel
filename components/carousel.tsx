@@ -14,9 +14,9 @@ export interface CarouselComponent {
 }
 
 export default function Carousel({ blok }: CarouselComponent) {
-  const { carousel } = classes();
+  const { section } = classes();
   return (
-    <section id={blok.id} className={carousel()} {...storyblokEditable(blok)}>
+    <section id={blok.id} className={section()} {...storyblokEditable(blok)}>
       <Swiper>
         {blok.body?.map((child) => (
           <SwiperSlide key={child._uid}>
@@ -28,4 +28,4 @@ export default function Carousel({ blok }: CarouselComponent) {
   );
 }
 
-const classes = tv({ slots: { carousel: "" } });
+const classes = tv({ slots: { section: "" } });

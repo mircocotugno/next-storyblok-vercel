@@ -14,13 +14,13 @@ export interface CoverComponent {
 }
 
 export default function Cover({ blok, parent }: CoverComponent) {
-  const { cover, container, wrapper, background } = classes();
+  const { section, container, wrapper, background } = classes();
   const image = blok.image;
 
   return (
     <section
       id={blok.id}
-      className={cover({
+      className={section({
         dark: blok.dark,
         hasHeader: parent === "page",
         theme: blok.theme || undefined,
@@ -55,19 +55,19 @@ export default function Cover({ blok, parent }: CoverComponent) {
 
 const classes = tv({
   slots: {
-    cover: "cover px-4 sm:px-6 md:px-8 relative z-0",
+    section: "px-4 sm:px-6 md:px-8 relative z-0",
     container:
-      "container py-6 md:py-9 lg:py-12 max-w-5xl lg:max-w-7xl -mx-4 gap-y-4 md:gap-y-6 lg:gap-y-8 flex flex-wrap items-center",
-    wrapper: "wrapper px-4 w-full sm:w-2/3 md:w-1/2 space-y-3 z-10",
-    background: "background absolute inset-0 -z-1 bg-cover bg-center",
+      "py-6 md:py-9 lg:py-12 max-w-5xl lg:max-w-7xl -mx-4 gap-y-4 md:gap-y-6 lg:gap-y-8 flex flex-wrap items-center",
+    wrapper: "px-4 w-full sm:w-2/3 md:w-1/2 space-y-3 z-10",
+    background: "absolute inset-0 -z-1 bg-cover bg-center",
   },
   variants: {
     theme: {
       primary: {
-        cover: "bg-primary",
+        section: "bg-primary",
       },
       secondary: {
-        cover: "bg-secondary",
+        section: "bg-secondary",
       },
     },
     margin: {
@@ -90,7 +90,7 @@ const classes = tv({
       right: { container: "justify-end text-right" },
     },
     dark: {
-      true: { cover: "text-background bg-foreground" },
+      true: { section: "text-background bg-foreground" },
     },
     blurred: {
       true: {
@@ -99,7 +99,7 @@ const classes = tv({
       },
     },
     hasHeader: {
-      true: { cover: "first:pt-12 first:md:pt-16 first:lg:pt-20" },
+      true: { section: "first:pt-12 first:md:pt-16 first:lg:pt-20" },
     },
   },
   compoundVariants: [
@@ -107,7 +107,7 @@ const classes = tv({
       margin: "screen",
       hasHeader: true,
       class: {
-        cover:
+        section:
           "first:min-h-[100vh - 2rem] md:first:min-h-[100vh - 3rem] lg:first:min-h-[100vh - 4rem]",
       },
     },
@@ -115,21 +115,21 @@ const classes = tv({
       theme: "primary",
       dark: true,
       class: {
-        cover: "bg-primary-50",
+        section: "bg-primary-50",
       },
     },
     {
       theme: "secondary",
       dark: true,
       class: {
-        cover: "bg-secondary-50",
+        section: "bg-secondary-50",
       },
     },
     {
       theme: undefined,
       dark: true,
       class: {
-        cover: "bg-background",
+        section: "bg-background",
       },
     },
   ],
