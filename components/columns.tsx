@@ -1,3 +1,4 @@
+import { ListsProps } from "@/pages";
 import type { Columns } from "@/sbComponentType";
 import {
   SbBlokData,
@@ -8,12 +9,12 @@ import { tv } from "tailwind-variants";
 
 export interface ColumnsComponent {
   blok: Columns & SbBlokData;
+  lists: ListsProps;
   parent: string;
 }
 
-export default function Columns({ blok, parent }: ColumnsComponent) {
+export default function Columns({ blok, lists, parent }: ColumnsComponent) {
   const { setion, container } = classes();
-  console.log(blok.component);
 
   return (
     <section
@@ -30,6 +31,7 @@ export default function Columns({ blok, parent }: ColumnsComponent) {
           <StoryblokComponent
             blok={child}
             key={child._uid}
+            lists={lists}
             parent={blok.component}
           />
         ))}

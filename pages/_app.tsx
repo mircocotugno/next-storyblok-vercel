@@ -5,7 +5,7 @@ import { HeroUIProvider } from "@heroui/react";
 import { apiPlugin, storyblokInit } from "@storyblok/react";
 import { fontSans, fontSerif } from "@/config/font";
 
-export const relations = ["page.header", "page.footer"];
+export const relations = ["page.header", "page.footer", "alias.story"];
 
 import Page from "@/components/Page";
 import Post from "@/components/Post";
@@ -18,6 +18,7 @@ import Steps from "@/components/Steps";
 import Carousel from "@/components/Carousel";
 import Grid from "@/components/Grid";
 import Form from "@/components/Form";
+import Alias from "@/components/Alias";
 import Text from "@/components/Text";
 import Image from "@/components/Image";
 import Link from "@/components/Link";
@@ -40,6 +41,7 @@ storyblokInit({
     carousel: Carousel,
     grid: Grid,
     form: Form,
+    alias: Alias,
     text: Text,
     image: Image,
     link: Link,

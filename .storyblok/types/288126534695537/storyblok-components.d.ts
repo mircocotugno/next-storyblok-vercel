@@ -2,6 +2,14 @@
 // DO NOT MODIFY THIS FILE BY HAND.
 import type { ISbStoryData } from '@storyblok/js';
 import type { StoryblokAsset, StoryblokMultilink, StoryblokMultiasset } from '../storyblok.d.ts';
+export interface Alias {
+  list: "" | "posts" | "projects";
+  story?: ISbStoryData<Project> | ISbStoryData<Post> | string;
+  component: "alias";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface Carousel {
   id?: string;
   body: Cover[];
@@ -25,7 +33,7 @@ export interface Checkbox {
 export interface Columns {
   id?: string;
   styles?: unknown;
-  body: (Text | Image | Wrapper | Gallery)[];
+  body: (Text | Image | Wrapper | Gallery | Alias)[];
   margin?: "" | "slim" | "thick" | "screen";
   dark?: boolean;
   theme?: "" | "primary" | "secondary";
@@ -87,7 +95,7 @@ export interface Gallery {
 }
 
 export interface Grid {
-  list: "" | "posts" | "projects";
+  list: "posts" | "projects";
   filter?: boolean;
   component: "grid";
   _uid: string;

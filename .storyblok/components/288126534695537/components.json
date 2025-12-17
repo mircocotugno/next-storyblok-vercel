@@ -1,5 +1,68 @@
 [
   {
+    "name": "alias",
+    "display_name": null,
+    "description": "",
+    "created_at": "2025-12-17T09:49:03.566Z",
+    "updated_at": "2025-12-17T09:56:47.752Z",
+    "id": 124007807257703,
+    "schema": {
+      "list": {
+        "type": "option",
+        "pos": 0,
+        "use_uuid": true,
+        "required": true,
+        "options": [
+          {
+            "_uid": "27ef6ff4-c021-4fd7-965b-24381e82425d",
+            "name": "Articoli",
+            "value": "posts"
+          },
+          {
+            "_uid": "60665ad4-9325-4110-9748-fa1b187e0716",
+            "value": "projects",
+            "name": "Progetti"
+          }
+        ],
+        "id": "E-uGwyg2Q6WKRXSMr4axoA",
+        "display_name": "Lista",
+        "tooltip": true,
+        "description": "Ultima storia pubblicata della lista"
+      },
+      "story": {
+        "type": "option",
+        "pos": 2,
+        "use_uuid": true,
+        "required": false,
+        "source": "internal_stories",
+        "filter_content_type": [
+          "project",
+          "post"
+        ],
+        "entry_appearance": "card",
+        "id": "idiBO2-DQhKHB-fhJbnalg",
+        "display_name": "Storia",
+        "tooltip": true,
+        "description": "Se selezionato ignora il campo lista"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "alias",
+    "component_group_uuid": "e768cdf7-844e-4459-b1b9-e4f287a341c9",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "carousel",
     "display_name": "Carosello",
     "description": "",
@@ -102,7 +165,7 @@
     "display_name": "Colonne",
     "description": null,
     "created_at": "2025-10-28T21:50:02.369Z",
-    "updated_at": "2025-12-16T20:37:00.432Z",
+    "updated_at": "2025-12-17T10:05:44.965Z",
     "id": 106490275313102,
     "schema": {
       "id": {
@@ -130,11 +193,13 @@
           "text",
           "image",
           "wrapper",
-          "gallery"
+          "gallery",
+          "alias"
         ],
         "required": true,
         "id": "0xUpOOAJSrG8f_ug0DEXcA",
-        "pos": 2
+        "pos": 2,
+        "component_denylist": []
       },
       "margin": {
         "type": "option",
@@ -630,7 +695,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-12-17T08:50:01.289Z",
-    "updated_at": "2025-12-17T09:12:49.287Z",
+    "updated_at": "2025-12-17T09:14:46.593Z",
     "id": 123993298099022,
     "schema": {
       "list": {
@@ -651,7 +716,8 @@
           }
         ],
         "id": "mY6pp2HZSUyrrNnWI-sMtg",
-        "required": true
+        "required": true,
+        "exclude_empty_option": true
       },
       "filter": {
         "type": "boolean",
