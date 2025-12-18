@@ -5,6 +5,9 @@ import type { StoryblokAsset, StoryblokMultilink, StoryblokMultiasset } from '..
 export interface Alias {
   list: "" | "posts" | "projects";
   story?: ISbStoryData<Project> | ISbStoryData<Post> | string;
+  styles?: unknown;
+  width?: "" | "1/3" | "1/2" | "2/3" | "1/1";
+  dark?: boolean;
   component: "alias";
   _uid: string;
   [k: string]: unknown;

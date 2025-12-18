@@ -35,7 +35,7 @@ export const getStaticProps = async ({ params }: StaticProps) => {
   const _projects = await storyblokApi.getStories({
     version: "draft",
     content_type: "project",
-    sort_by: "created_at:asc",
+    sort_by: "created_at:desc",
   });
 
   const projects = _projects.data ? _projects.data.stories : null;
@@ -43,7 +43,7 @@ export const getStaticProps = async ({ params }: StaticProps) => {
   const _posts = await storyblokApi.getStories({
     version: "draft",
     content_type: "post",
-    sort_by: "created_at:asc",
+    sort_by: "created_at:desc",
   });
 
   const posts = _posts.data ? _posts.data.stories : null;
