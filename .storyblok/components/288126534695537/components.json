@@ -1332,7 +1332,7 @@
     "display_name": "Progetto",
     "description": "",
     "created_at": "2025-10-28T23:32:51.146Z",
-    "updated_at": "2025-12-17T19:34:42.299Z",
+    "updated_at": "2025-12-18T15:07:21.728Z",
     "id": 106515542624206,
     "schema": {
       "title": {
@@ -1371,13 +1371,23 @@
         "options": [
           {
             "name": "Tipo 1",
-            "value": "type_one",
+            "value": "Tipologia 1",
             "_uid": "aeb3a11f-31f1-48ff-bd28-f6fc060e2aac"
           },
           {
             "_uid": "f47f570b-747a-42c4-8c34-ae0c7c849fa3",
-            "value": "type_two",
+            "value": "Tipologia 2",
             "name": "Tipo 2"
+          },
+          {
+            "_uid": "e988eaa0-35ac-49e6-9bf9-4f1b0e42ef88",
+            "value": "Tipologia 3",
+            "name": "Tipo 3"
+          },
+          {
+            "_uid": "726bd013-4ef5-4c11-a485-03f606c28f07",
+            "value": "Tipologia 4",
+            "name": "Tipo 4"
           }
         ],
         "id": "Kr5JaDNVSjiWammAG8nktQ"

@@ -1,15 +1,14 @@
 import { ListsProps } from "@/pages";
 import type { Alias } from "@/sbComponentType";
-import { SbBlokData } from "@storyblok/react";
+import { SbBlokData, storyblokEditable } from "@storyblok/react";
 import { default as NextLink } from "next/link";
 import {
   Card as HeroCard,
   CardHeader as HeroCardHeader,
-  Link as HeroLink,
-  // Button as HeroButton,
   Image as HeroImage,
 } from "@heroui/react";
 import { tv } from "tailwind-variants";
+import { widthVariants } from "@/config/variants";
 
 interface AliasComponent {
   blok: Alias & SbBlokData;
@@ -25,7 +24,10 @@ export default function Alias({ blok, lists }: AliasComponent) {
   const { wrapper, anchor, header, title, description } = classes();
 
   return (
-    <div className={wrapper({ width: blok.width || undefined })}>
+    <div
+      className={wrapper({ width: blok.width || undefined })}
+      {...storyblokEditable(blok)}
+    >
       <HeroCard className="h-full w-full">
         <NextLink href={story.full_slug} className={anchor()}>
           <HeroCardHeader className={header({ dark: blok.dark })}>
@@ -54,7 +56,7 @@ export default function Alias({ blok, lists }: AliasComponent) {
 
 const classes = tv({
   slots: {
-    wrapper: "px-4 min-w-80",
+    wrapper: "min-w-80",
     anchor:
       "min-h-64 hover:[&_h4]:underline-offset-3 hover:[&_h4]:decoration-background/75 overflow-hidden",
     header:
@@ -64,20 +66,7 @@ const classes = tv({
     description: "text-sm md:text-base text-background-200 ",
   },
   variants: {
-    width: {
-      "1/1": {
-        wrapper: "w-full",
-      },
-      "2/3": {
-        wrapper: "sm:w-2/3",
-      },
-      "1/2": {
-        wrapper: "sm:w-1/2",
-      },
-      "1/3": {
-        wrapper: "sm:w-1/2 md:w-1/3",
-      },
-    },
+    width: widthVariants,
     dark: {
       true: {
         header: "text-foreground decoration-foreground/0",

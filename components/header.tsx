@@ -16,6 +16,7 @@ import {
   NavbarMenuToggle as HeroNavbarMenuToggle,
 } from "@heroui/react";
 import { default as NextImage } from "next/image";
+import { default as NextLink } from "next/link";
 
 export interface HeaderComponent {
   blok: Header & SbBlokData;
@@ -43,15 +44,15 @@ export default function Header({ blok }: HeaderComponent) {
       onMenuOpenChange={setOpen}
     >
       {blok.image?.filename && (
-        <HeroNavbarBrand>
+        <NextLink href="/">
           <NextImage
-            className="max-h-8 md:max-h-10 lg:max-h-12 w-auto"
+            className="h-12 w-auto max-h-8 md:max-h-10 lg:max-h-12 "
             src={blok.image.filename}
             alt={blok.image.alt || ""}
             width={128}
             height={64}
           />
-        </HeroNavbarBrand>
+        </NextLink>
       )}
       <HeroNavbarContent justify="end">
         {blok.links?.map((child) => (

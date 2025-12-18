@@ -12,7 +12,7 @@ interface TypographyComponents {
 export const Typography = ({
   small,
 }: TypographyComponents = defaultTypography) => {
-  const { h1, h2, h3, h4, h5, h6, ul, a } = classes();
+  const { h1, h2, h3, h4, h5, h6, p, ul, a } = classes();
   return {
     h1: {
       component: ({ children }: { children: string }) => (
@@ -44,6 +44,12 @@ export const Typography = ({
         <h6 className={h6({ small: small })}>{children}</h6>
       ),
     },
+    p: {
+      component: ({ children }: { children: string }) => (
+        <p className={p({ small: small })}>{children}</p>
+      ),
+    },
+
     ul: {
       component: ({ children }: { children: string }) => (
         <ul className={ul()}>{children}</ul>
@@ -67,6 +73,7 @@ const classes = tv({
     h4: "font-bold text-3xl/8 lg:text-4xl/9 xl:text-5xl/11",
     h5: "font-semibold text-2xl/6 lg:text-3xl/8 xl:text-4xl/9",
     h6: "font-medium text-xl/6 lg:text-2xl/7 xl:text-3xl/8",
+    p: "text-base lg:text-lg xl:text-xl",
     ul: "list-disc list-outside my-4",
     a: "font-medium transition-all duration-300 ease-in-out hover:text-primary underline underline-offset-4 hover:underline-offset-2 decoration-1 decoration-foreground/25 hover:decoration-primary/75",
   },
@@ -79,6 +86,7 @@ const classes = tv({
         h4: "text-xl/6 lg:text-2xl/7 xl:text-3xl/8",
         h5: "text-lg/4 lg:text-xl/5 xl:text-2xl/7",
         h6: "text-base/3 md:text-lg/7 lg:text-xl/8",
+        p: "text-sm lg:text-base xl:text-lg",
       },
     },
   },

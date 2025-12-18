@@ -1,9 +1,10 @@
 import type { Footer } from "@/sbComponentType";
 import { SbBlokData, storyblokEditable } from "@storyblok/react";
-import Link from "next/link";
+import { default as NextLink } from "next/link";
 import Markdown from "markdown-to-jsx";
 import { default as NextImage } from "next/image";
 import { tv } from "tailwind-variants";
+import { containerSlot } from "@/config/variants";
 
 export interface FooterComponent {
   blok: Footer & SbBlokData;
@@ -17,13 +18,15 @@ export default function Footer({ blok }: FooterComponent) {
       <div className={container({ columns: true })}>
         {blok.image?.filename && (
           <div className="w-full p-2">
-            <NextImage
-              className="max-h-8 md:max-h-10 lg:max-h-12 w-auto"
-              src={blok.image.filename}
-              alt={blok.image.alt || ""}
-              width={128}
-              height={64}
-            />
+            <NextLink href="/" className="inline-block w-fit">
+              <NextImage
+                className="h-12 w-auto max-h-8 md:max-h-10 lg:max-h-12"
+                src={blok.image.filename}
+                alt={blok.image.alt || ""}
+                width={128}
+                height={64}
+              />
+            </NextLink>
           </div>
         )}
         {blok.body?.map((child) => (
@@ -66,8 +69,7 @@ const classes = tv({
   slots: {
     footer:
       "bg-background text-foreground py-4 px-2 xs:px-4 sm:px-6 md:px-8 pb-8",
-    container:
-      "max-w-5xl lg:max-w-7xl py-2 gap-y-4 md:gap-y-6 lg:gap-y-8 flex flex-wrap justify-between",
+    container: containerSlot + " justify-between",
     column: "px-3 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6",
     copyright: "text-xs opacity-65 font-bold",
     terms:
@@ -86,12 +88,12 @@ const wrapper = null;
 const overrides = {
   a: {
     component: ({ href, children }: { href: string; children: string }) => (
-      <Link
+      <NextLink
         className="hover:text-primary transition-all duration-300 ease-in-out underline underline-offset-4 hover:underline-offset-2 decoration-1 decoration-foreground/0 hover:decoration-primary/75"
         href={href || ""}
       >
         {children}
-      </Link>
+      </NextLink>
     ),
   },
   li: {

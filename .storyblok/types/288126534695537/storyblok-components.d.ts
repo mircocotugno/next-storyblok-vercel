@@ -196,7 +196,7 @@ export interface Project {
   description: string;
   image?: StoryblokAsset;
   author?: string;
-  type?: "" | "type_one" | "type_two";
+  type?: "" | "Tipologia 1" | "Tipologia 2" | "Tipologia 3" | "Tipologia 4";
   contexts?: string;
   body?: (Cover | Carousel | Form | Columns)[];
   component: "project";

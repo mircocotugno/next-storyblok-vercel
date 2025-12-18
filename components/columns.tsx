@@ -1,3 +1,4 @@
+import { containerSlot } from "@/config/variants";
 import { ListsProps } from "@/pages";
 import type { Columns } from "@/sbComponentType";
 import {
@@ -44,7 +45,7 @@ const classes = tv({
   slots: {
     setion: "px-4 sm:px-6 md:px-8",
     container:
-      "py-6 max-w-5xl lg:max-w-7xl -mx-4 gap-y-4 md:gap-y-6 lg:gap-y-8 flex flex-wrap",
+      containerSlot + " py-6 md:py-9 lg:py-12 gap-y-4 md:gap-y-6 lg:gap-y-8",
   },
   variants: {
     margin: {

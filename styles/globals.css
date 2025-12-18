@@ -11,16 +11,19 @@
 @theme {
   --breakpoint-xs: 20rem;
   --breakpoint-sm: 30rem;
+  --breakpoint-md: 40rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
 
-html {
+html,
+.hides-crollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-html::-webkit-scrollbar {
+html::-webkit-scrollbar,
+.hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 

@@ -2,6 +2,7 @@ import type { Text } from "@/sbComponentType";
 import Markdown from "markdown-to-jsx";
 import { SbBlokData, storyblokEditable } from "@storyblok/react";
 import { tv } from "tailwind-variants";
+import { widthVariants } from "@/config/variants";
 import { Typography } from "@/components/Typography";
 
 export interface TextComponent {
@@ -10,12 +11,11 @@ export interface TextComponent {
 }
 
 export default function Text({ blok, parent }: TextComponent) {
-  const { text, headline, content } = classes();
-  const wrapper = null;
+  const { wrapper, headline, content } = classes();
 
   return (
     <article
-      className={text({
+      className={wrapper({
         width: blok.width || undefined,
         justify: blok.justify || undefined,
         isColumn: parent !== "cover",
@@ -25,7 +25,10 @@ export default function Text({ blok, parent }: TextComponent) {
       {blok.headline && (
         <div className={headline({ small: blok.small })}>
           <Markdown
-            options={{ wrapper, overrides: Typography({ small: blok.small }) }}
+            options={{
+              wrapper: null,
+              overrides: Typography({ small: blok.small }),
+            }}
           >
             {blok.headline}
           </Markdown>
@@ -36,7 +39,7 @@ export default function Text({ blok, parent }: TextComponent) {
           dir={blok.justify === "right" ? "rtl" : ""}
           className={content({ small: blok.small })}
         >
-          <Markdown options={{ wrapper, overrides: Typography() }}>
+          <Markdown options={{ wrapper: null, overrides: Typography() }}>
             {blok.content}
           </Markdown>
         </div>
@@ -47,33 +50,18 @@ export default function Text({ blok, parent }: TextComponent) {
 
 const classes = tv({
   slots: {
-    text: "w-full [&_li]:ml-6 wrap-break-word space-y-3 md:space-y-4 lg:space-y-8",
+    wrapper:
+      "w-full [&_li]:ml-6 wrap-break-word space-y-3 md:space-y-4 lg:space-y-8",
     headline: "space-y-2",
     content: "text-base lg:text-lg xl:text-xl space-y-2",
   },
   variants: {
-    width: {
-      "1/1": {
-        text: "w-full",
-      },
-      "2/3": {
-        text: "sm:w-2/3",
-      },
-      "1/2": {
-        text: "sm:w-1/2",
-      },
-      "1/3": {
-        text: "sm:w-1/2 md:w-1/3",
-      },
-      "1/4": {
-        text: "sm:w-1/2 md:w-1/4",
-      },
-    },
+    width: widthVariants,
     justify: {
-      spaced: { text: "text-justify" },
-      center: { text: "text-center" },
+      spaced: { wrapper: "text-justify" },
+      center: { wrapper: "text-center" },
       right: {
-        text: "text-right [&_ul]:text-right [&_li]:mr-6",
+        wrapper: "text-right [&_ul]:text-right [&_li]:mr-6",
       },
     },
     small: {
@@ -84,8 +72,11 @@ const classes = tv({
     },
     isColumn: {
       true: {
-        text: "px-4",
+        wrapper: "px-4",
       },
     },
+  },
+  defaultVariants: {
+    width: "auto",
   },
 });

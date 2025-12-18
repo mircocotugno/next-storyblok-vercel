@@ -7,6 +7,7 @@ import {
 } from "@storyblok/react";
 
 import { tv } from "tailwind-variants";
+import { containerSlot } from "@/config/variants";
 
 export interface CoverComponent {
   blok: Cover & SbBlokData;
@@ -57,7 +58,7 @@ const classes = tv({
   slots: {
     section: "px-4 sm:px-6 md:px-8 relative z-0",
     container:
-      "py-6 md:py-9 lg:py-12 max-w-5xl lg:max-w-7xl -mx-4 gap-y-4 md:gap-y-6 lg:gap-y-8 flex flex-wrap items-center",
+      containerSlot + " py-6 md:py-9 lg:py-12 gap-y-4 md:gap-y-6 lg:gap-y-8",
     wrapper: "px-4 w-full sm:w-2/3 md:w-1/2 space-y-3 z-10",
     background: "absolute inset-0 -z-1 bg-cover bg-center",
   },
