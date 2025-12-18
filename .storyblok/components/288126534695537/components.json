@@ -1332,7 +1332,7 @@
     "display_name": "Progetto",
     "description": "",
     "created_at": "2025-10-28T23:32:51.146Z",
-    "updated_at": "2025-12-18T15:07:21.728Z",
+    "updated_at": "2025-12-18T17:47:17.146Z",
     "id": 106515542624206,
     "schema": {
       "title": {
@@ -1341,7 +1341,8 @@
         "description": "Consigliati 50-60 caratteri",
         "maximum": 80,
         "required": true,
-        "id": "AgR2DgRWRhyRC_gtVkmB5Q"
+        "id": "AgR2DgRWRhyRC_gtVkmB5Q",
+        "pos": 0
       },
       "description": {
         "type": "text",
@@ -1349,7 +1350,8 @@
         "description": "Consigliati 120-160 caratteri",
         "maximum": 180,
         "required": true,
-        "id": "hgVh4Nd4StO6OpFU6Lmf4g"
+        "id": "hgVh4Nd4StO6OpFU6Lmf4g",
+        "pos": 1
       },
       "image": {
         "type": "asset",
@@ -1358,12 +1360,14 @@
         "filetypes": [
           "images"
         ],
-        "id": "A0OF82S0RPW7FocnoLz54Q"
+        "id": "A0OF82S0RPW7FocnoLz54Q",
+        "pos": 2
       },
       "author": {
         "type": "text",
         "display_name": "Autore",
-        "id": "oNsK_cmmTT6WPFfqs_Ryow"
+        "id": "oNsK_cmmTT6WPFfqs_Ryow",
+        "pos": 3
       },
       "type": {
         "type": "option",
@@ -1390,13 +1394,39 @@
             "name": "Tipo 4"
           }
         ],
-        "id": "Kr5JaDNVSjiWammAG8nktQ"
+        "id": "Kr5JaDNVSjiWammAG8nktQ",
+        "pos": 4
       },
       "contexts": {
         "type": "text",
         "display_name": "Contensti",
         "descriprion": "Separare da virgola",
-        "id": "B2mtOlb5S8Smm9zdtoGr7w"
+        "id": "B2mtOlb5S8Smm9zdtoGr7w",
+        "pos": 5
+      },
+      "header": {
+        "type": "option",
+        "pos": 6,
+        "use_uuid": true,
+        "display_name": "Navigatore",
+        "source": "internal_stories",
+        "filter_content_type": [
+          "header"
+        ],
+        "folder_slug": "",
+        "entry_appearance": "card",
+        "id": "wXtkJBq4TEyJXVxVUnnZOg"
+      },
+      "footer": {
+        "type": "option",
+        "pos": 7,
+        "use_uuid": true,
+        "id": "lrbS6n2qSeWzROANs6IKaA",
+        "source": "internal_stories",
+        "filter_content_type": [
+          "footer"
+        ],
+        "entry_appearance": "card"
       },
       "body": {
         "type": "bloks",
@@ -1408,7 +1438,8 @@
           "form",
           "columns"
         ],
-        "id": "DXW4luftTlCPUXn4nODRyg"
+        "id": "DXW4luftTlCPUXn4nODRyg",
+        "pos": 8
       }
     },
     "image": null,

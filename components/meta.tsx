@@ -1,4 +1,4 @@
-import type { Page } from "@/sbComponentType";
+import type { Page, Post, Project } from "@/sbComponentType";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
@@ -13,7 +13,7 @@ const meta = {
 };
 
 interface MetaComponent {
-  blok: Page;
+  blok: Page | Project | Post;
 }
 
 export default function Meta({ blok }: MetaComponent) {

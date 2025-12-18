@@ -5,7 +5,7 @@ import {
   useStoryblokState,
 } from "@storyblok/react";
 
-import { relations } from "@/pages/_app";
+import { relations } from "@/config/stories";
 
 export default function Slug({ story, lists }: LayoutComponent) {
   const page = useStoryblokState(story, {

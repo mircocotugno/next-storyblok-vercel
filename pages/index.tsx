@@ -6,7 +6,7 @@ import {
   useStoryblokState,
 } from "@storyblok/react";
 
-import { relations } from "@/pages/_app";
+import { relations } from "@/config/stories";
 
 export type ListsProps = {
   projects?: ISbStoryData<Project>[] | null;

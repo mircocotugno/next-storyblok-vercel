@@ -198,6 +198,8 @@ export interface Project {
   author?: string;
   type?: "" | "Tipologia 1" | "Tipologia 2" | "Tipologia 3" | "Tipologia 4";
   contexts?: string;
+  header?: ISbStoryData<Header> | string;
+  footer?: ISbStoryData<Footer> | string;
   body?: (Cover | Carousel | Form | Columns)[];
   component: "project";
   _uid: string;
