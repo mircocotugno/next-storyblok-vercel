@@ -1,5 +1,7 @@
 import type { Cover } from "@/sbComponentType";
 import { Image as HeroImage } from "@heroui/react";
+import { default as NextImage } from "next/image";
+import getResized from "@/lib/sbImage";
 import {
   SbBlokData,
   storyblokEditable,
@@ -29,7 +31,8 @@ export interface CoverComponent {
 
 export default function Cover({ blok, hasHeader }: CoverComponent) {
   const { theme, margin, height, align, justify, dark, blurred } = blok;
-  const { section, container, wrapper, background } = classes();
+  const { section, container, wrapper, background, img } = classes();
+
   const image = blok.image;
 
   return (
@@ -38,7 +41,7 @@ export default function Cover({ blok, hasHeader }: CoverComponent) {
       {...storyblokEditable(blok)}
       className={section({ dark, margin, height, hasHeader, theme })}
     >
-      <div className={container({ margin, justify, align })}>
+      <div className={container({ margin, justify, align, height })}>
         <div className={wrapper({ blurred, dark })}>
           {blok.body?.map((child) => (
             <StoryblokComponent
@@ -49,15 +52,15 @@ export default function Cover({ blok, hasHeader }: CoverComponent) {
           ))}
         </div>
       </div>
-      {image?.filename && (
+      {image && (
         <HeroImage
-          src={image.filename}
+          src={getResized({ filename: image.filename, focus: image.focus })}
+          classNames={{ wrapper: background(), img: img() }}
           alt={image.alt || ""}
           radius="none"
-          classNames={{
-            wrapper: background(),
-            img: "w-full h-full object-cover",
-          }}
+          as={NextImage}
+          loading="eager"
+          fill
         />
       )}
     </section>
@@ -67,9 +70,14 @@ export default function Cover({ blok, hasHeader }: CoverComponent) {
 const classes = tv({
   slots: {
     section: sectionSlot.base + sectionSlot.background,
-    container: containerSlot.base + containerSlot.spaced + containerSlot.colums,
+    container:
+      containerSlot.base +
+      containerSlot.spaced +
+      containerSlot.colums +
+      " items-end sm:items-center",
     wrapper: "px-4 w-full sm:w-2/3 md:w-1/2 space-y-3 z-10",
     background: "absolute inset-0 -z-1 max-w-full!",
+    img: "w-full h-full object-cover",
   },
   variants: {
     theme: themeVariants,

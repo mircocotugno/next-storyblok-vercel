@@ -36,19 +36,19 @@ export const widthVariants = {
 
 export const marginVariants = {
   slim: {
-    container: "py-2 md:py-3 lg:py-4 ",
+    container: "py-2 md:py-4 lg:py-6 ",
     wrapper: "space-y-1 ",
   },
   default: {
-    container: "py-6 md:py-8 lg:py-10 ",
+    container: "py-6 md:py-12 lg:py-18 ",
     wrapper: "space-y-1.5 ",
   },
   thick: {
-    container: "py-12 md:py-14 lg:py-16 ",
+    container: "py-9 md:py-18 lg:py-27 ",
     wrapper: "space-y-2 ",
   },
   screen: {
-    container: "py-18 md:py-20 lg:py-24 ",
+    container: "py-12 md:py-24 lg:py-36 ",
     wrapper: "space-y-2.5 ",
   },
 } as const;
@@ -85,14 +85,15 @@ export const marginCompoundVariants = [
     margin: "thick",
     height: true,
     class: {
-      section: "min-h-full xs:min-h-[75vh] md:min-h-[66vh] ",
+      section: "min-h-screen xs:min-h-[75vh] md:min-h-[66vh] ",
     },
   },
   {
     margin: "screen",
     height: true,
     class: {
-      section: "md:min-h-screen ",
+      section: "min-h-screen ",
+      container: "items-end",
     },
   },
 ] as const;

@@ -7,9 +7,10 @@ import { tv } from "tailwind-variants";
 
 export interface LinkComponent {
   blok: Link & SbBlokData;
+  parent?: string;
 }
 
-export default function Link({ blok }: LinkComponent) {
+export default function Link({ blok, parent }: LinkComponent) {
   const { button, link } = classes();
 
   let url = blok.href?.url || `/${blok.href?.cached_url}`;
@@ -26,7 +27,9 @@ export default function Link({ blok }: LinkComponent) {
     <HeroButton
       href={url}
       as={HeroLink}
-      className={button()}
+      color="primary"
+      variant={parent === "header" ? "bordered" : "solid"}
+      className={button({ slim: parent === "header" })}
       {...storyblokEditable(blok)}
     >
       {label}
@@ -40,7 +43,14 @@ export default function Link({ blok }: LinkComponent) {
 
 const classes = tv({
   slots: {
-    button: "",
+    button: "text-medium",
     link: "text-inherit",
+  },
+  variants: {
+    slim: {
+      true: {
+        button: "px-3.5 h-9 border-1.5",
+      },
+    },
   },
 });

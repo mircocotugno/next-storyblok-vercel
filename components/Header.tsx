@@ -70,7 +70,7 @@ export default function Header({ blok, withBack }: HeaderComponent) {
           )}
           {blok.links?.map((child) => (
             <HeroNavbarItem key={child._uid}>
-              <StoryblokComponent blok={child} />
+              <StoryblokComponent blok={child} parent={blok.component} />
             </HeroNavbarItem>
           ))}
           <HeroNavbarMenuToggle
@@ -81,7 +81,7 @@ export default function Header({ blok, withBack }: HeaderComponent) {
         <HeroNavbarMenu>
           {blok.links?.map((child) => (
             <HeroNavbarMenuItem key={child._uid}>
-              <StoryblokComponent blok={child} />
+              <StoryblokComponent blok={child} parent={blok.component} />
             </HeroNavbarMenuItem>
           ))}
         </HeroNavbarMenu>

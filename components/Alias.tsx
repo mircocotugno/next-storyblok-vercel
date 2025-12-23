@@ -1,7 +1,8 @@
 import { ListsProps } from "@/pages";
 import type { Alias } from "@/sbComponentType";
-import { SbBlokData, storyblokEditable } from "@storyblok/react";
-import { default as NextLink } from "next/link";
+import { ISbStoryData, SbBlokData, storyblokEditable } from "@storyblok/react";
+import Link from "next/link";
+import { default as NextImage } from "next/image";
 import {
   Card as HeroCard,
   CardHeader as HeroCardHeader,
@@ -9,51 +10,103 @@ import {
 } from "@heroui/react";
 import { tv } from "tailwind-variants";
 import { widthVariants } from "@/config/variants";
+import getResized from "@/lib/sbImage";
+import { StoryblokAsset } from "@/.storyblok/types/storyblok";
 
 interface AliasComponent {
   blok: Alias & SbBlokData;
   lists: ListsProps;
 }
 
+function resolveAlias(blok: Alias, lists: ListsProps) {
+  if (blok.list) {
+    const story = (lists[blok.list] as ISbStoryData[])?.[0];
+    return {
+      ...story.content,
+      link: story.full_slug,
+    };
+  }
+
+  if (blok.story && typeof blok.story !== "string") {
+    return {
+      ...blok.story.content,
+      link: blok.story.full_slug,
+    };
+  }
+
+  return {
+    title: blok.title,
+    description: blok.description,
+    image: blok.image as StoryblokAsset,
+    link: blok.href?.url as string,
+  };
+}
+
 export default function Alias({ blok, lists }: AliasComponent) {
-  const list = !!blok.list ? lists[blok.list] : [];
-  const story = !blok.story && list?.length ? list[0] : blok.story;
-  if (!story || typeof story === "string") return null;
-
-  const alias = story.content;
-  const { wrapper, card, anchor, header, title, description } = classes();
-
+  const { wrapper } = classes();
+  const alias = resolveAlias(blok, lists);
+  const { width } = blok;
   return (
-    <div
-      className={wrapper({ width: blok.width || undefined })}
-      {...storyblokEditable(blok)}
-    >
-      <HeroCard className={card()} key={story.full_slug}>
-        <NextLink href={story.full_slug} className="group block h-full">
-          <div className={anchor()}>
-            <HeroCardHeader className={header()}>
-              <h4 className={title()}>{alias.title}</h4>
-              <p className={description()}>{alias.description}</p>
-            </HeroCardHeader>
-            {!!alias.image?.filename && (
-              <HeroImage
-                removeWrapper
-                className="z-0 w-full h-full object-cover"
-                src={alias.image.filename}
-                loading="lazy"
-              />
-            )}
-          </div>
-        </NextLink>
-      </HeroCard>
+    <div className={wrapper({ width })} {...storyblokEditable(blok)}>
+      <Banner
+        title={alias.title}
+        description={alias.description}
+        image={alias.image}
+        link={alias.link}
+      />
     </div>
   );
 }
 
+export interface BannerComponent {
+  title?: string;
+  description?: string;
+  image?: StoryblokAsset;
+  link: string;
+}
+
+export const Banner = ({
+  title,
+  description,
+  image,
+  link,
+}: BannerComponent) => {
+  const { card, anchor, header, heading, content } = classes();
+  return (
+    <HeroCard className={card()}>
+      <Link href={link} className="group block h-full">
+        <div className={anchor()}>
+          {(title || description) && (
+            <HeroCardHeader className={header()}>
+              {title && <h4 className={heading()}>{title}</h4>}
+              {description && <p className={content()}>{description}</p>}
+            </HeroCardHeader>
+          )}
+
+          {image?.filename && (
+            <HeroImage
+              removeWrapper
+              className="z-0 w-full h-full object-cover max-w-full!"
+              src={getResized({
+                filename: image.filename,
+                focus: image.focus,
+              })}
+              alt={image.alt || ""}
+              loading="lazy"
+              as={NextImage}
+              fill
+            />
+          )}
+        </div>
+      </Link>
+    </HeroCard>
+  );
+};
+
 const classes = tv({
   slots: {
     wrapper: "min-h-80",
-    card: "bg-neutral-300 w-full h-full",
+    card: "bg-neutral-300 w-full h-full col-span-12 md:col-span-6 xl:col-span-4",
     anchor: `
       relative h-full min-h-64 overflow-hidden z-0
       hover:[&_h4]:underline-offset-3
@@ -73,13 +126,13 @@ const classes = tv({
       flex flex-col justify-end items-start w-auto
       space-y-2
     `,
-    title: `
+    heading: `
       font-black text-xl/5 lg:text-3xl/7
       decoration-2 decoration-background/0
       transition-all duration-300 ease-in-out
       underline underline-offset-6
     `,
-    description: "text-xs/4 lg:text-sm/5 line-clamp-2 text-background-200",
+    content: "text-xs/4 lg:text-sm/5 line-clamp-2 text-background-200",
   },
   variants: {
     width: widthVariants,

@@ -2,19 +2,14 @@ import type { Grid } from "@/sbComponentType";
 import close from "@/public/close.svg";
 import type { ListsProps } from "@/pages";
 import { useState } from "react";
-import { default as NextLink } from "next/link";
 import { default as NextImage } from "next/image";
 import { SbBlokData } from "@storyblok/react";
 import Markdown from "markdown-to-jsx";
 import { Typography } from "./Typography";
-import {
-  Card as HeroCard,
-  CardHeader as HeroCardHeader,
-  Image as HeroImage,
-  Button as HeroButton,
-} from "@heroui/react";
+import { Button as HeroButton } from "@heroui/react";
 import { tv } from "tailwind-variants";
 import { containerSlot, sectionSlot } from "@/config/variants";
+import { Banner } from "@/components/Alias";
 
 interface GridComponent {
   blok: Grid & SbBlokData;
@@ -50,8 +45,7 @@ export default function Grid({ blok, lists, parent }: GridComponent) {
       )
     : list;
 
-  const { section, container, grid, card, anchor, header, title, description } =
-    classes();
+  const { section, container, grid } = classes();
 
   return (
     <section className={section({ hasHeader: parent === "page" })}>
@@ -98,31 +92,15 @@ export default function Grid({ blok, lists, parent }: GridComponent) {
           )}
         </header>
         <div className={grid()}>
-          {items.map((item) => {
-            const image = item.content.image;
-            return (
-              <HeroCard className={card()} key={item.full_slug}>
-                <NextLink href={item.full_slug} className="group block h-full">
-                  <div className={anchor()}>
-                    <HeroCardHeader className={header()}>
-                      <h4 className={title()}>{item.content.title}</h4>
-                      <p className={description()}>
-                        {item.content.description}
-                      </p>
-                    </HeroCardHeader>
-                    {!!image?.filename && (
-                      <HeroImage
-                        removeWrapper
-                        className="z-0 w-full h-full object-cover"
-                        src={image.filename}
-                        loading="lazy"
-                      />
-                    )}
-                  </div>
-                </NextLink>
-              </HeroCard>
-            );
-          })}
+          {items.map((child) => (
+            <Banner
+              title={child.content.title}
+              description={child.content.description}
+              image={child.content.image}
+              link={child.full_slug}
+              key={child.full_slug}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -134,33 +112,6 @@ const classes = tv({
     section: sectionSlot.base,
     container: containerSlot.base + containerSlot.spaced,
     grid: "grid grid-cols-12 gap-4 md:gap-6 lg:gap-8",
-    card: "bg-neutral-300 col-span-12 md:col-span-6 xl:col-span-4 h-full",
-    anchor: `
-      relative h-full min-h-64 overflow-hidden z-0
-      hover:[&_h4]:underline-offset-3
-      hover:[&_h4]:decoration-background/75
-
-      before:absolute before:inset-0 before:w-full before:h-full
-      before:min-h-64 before:min-w-80 before:z-10
-      before:bg-linear-to-tr before:from-neutral-900/70 before:to-neutral-900/0
-
-      before:opacity-100 lg:before:opacity-0
-      group-hover:before:opacity-100
-      before:transition-opacity before:duration-300 before:ease-in-out
-    `,
-    header: `
-      text-background absolute z-20
-      inset-1 md:inset-2 lg:inset-3
-      flex flex-col justify-end items-start w-auto
-      space-y-2
-    `,
-    title: `
-      font-black text-xl/5 lg:text-3xl/7
-      decoration-2 decoration-background/0
-      transition-all duration-300 ease-in-out
-      underline underline-offset-6
-    `,
-    description: "text-xs/4 lg:text-sm/5 line-clamp-2 text-background-200",
   },
   variants: {
     hasHeader: {

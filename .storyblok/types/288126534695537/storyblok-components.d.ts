@@ -3,8 +3,13 @@
 import type { ISbStoryData } from '@storyblok/js';
 import type { StoryblokAsset, StoryblokMultilink, StoryblokMultiasset } from '../storyblok.d.ts';
 export interface Alias {
-  list: "" | "posts" | "projects";
+  list?: "posts" | "projects";
   story?: ISbStoryData<Project> | ISbStoryData<Post> | string;
+  new?: unknown;
+  title?: string;
+  description?: string;
+  asset?: StoryblokMultiasset;
+  href?: Exclude<StoryblokMultilink, {linktype?: "email"} | {linktype?: "asset"}>;
   styles?: unknown;
   width?: "1/3" | "1/2" | "2/3" | "1/1";
   dark?: boolean;
@@ -52,11 +57,11 @@ export interface Cover {
   styles?: unknown;
   theme?: "primary" | "secondary";
   dark?: boolean;
+  blurred?: boolean;
   margin?: "slim" | "default" | "thick" | "screen";
   height?: boolean;
   justify?: "left" | "center" | "right";
   align?: "top" | "center" | "bottom";
-  blurred?: boolean;
   body: (Text | Image | Link)[];
   image?: StoryblokAsset;
   component: "cover";
@@ -172,13 +177,12 @@ export interface Option {
 }
 
 export interface Page {
-  header?: ISbStoryData<Header> | string;
-  body?: (Cover | Carousel | Columns | Form | Grid)[];
-  footer?: ISbStoryData<Footer> | string;
-  meta?: unknown;
   title?: string;
   description?: string;
   image?: StoryblokAsset;
+  body?: (Cover | Carousel | Columns | Form | Grid)[];
+  header?: ISbStoryData<Header> | string;
+  footer?: ISbStoryData<Footer> | string;
   component: "page";
   _uid: string;
   [k: string]: unknown;
@@ -198,11 +202,11 @@ export interface Picker {
 export interface Post {
   title: string;
   description: string;
-  image?: StoryblokAsset;
+  image: StoryblokAsset;
   author?: string;
+  body?: (Columns | Form)[];
   header?: ISbStoryData<Header> | string;
   footer?: ISbStoryData<Footer> | string;
-  body?: (Columns | Form)[];
   component: "post";
   _uid: string;
   [k: string]: unknown;
@@ -211,13 +215,13 @@ export interface Post {
 export interface Project {
   title: string;
   description: string;
-  image?: StoryblokAsset;
+  image: StoryblokAsset;
+  contexts?: string;
   author?: string;
   type?: "" | "Tipologia 1" | "Tipologia 2" | "Tipologia 3" | "Tipologia 4";
-  contexts?: string;
+  body?: (Cover | Carousel | Form | Columns)[];
   header?: ISbStoryData<Header> | string;
   footer?: ISbStoryData<Footer> | string;
-  body?: (Cover | Carousel | Form | Columns)[];
   component: "project";
   _uid: string;
   [k: string]: unknown;

@@ -1,8 +1,10 @@
 import type { Image } from "@/sbComponentType";
 import { SbBlokData, storyblokEditable } from "@storyblok/react";
 import { Image as HeroImage } from "@heroui/react";
+import { default as NextImage } from "next/image";
 import { tv } from "tailwind-variants";
 import { widthVariants } from "@/config/variants";
+import getResized from "@/lib/sbImage";
 
 export interface ImageComponent {
   blok: Image & SbBlokData;
@@ -10,7 +12,7 @@ export interface ImageComponent {
 }
 
 export default function Image({ blok }: ImageComponent) {
-  const { wrapper, image, color, circle, text } = classes();
+  const { wrapper, img, color, circle, text } = classes();
   const { width, size, crop } = blok;
   if (!blok.asset?.filename && !blok.color) return null;
 
@@ -22,15 +24,17 @@ export default function Image({ blok }: ImageComponent) {
       </div>
     );
 
-  const { filename, alt } = blok.asset;
+  const { filename, alt, focus } = blok.asset;
 
   return (
     <HeroImage
-      src={filename || ""}
-      alt={alt || ""}
-      classNames={{ wrapper: wrapper({ width, size, crop }), img: image({}) }}
-      style={{ width: "100%" }}
       {...storyblokEditable(blok)}
+      src={getResized({ filename, focus })}
+      classNames={{ wrapper: wrapper({ width, size, crop }), img: img() }}
+      style={{ width: "100%" }}
+      as={NextImage}
+      alt={alt || ""}
+      fill
     />
   );
 }
@@ -38,8 +42,8 @@ export default function Image({ blok }: ImageComponent) {
 const classes = tv({
   slots: {
     wrapper:
-      "px-4 self-stretch min-h-24 md:min-h-32 lg:min-h-40 xl:min-h-48 overflow-hidden aspect-square",
-    image: "h-full w-auto object-cover",
+      "px-4 self-stretch min-h-24 md:min-h-32 lg:min-h-40 xl:min-h-48 overflow-hidden aspect-square max-w-full!",
+    img: "h-full w-auto object-cover",
     color: "flex flex-col items-center gap-4 flex-none basis-24 text-center",
     circle:
       "w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full aspect-square",
