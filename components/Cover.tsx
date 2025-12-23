@@ -1,5 +1,5 @@
 import type { Cover } from "@/sbComponentType";
-
+import { Image as HeroImage } from "@heroui/react";
 import {
   SbBlokData,
   storyblokEditable,
@@ -7,34 +7,39 @@ import {
 } from "@storyblok/react";
 
 import { tv } from "tailwind-variants";
-import { containerSlot } from "@/config/variants";
+import {
+  alignVariants,
+  containerSlot,
+  darkVariant,
+  hasHeaderVariant,
+  heightVariant,
+  justifyVariants,
+  marginCompoundVariants,
+  marginVariants,
+  sectionSlot,
+  themeCompoundVariants,
+  themeVariants,
+} from "@/config/variants";
 
 export interface CoverComponent {
   blok: Cover & SbBlokData;
   parent: string;
+  hasHeader: boolean;
 }
 
-export default function Cover({ blok, parent }: CoverComponent) {
+export default function Cover({ blok, hasHeader }: CoverComponent) {
+  const { theme, margin, height, align, justify, dark, blurred } = blok;
   const { section, container, wrapper, background } = classes();
   const image = blok.image;
 
   return (
     <section
       id={blok.id}
-      className={section({
-        dark: blok.dark,
-        hasHeader: parent === "page",
-        theme: blok.theme || undefined,
-      })}
       {...storyblokEditable(blok)}
+      className={section({ dark, margin, height, hasHeader, theme })}
     >
-      <div
-        className={container({
-          margin: blok.margin || undefined,
-          justify: blok.justify || undefined,
-        })}
-      >
-        <div className={wrapper({ blurred: blok.blurred, dark: blok.dark })}>
+      <div className={container({ margin, justify, align })}>
+        <div className={wrapper({ blurred, dark })}>
           {blok.body?.map((child) => (
             <StoryblokComponent
               blok={child}
@@ -44,10 +49,15 @@ export default function Cover({ blok, parent }: CoverComponent) {
           ))}
         </div>
       </div>
-      {image && (
-        <div
-          style={{ backgroundImage: `url(${blok.image?.filename})` }}
-          className={background({ theme: blok.theme || undefined })}
+      {image?.filename && (
+        <HeroImage
+          src={image.filename}
+          alt={image.alt || ""}
+          radius="none"
+          classNames={{
+            wrapper: background(),
+            img: "w-full h-full object-cover",
+          }}
         />
       )}
     </section>
@@ -56,82 +66,29 @@ export default function Cover({ blok, parent }: CoverComponent) {
 
 const classes = tv({
   slots: {
-    section: "px-4 sm:px-6 md:px-8 relative z-0",
-    container:
-      containerSlot + " py-6 md:py-9 lg:py-12 gap-y-4 md:gap-y-6 lg:gap-y-8",
+    section: sectionSlot.base + sectionSlot.background,
+    container: containerSlot.base + containerSlot.spaced + containerSlot.colums,
     wrapper: "px-4 w-full sm:w-2/3 md:w-1/2 space-y-3 z-10",
-    background: "absolute inset-0 -z-1 bg-cover bg-center",
+    background: "absolute inset-0 -z-1 max-w-full!",
   },
   variants: {
-    theme: {
-      primary: {
-        section: "bg-primary",
-      },
-      secondary: {
-        section: "bg-secondary",
-      },
-    },
-    margin: {
-      slim: {
-        container: "py-1.5 md:py-2 lg:py-3",
-        wrapper: "space-y-1.5",
-      },
-      thick: {
-        container: "py-12 md:py-14 lg:py-16",
-        wrapper: "space-y-3",
-      },
-      screen: {
-        container: "py-18 md:py-20 lg:py-24 min-h-screen item-center",
-        wrapper: "space-y-3",
-      },
-    },
-    justify: {
-      left: { container: "justify-start text-left" },
-      center: { container: "justify-center text-center" },
-      right: { container: "justify-end text-right" },
-    },
-    dark: {
-      true: { section: "text-background bg-foreground" },
-    },
+    theme: themeVariants,
+    hasHeader: hasHeaderVariant,
+    margin: marginVariants,
+    height: heightVariant,
+    justify: justifyVariants,
+    align: alignVariants,
+    dark: darkVariant,
     blurred: {
       true: {
         wrapper:
           "relative z-0 before:absolute before:-inset-24 before:-z-20 before:mask-[url(/mask.png)] before:mask-size-[100%100%] before:backdrop-blur-2xl",
       },
     },
-    hasHeader: {
-      true: { section: "first:pt-12 first:md:pt-16 first:lg:pt-20" },
-    },
   },
-  compoundVariants: [
-    {
-      margin: "screen",
-      hasHeader: true,
-      class: {
-        section:
-          "first:min-h-[100vh - 2rem] md:first:min-h-[100vh - 3rem] lg:first:min-h-[100vh - 4rem]",
-      },
-    },
-    {
-      theme: "primary",
-      dark: true,
-      class: {
-        section: "bg-primary-50",
-      },
-    },
-    {
-      theme: "secondary",
-      dark: true,
-      class: {
-        section: "bg-secondary-50",
-      },
-    },
-    {
-      theme: undefined,
-      dark: true,
-      class: {
-        section: "bg-background",
-      },
-    },
-  ],
+  compoundVariants: [...themeCompoundVariants, ...marginCompoundVariants],
+  defaultVariants: {
+    theme: "default",
+    margin: "default",
+  },
 });

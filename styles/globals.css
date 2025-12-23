@@ -6,6 +6,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Swiper */
+  --swiper-navigation-size: 2rem;
+  --swiper-navigation-top-offset: 50%;
+  --swiper-navigation-sides-offset: 0.5rem;
+  --swiper-theme-color: #ffffff;
+  --swiper-pagination-bullet-size: 0.75rem;
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
 }
 
 @theme {
@@ -16,17 +23,6 @@
   --color-foreground: var(--foreground);
 }
 
-html,
-.hides-crollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-html::-webkit-scrollbar,
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -35,6 +31,14 @@ body {
 
 main {
   overflow-x: hidden;
+}
+.hides-crollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .h-inherit {

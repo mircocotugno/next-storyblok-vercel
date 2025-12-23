@@ -14,6 +14,7 @@ import {
   Button as HeroButton,
 } from "@heroui/react";
 import { tv } from "tailwind-variants";
+import { containerSlot, sectionSlot } from "@/config/variants";
 
 interface GridComponent {
   blok: Grid & SbBlokData;
@@ -61,7 +62,7 @@ export default function Grid({ blok, lists, parent }: GridComponent) {
               {blok.heading}
             </Markdown>
           )}
-          {filters && (
+          {blok.filters && filters && (
             <div className="flex items-center justify-between gap-2 pt-4 pb-8">
               {!!activeFilters?.length && (
                 <HeroButton
@@ -130,8 +131,8 @@ export default function Grid({ blok, lists, parent }: GridComponent) {
 
 const classes = tv({
   slots: {
-    section: "px-4 sm:px-6 md:px-8",
-    container: "py-6 md:py-9 lg:py-12 max-w-5xl lg:max-w-7xl",
+    section: sectionSlot.base,
+    container: containerSlot.base + containerSlot.spaced,
     grid: "grid grid-cols-12 gap-4 md:gap-6 lg:gap-8",
     card: "bg-neutral-300 col-span-12 md:col-span-6 xl:col-span-4 h-full",
     anchor: `

@@ -1,30 +1,36 @@
 import type { Image } from "@/sbComponentType";
 import { SbBlokData, storyblokEditable } from "@storyblok/react";
 import { Image as HeroImage } from "@heroui/react";
-import { default as NextImage } from "next/image";
 import { tv } from "tailwind-variants";
 import { widthVariants } from "@/config/variants";
 
 export interface ImageComponent {
   blok: Image & SbBlokData;
+  parent?: string;
 }
 
 export default function Image({ blok }: ImageComponent) {
-  if (!blok.asset?.filename) return null;
-  const { wrapper, image } = classes();
+  const { wrapper, image, color, circle, text } = classes();
+  const { width, size, crop } = blok;
+  if (!blok.asset?.filename && !blok.color) return null;
+
+  if (!blok.asset?.filename)
+    return (
+      <div className={color()} {...storyblokEditable(blok)}>
+        <div className={circle()} style={{ backgroundColor: blok.color }} />
+        {blok.caption && <p className={text()}>{blok.caption}</p>}
+      </div>
+    );
+
+  const { filename, alt } = blok.asset;
 
   return (
     <HeroImage
-      src={blok.asset?.filename || ""}
-      alt={blok.asset?.alt || ""}
-      classNames={{
-        wrapper: wrapper({
-          width: blok.width || undefined,
-          size: blok.size || undefined,
-        }),
-        img: image({}),
-      }}
-      {...storyblokEditable(blok as SbBlokData)}
+      src={filename || ""}
+      alt={alt || ""}
+      classNames={{ wrapper: wrapper({ width, size, crop }), img: image({}) }}
+      style={{ width: "100%" }}
+      {...storyblokEditable(blok)}
     />
   );
 }
@@ -34,6 +40,10 @@ const classes = tv({
     wrapper:
       "px-4 self-stretch min-h-24 md:min-h-32 lg:min-h-40 xl:min-h-48 overflow-hidden aspect-square",
     image: "h-full w-auto object-cover",
+    color: "flex flex-col items-center gap-4 flex-none basis-24 text-center",
+    circle:
+      "w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full aspect-square",
+    text: "text-sm",
   },
   variants: {
     width: {
@@ -62,9 +72,9 @@ const classes = tv({
           widthVariants["1/4"].wrapper +
           " aspect-5/3 md:aspect-square lg:aspect-1/4",
       },
-      auto: {
-        ...widthVariants.auto,
-        wrapper: widthVariants.auto.wrapper + " aspect-5/3 md:aspect-auto",
+      default: {
+        ...widthVariants.default,
+        wrapper: widthVariants.default.wrapper + "aspect-auto",
       },
     },
     size: {
@@ -78,8 +88,13 @@ const classes = tv({
         wrapper: "flex-1 max-h-48 md:max-h-56 lg:max-h-64",
       },
     },
+    crop: {
+      false: {
+        wrapper: "h-auto! self-auto",
+      },
+    },
   },
   defaultVariants: {
-    width: "auto",
+    width: "default",
   },
 });

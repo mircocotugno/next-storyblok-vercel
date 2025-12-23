@@ -1,4 +1,5 @@
 import { default as NextLink } from "next/link";
+import { Image as HeroImage } from "@heroui/react";
 import { tv } from "tailwind-variants";
 
 const defaultTypography = {
@@ -67,26 +68,26 @@ export const Typography = ({
 
 const classes = tv({
   slots: {
-    h1: "font-black text-6xl/13 lg:text-7xl/16 xl:text-8xl/19",
-    h2: "font-extrabold text-5xl/10 lg:text-6xl/13 xl:text-7xl/15",
-    h3: "font-extrabold text-4xl/9 lg:text-5xl/11 xl:text-6xl/13",
-    h4: "font-bold text-3xl/8 lg:text-4xl/9 xl:text-5xl/11",
-    h5: "font-semibold text-2xl/6 lg:text-3xl/8 xl:text-4xl/9",
-    h6: "font-medium text-xl/6 lg:text-2xl/7 xl:text-3xl/8",
-    p: "text-base lg:text-lg xl:text-xl",
+    h1: "font-black text-5xl lg:text-6xl xl:text-7xl leading-none",
+    h2: "font-extrabold text-4xl lg:text-5xl xl:text-6xl leading-none",
+    h3: "font-extrabold text-3xl lg:text-4xl xl:text-5xl leading-none",
+    h4: "font-bold text-2xl lg:text-3xl xl:text-4xl leading-none",
+    h5: "font-semibold text-xl lg:text-2xl xl:text-3xl leading-none",
+    h6: "font-medium text-lg lg:text-xl xl:text-2xl leading-none",
+    p: "text-base lg:text-lg xl:text-xl leading-snug",
     ul: "list-disc list-outside my-4",
     a: "font-medium transition-all duration-300 ease-in-out hover:text-primary underline underline-offset-4 hover:underline-offset-2 decoration-1 decoration-foreground/25 hover:decoration-primary/75",
   },
   variants: {
     small: {
       true: {
-        h1: "text-4xl/9 lg:text-5xl/11 xl:text-6xl/13",
-        h2: "text-3xl/8 lg:text-4xl/9 xl:text-5xl/11",
-        h3: "text-2xl/7 lg:text-3xl/8 xl:text-4xl/9",
-        h4: "text-xl/6 lg:text-2xl/7 xl:text-3xl/8",
-        h5: "text-lg/4 lg:text-xl/5 xl:text-2xl/7",
-        h6: "text-base/3 md:text-lg/7 lg:text-xl/8",
-        p: "text-sm lg:text-base xl:text-lg",
+        h1: "text-4xl lg:text-5xl xl:text-6xl leading-tight",
+        h2: "text-3xl lg:text-4xl xl:text-5xl leading-tight",
+        h3: "text-2xl lg:text-3xl xl:text-4xl leading-tight",
+        h4: "text-xl lg:text-2xl xl:text-3xl leading-tight",
+        h5: "text-lg lg:text-xl xl:text-2xl leading-tight",
+        h6: "text-base md:text-lg lg:text-xl leading-tight",
+        p: "text-sm lg:text-base xl:text-lg leading-snug",
       },
     },
   },

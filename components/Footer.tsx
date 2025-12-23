@@ -4,7 +4,7 @@ import { default as NextLink } from "next/link";
 import Markdown from "markdown-to-jsx";
 import { default as NextImage } from "next/image";
 import { tv } from "tailwind-variants";
-import { containerSlot } from "@/config/variants";
+import { containerSlot, sectionSlot } from "@/config/variants";
 
 export interface FooterComponent {
   blok: Footer & SbBlokData;
@@ -67,9 +67,8 @@ export default function Footer({ blok }: FooterComponent) {
 
 const classes = tv({
   slots: {
-    footer:
-      "bg-background text-foreground py-4 px-2 xs:px-4 sm:px-6 md:px-8 pb-8",
-    container: containerSlot + " justify-between",
+    footer: sectionSlot.base + "bg-background text-foreground pb-8",
+    container: containerSlot.base + containerSlot.colums + " justify-between",
     column: "px-3 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6",
     copyright: "text-xs opacity-65 font-bold",
     terms:

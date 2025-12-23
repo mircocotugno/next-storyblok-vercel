@@ -1,29 +1,35 @@
 import type { Header } from "@/sbComponentType";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import {
   SbBlokData,
   storyblokEditable,
   StoryblokComponent,
 } from "@storyblok/react";
+import back from "@/public/back.svg";
+import { useRouter } from "next/router";
 
 import {
   Navbar as HeroNavbar,
-  NavbarBrand as HeroNavbarBrand,
   NavbarContent as HeroNavbarContent,
   NavbarItem as HeroNavbarItem,
   NavbarMenu as HeroNavbarMenu,
   NavbarMenuItem as HeroNavbarMenuItem,
   NavbarMenuToggle as HeroNavbarMenuToggle,
+  Link as HeroLink,
 } from "@heroui/react";
+
 import { default as NextImage } from "next/image";
 import { default as NextLink } from "next/link";
 
 export interface HeaderComponent {
   blok: Header & SbBlokData;
+  withBack: boolean;
   parent: string;
 }
 
-export default function Header({ blok }: HeaderComponent) {
+export default function Header({ blok, withBack }: HeaderComponent) {
+  const router = useRouter();
+  const backUrl = router.asPath.split("/").slice(0, -1).join("/");
   const [isOpen, setOpen] = useState(false);
 
   const classes = {
@@ -35,43 +41,51 @@ export default function Header({ blok }: HeaderComponent) {
   };
 
   return (
-    <HeroNavbar
-      classNames={classes}
-      height={"3rem"}
-      isBlurred
-      shouldHideOnScroll
-      {...storyblokEditable(blok)}
-      onMenuOpenChange={setOpen}
-    >
-      {blok.image?.filename && (
-        <NextLink href="/">
-          <NextImage
-            className="h-12 w-auto max-h-8 md:max-h-10 lg:max-h-12 "
-            src={blok.image.filename}
-            alt={blok.image.alt || ""}
-            width={128}
-            height={64}
+    <Fragment>
+      <HeroNavbar
+        classNames={classes}
+        height={"3rem"}
+        isBlurred
+        shouldHideOnScroll
+        {...storyblokEditable(blok)}
+        onMenuOpenChange={setOpen}
+      >
+        {blok.image?.filename && (
+          <NextLink href="/">
+            <NextImage
+              className="h-12 w-auto max-h-8 md:max-h-10 lg:max-h-12 "
+              src={blok.image.filename}
+              alt={blok.image.alt || ""}
+              width={128}
+              height={64}
+            />
+          </NextLink>
+        )}
+        <HeroNavbarContent justify="end">
+          {withBack && (
+            <HeroLink href={backUrl} className="text-inherit mr-4">
+              <NextImage src={back} alt="back icon" className="h-7 w-7" />
+              <span className="hidden sm:inline">Indietro</span>
+            </HeroLink>
+          )}
+          {blok.links?.map((child) => (
+            <HeroNavbarItem key={child._uid}>
+              <StoryblokComponent blok={child} />
+            </HeroNavbarItem>
+          ))}
+          <HeroNavbarMenuToggle
+            className="sm:hidden"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           />
-        </NextLink>
-      )}
-      <HeroNavbarContent justify="end">
-        {blok.links?.map((child) => (
-          <HeroNavbarItem key={child._uid}>
-            <StoryblokComponent blok={child} />
-          </HeroNavbarItem>
-        ))}
-        <HeroNavbarMenuToggle
-          className="sm:hidden"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-        />
-      </HeroNavbarContent>
-      <HeroNavbarMenu>
-        {blok.links?.map((child) => (
-          <HeroNavbarMenuItem key={child._uid}>
-            <StoryblokComponent blok={child} />
-          </HeroNavbarMenuItem>
-        ))}
-      </HeroNavbarMenu>
-    </HeroNavbar>
+        </HeroNavbarContent>
+        <HeroNavbarMenu>
+          {blok.links?.map((child) => (
+            <HeroNavbarMenuItem key={child._uid}>
+              <StoryblokComponent blok={child} />
+            </HeroNavbarMenuItem>
+          ))}
+        </HeroNavbarMenu>
+      </HeroNavbar>
+    </Fragment>
   );
 }

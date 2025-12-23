@@ -4,49 +4,48 @@ import {
   storyblokEditable,
   StoryblokComponent,
 } from "@storyblok/react";
+import Card from "@/components/Card";
+import Accordion from "@/components/Accordion";
+import Menu from "@/components/Menu";
 import { tv } from "tailwind-variants";
+import { widthVariants } from "@/config/variants";
 
-import Card from "@/components/card";
-import Accordion from "@/components/accordion";
-import Menu from "@/components/menu";
+const wrappers = {
+  card: Card,
+  accordion: Accordion,
+  menu: Menu,
+};
 
 export interface WrapperComponent {
   blok: Wrapper & SbBlokData;
 }
 
 export default function Wrapper({ blok }: WrapperComponent) {
-  const wrappers = {
-    card: Card,
-    accordion: Accordion,
-    menu: Menu,
-  };
-
   if (blok.mode && wrappers[blok.mode]) {
     const WrapperMode = wrappers[blok.mode];
     return <WrapperMode blok={blok} />;
   }
 
+  const { width } = blok;
+  const { wrapper } = classes();
+
   return (
-    <div
-      className={classes({ width: blok.width })}
-      {...storyblokEditable(blok)}
-    >
+    <div className={wrapper({ width })} {...storyblokEditable(blok)}>
       {blok.body?.map((child) => (
         <StoryblokComponent blok={child} key={child._uid} />
       ))}
     </div>
   );
 }
-// "" | "1/3" | "1/2" | "2/3" | "1/1";
+
 const classes = tv({
-  base: "p-3",
+  slots: {
+    wrapper: "blok space-y-4 flex-none basis-xs",
+  },
   variants: {
-    width: {
-      "": "",
-      "1/1": "w-full",
-      "1/2": "w-1/2",
-      "1/3": "w-1/3",
-      "2/3": "w-2/3",
-    },
+    width: widthVariants,
+  },
+  defaultVariants: {
+    width: "default",
   },
 });

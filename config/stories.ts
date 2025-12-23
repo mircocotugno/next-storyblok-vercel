@@ -14,6 +14,7 @@ import Text from "@/components/Text";
 import Image from "@/components/Image";
 import Link from "@/components/Link";
 import Wrapper from "@/components/Wrapper";
+import Group from "@/components/Group";
 import Field from "@/components/Field";
 
 export const components = {
@@ -33,6 +34,7 @@ export const components = {
   image: Image,
   link: Link,
   wrapper: Wrapper,
+  group: Group,
   field: Field,
 };
 

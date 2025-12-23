@@ -14,7 +14,7 @@ export default function Slug({ story, lists }: LayoutComponent) {
   });
 
   if (!page) return null;
-  return <StoryblokComponent blok={page?.content} lists={lists} />;
+  return <StoryblokComponent blok={page?.content} lists={lists} story={page} />;
 }
 
 interface StaticProps {

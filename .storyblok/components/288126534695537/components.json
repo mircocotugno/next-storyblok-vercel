@@ -4,7 +4,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-12-17T09:49:03.566Z",
-    "updated_at": "2025-12-18T11:38:04.028Z",
+    "updated_at": "2025-12-18T19:43:49.539Z",
     "id": 124007807257703,
     "schema": {
       "list": {
@@ -43,7 +43,8 @@
         "id": "idiBO2-DQhKHB-fhJbnalg",
         "display_name": "Storia",
         "tooltip": true,
-        "description": "Se selezionato ignora il campo lista"
+        "description": "Se selezionato ignora il campo lista",
+        "allow_advanced_search": true
       },
       "styles": {
         "type": "section",
@@ -80,7 +81,9 @@
             "value": "1/1",
             "name": "Intera"
           }
-        ]
+        ],
+        "exclude_empty_option": true,
+        "description": ""
       },
       "dark": {
         "type": "boolean",
@@ -209,7 +212,7 @@
     "display_name": "Colonne",
     "description": null,
     "created_at": "2025-10-28T21:50:02.369Z",
-    "updated_at": "2025-12-17T10:05:44.965Z",
+    "updated_at": "2025-12-21T15:01:42.607Z",
     "id": 106490275313102,
     "schema": {
       "id": {
@@ -224,7 +227,9 @@
         "keys": [
           "theme",
           "margin",
-          "dark"
+          "dark",
+          "align",
+          "height"
         ],
         "id": "nrvI1t7bR4u2BTqXT6RxQA",
         "pos": 1
@@ -245,36 +250,9 @@
         "pos": 2,
         "component_denylist": []
       },
-      "margin": {
-        "type": "option",
-        "display_name": "Margini",
-        "options": [
-          {
-            "name": "Fini",
-            "value": "slim"
-          },
-          {
-            "name": "Spessi",
-            "value": "thick"
-          },
-          {
-            "name": "Riempi",
-            "value": "screen"
-          }
-        ],
-        "id": "UHAOuzLLRqqV7otasfXgSg",
-        "pos": 3
-      },
-      "dark": {
-        "type": "boolean",
-        "display_name": "Tema scuro",
-        "inline_label": true,
-        "id": "UuVor7YGSt20Y38qFhYspQ",
-        "pos": 4
-      },
       "theme": {
         "type": "option",
-        "pos": 5,
+        "pos": 3,
         "use_uuid": true,
         "options": [
           {
@@ -289,7 +267,84 @@
           }
         ],
         "display_name": "Tema",
-        "id": "hqo3P0xiRD-UJ-cglU4t3A"
+        "id": "hqo3P0xiRD-UJ-cglU4t3A",
+        "exclude_empty_option": true
+      },
+      "dark": {
+        "type": "boolean",
+        "display_name": "Tema scuro",
+        "inline_label": true,
+        "id": "UuVor7YGSt20Y38qFhYspQ",
+        "pos": 4
+      },
+      "margin": {
+        "type": "option",
+        "display_name": "Margini",
+        "options": [
+          {
+            "name": "Fini",
+            "value": "slim",
+            "_uid": "44599bc3-034b-4f0f-8b89-707587a1f2e8"
+          },
+          {
+            "_uid": "ea8c8630-110f-4414-879c-ab13a4530a1a",
+            "value": "default",
+            "name": "Medi"
+          },
+          {
+            "name": "Spessi",
+            "value": "thick",
+            "_uid": "eae1767e-7a3e-481b-afda-f3a82263553c"
+          },
+          {
+            "name": "Riempi",
+            "value": "screen",
+            "_uid": "4e0a4a6e-bc94-4e3a-bd5c-5e20b38d9f40"
+          }
+        ],
+        "id": "UHAOuzLLRqqV7otasfXgSg",
+        "pos": 5,
+        "exclude_empty_option": true,
+        "default_value": "default"
+      },
+      "height": {
+        "type": "boolean",
+        "pos": 6,
+        "display_name": "Altezza minima",
+        "inline_label": true,
+        "id": "nWv-rX09TZS6mr-XKvt_WQ"
+      },
+      "align": {
+        "type": "option",
+        "pos": 7,
+        "use_uuid": true,
+        "required": false,
+        "options": [
+          {
+            "_uid": "b6822920-6557-447d-84d0-c783783df866",
+            "name": "Sopra",
+            "value": "top"
+          },
+          {
+            "_uid": "5a4d1d65-3dbe-4838-bd0a-6f1d69eb3468",
+            "value": "center",
+            "name": "Centro"
+          },
+          {
+            "_uid": "f9d3b331-7099-46c3-b29b-bcf9f0c6e3b0",
+            "value": "bottom",
+            "name": "Sotto"
+          },
+          {
+            "_uid": "9224d095-d1b1-4952-b8f8-417718163e39",
+            "value": "fill",
+            "name": "Riempi"
+          }
+        ],
+        "exclude_empty_option": true,
+        "default_value": "center",
+        "id": "7F1SaZfCTJOMUxuGmb-tKA",
+        "display_name": "Allinea"
       }
     },
     "image": null,
@@ -313,13 +368,14 @@
     "display_name": "Copertina",
     "description": null,
     "created_at": "2025-10-28T21:24:04.557Z",
-    "updated_at": "2025-11-18T14:02:23.133Z",
+    "updated_at": "2025-12-21T16:48:51.496Z",
     "id": 106483894511018,
     "schema": {
       "id": {
         "type": "text",
         "display_name": "Ancora",
-        "id": "U5D3u-GaR8aS-rkJKrNuPg"
+        "id": "U5D3u-GaR8aS-rkJKrNuPg",
+        "pos": 0
       },
       "styles": {
         "type": "section",
@@ -330,30 +386,12 @@
           "justify",
           "dark",
           "blurred",
-          "theme"
+          "theme",
+          "height",
+          "align"
         ],
-        "id": "6CdAE7HTQEei05ZJ7UYqOg"
-      },
-      "body": {
-        "type": "bloks",
-        "display_name": "Contenuti",
-        "restrict_components": true,
-        "component_whitelist": [
-          "text",
-          "image",
-          "link"
-        ],
-        "required": true,
-        "id": "H_4TYwWSQEiW4H3CH1CVCQ"
-      },
-      "image": {
-        "type": "asset",
-        "display_name": "Immagine",
-        "description": "Consigliato 1920x1024px",
-        "filetypes": [
-          "images"
-        ],
-        "id": "IUYFzthCSP2xrtRo6q5Brw"
+        "id": "6CdAE7HTQEei05ZJ7UYqOg",
+        "pos": 1
       },
       "theme": {
         "type": "option",
@@ -368,7 +406,17 @@
             "value": "secondary"
           }
         ],
-        "id": "n55-UQ7GT3CFyITxGhPQ4A"
+        "id": "n55-UQ7GT3CFyITxGhPQ4A",
+        "default_value": "",
+        "exclude_empty_option": true,
+        "pos": 2
+      },
+      "dark": {
+        "type": "boolean",
+        "display_name": "Tema scuro",
+        "inline_label": true,
+        "id": "UuVor7YGSt20Y38qFhYspQ",
+        "pos": 3
       },
       "margin": {
         "type": "option",
@@ -376,18 +424,35 @@
         "options": [
           {
             "name": "Fini",
-            "value": "slim"
+            "value": "slim",
+            "_uid": "4f2307d2-6836-47f1-8e42-41c214c71384"
+          },
+          {
+            "_uid": "b15a5a59-c22d-44a0-a6bc-affbe841298e",
+            "value": "default",
+            "name": "Medi"
           },
           {
             "name": "Spessi",
-            "value": "thick"
+            "value": "thick",
+            "_uid": "8b61524a-db85-4dd5-9bbd-ccb9e3cc981c"
           },
           {
             "name": "Riempi",
-            "value": "screen"
+            "value": "screen",
+            "_uid": "ce952f5d-053c-4839-bda0-11bd300588b1"
           }
         ],
-        "id": "47tUJRBYRTqhh8bmyg6tcw"
+        "id": "47tUJRBYRTqhh8bmyg6tcw",
+        "exclude_empty_option": true,
+        "default_value": "default",
+        "pos": 4
+      },
+      "height": {
+        "type": "boolean",
+        "pos": 5,
+        "display_name": "Altezza minima",
+        "id": "DB48uP-RQtumQSZ-BMlq6A"
       },
       "justify": {
         "type": "option",
@@ -406,19 +471,64 @@
             "value": "right"
           }
         ],
-        "id": "QTKVkMR1TY2JbNFficH00g"
+        "id": "QTKVkMR1TY2JbNFficH00g",
+        "exclude_empty_option": true,
+        "pos": 6
       },
-      "dark": {
-        "type": "boolean",
-        "display_name": "Tema scuro",
-        "inline_label": true,
-        "id": "UuVor7YGSt20Y38qFhYspQ"
+      "align": {
+        "type": "option",
+        "pos": 7,
+        "use_uuid": true,
+        "id": "YT4vel2ZQl2-XXm-O7xbBQ",
+        "options": [
+          {
+            "_uid": "ce301b8e-0109-4966-9015-90b4a2c100fb",
+            "name": "Sopra",
+            "value": "top"
+          },
+          {
+            "_uid": "e1b70267-26b0-4e7d-9277-44b6a3d17516",
+            "value": "center",
+            "name": "Centro"
+          },
+          {
+            "_uid": "0f5d2d59-02a0-4337-8b9c-b5e893d88e95",
+            "value": "bottom",
+            "name": "Sotto"
+          }
+        ],
+        "exclude_empty_option": true,
+        "default_value": "center"
       },
       "blurred": {
         "type": "boolean",
         "display_name": "Sfoca sfondo",
         "inline_label": true,
-        "id": "bYuYHYqUQr2dmm-6cygYag"
+        "id": "bYuYHYqUQr2dmm-6cygYag",
+        "pos": 8
+      },
+      "body": {
+        "type": "bloks",
+        "display_name": "Contenuti",
+        "restrict_components": true,
+        "component_whitelist": [
+          "text",
+          "image",
+          "link"
+        ],
+        "required": true,
+        "id": "H_4TYwWSQEiW4H3CH1CVCQ",
+        "pos": 9
+      },
+      "image": {
+        "type": "asset",
+        "display_name": "Immagine",
+        "description": "Consigliato 1920x1024px",
+        "filetypes": [
+          "images"
+        ],
+        "id": "IUYFzthCSP2xrtRo6q5Brw",
+        "pos": 10
       }
     },
     "image": null,
@@ -810,6 +920,44 @@
     "metadata": {}
   },
   {
+    "name": "group",
+    "display_name": null,
+    "description": "Gruppo",
+    "created_at": "2025-12-21T14:06:36.771Z",
+    "updated_at": "2025-12-21T14:08:07.369Z",
+    "id": 125486681178277,
+    "schema": {
+      "body": {
+        "type": "bloks",
+        "pos": 0,
+        "display_name": "Contenuti",
+        "restrict_type": "",
+        "restrict_components": true,
+        "component_whitelist": [
+          "image",
+          "link"
+        ],
+        "component_denylist": [],
+        "id": "Qf6KN9yZTf68zKlXPy3qIw"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "group",
+    "component_group_uuid": "e768cdf7-844e-4459-b1b9-e4f287a341c9",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "header",
     "display_name": "Navigatore",
     "description": null,
@@ -863,7 +1011,7 @@
     "display_name": "Immagine",
     "description": null,
     "created_at": "2025-10-28T22:14:38.971Z",
-    "updated_at": "2025-11-02T21:22:43.044Z",
+    "updated_at": "2025-12-21T15:35:28.210Z",
     "id": 106496323470896,
     "schema": {
       "asset": {
@@ -872,39 +1020,79 @@
         "filetypes": [
           "images"
         ],
-        "id": "dUgdtJtFTk-JfXXtmaaa-A"
+        "id": "dUgdtJtFTk-JfXXtmaaa-A",
+        "pos": 0
+      },
+      "picker": {
+        "type": "section",
+        "pos": 1,
+        "keys": [
+          "color",
+          "caption"
+        ],
+        "id": "tUXg8KHbREyBUfQJ80beyw",
+        "display_name": "Campione colore"
+      },
+      "color": {
+        "type": "text",
+        "pos": 2,
+        "display_name": "Colore",
+        "description": "Inserire il codice esadecimale esempio: #ffffff",
+        "max_length": 7,
+        "tooltip": true,
+        "id": "dmfwg0OzT1ernLxuYQ3_CQ"
+      },
+      "caption": {
+        "type": "text",
+        "pos": 3,
+        "display_name": "Didascalia",
+        "id": "Z_Iivsf1S4GKfkcV3_o29Q"
       },
       "styles": {
         "type": "section",
         "display_name": "Stile",
         "keys": [
           "width",
-          "size"
+          "size",
+          "crop"
         ],
-        "id": "DfnRiJV-TyG42NiAVq86IQ"
+        "id": "DfnRiJV-TyG42NiAVq86IQ",
+        "pos": 4
       },
       "width": {
         "type": "option",
         "display_name": "Larghezza",
         "options": [
           {
+            "_uid": "a4405e82-3ba6-4e9c-8a08-11f03697ee9b",
+            "value": "default",
+            "name": "Automatica"
+          },
+          {
             "name": "Un terzo",
-            "value": "1/3"
+            "value": "1/3",
+            "_uid": "57c2cadb-b135-4f98-a24e-a1aa4917bb28"
           },
           {
             "name": "Metà",
-            "value": "1/2"
+            "value": "1/2",
+            "_uid": "b9ef2b5c-d189-40c1-b81f-50815e7d2a32"
           },
           {
             "name": "Due terzi",
-            "value": "2/3"
+            "value": "2/3",
+            "_uid": "139d312c-f4ca-4cc0-88ff-9b5659666880"
           },
           {
             "name": "Intera",
-            "value": "1/1"
+            "value": "1/1",
+            "_uid": "d48fbc2a-bc46-434a-88ef-f06bfcba3418"
           }
         ],
-        "id": "nRTva4x5TLWuotURlZUsUA"
+        "id": "nRTva4x5TLWuotURlZUsUA",
+        "exclude_empty_option": true,
+        "pos": 5,
+        "default_value": "default"
       },
       "size": {
         "type": "option",
@@ -923,7 +1111,17 @@
             "value": "large"
           }
         ],
-        "id": "-rRbA5jzRuOzHqXtcKG3hg"
+        "id": "-rRbA5jzRuOzHqXtcKG3hg",
+        "exclude_empty_option": true,
+        "pos": 6
+      },
+      "crop": {
+        "type": "boolean",
+        "pos": 7,
+        "default_value": true,
+        "display_name": "Ritaglia",
+        "inline_label": true,
+        "id": "eHPalNN_RxSqR_NwOndSBw"
       }
     },
     "image": null,
@@ -1266,7 +1464,7 @@
     "display_name": "Articolo",
     "description": "",
     "created_at": "2025-10-28T23:22:09.485Z",
-    "updated_at": "2025-12-17T09:06:54.399Z",
+    "updated_at": "2025-12-18T19:36:28.992Z",
     "id": 106512914376557,
     "schema": {
       "title": {
@@ -1275,7 +1473,8 @@
         "description": "Consigliati 50-60 caratteri",
         "maximum": 80,
         "required": true,
-        "id": "AgR2DgRWRhyRC_gtVkmB5Q"
+        "id": "AgR2DgRWRhyRC_gtVkmB5Q",
+        "pos": 0
       },
       "description": {
         "type": "text",
@@ -1283,7 +1482,8 @@
         "description": "Consigliati 120-160 caratteri",
         "maximum": 180,
         "required": true,
-        "id": "hgVh4Nd4StO6OpFU6Lmf4g"
+        "id": "hgVh4Nd4StO6OpFU6Lmf4g",
+        "pos": 1
       },
       "image": {
         "type": "asset",
@@ -1292,12 +1492,38 @@
         "filetypes": [
           "images"
         ],
-        "id": "A0OF82S0RPW7FocnoLz54Q"
+        "id": "A0OF82S0RPW7FocnoLz54Q",
+        "pos": 2
       },
       "author": {
         "type": "text",
         "display_name": "Autore",
-        "id": "1pDGYTHNTSWE5Rms9sFk2w"
+        "id": "1pDGYTHNTSWE5Rms9sFk2w",
+        "pos": 3
+      },
+      "header": {
+        "type": "option",
+        "pos": 4,
+        "use_uuid": true,
+        "source": "internal_stories",
+        "filter_content_type": [
+          "header"
+        ],
+        "entry_appearance": "card",
+        "allow_advanced_search": true,
+        "id": "NBSSdVhnR66SA4PZESBQlQ"
+      },
+      "footer": {
+        "type": "option",
+        "pos": 5,
+        "use_uuid": true,
+        "id": "mR1xbj2ITDSLIxVtjuJg2g",
+        "source": "internal_stories",
+        "filter_content_type": [
+          "footer"
+        ],
+        "entry_appearance": "card",
+        "allow_advanced_search": true
       },
       "body": {
         "type": "bloks",
@@ -1308,7 +1534,8 @@
           "form"
         ],
         "id": "DXW4luftTlCPUXn4nODRyg",
-        "component_denylist": []
+        "component_denylist": [],
+        "pos": 6
       }
     },
     "image": null,
@@ -1680,7 +1907,7 @@
     "display_name": "Testo",
     "description": null,
     "created_at": "2025-10-28T22:14:38.831Z",
-    "updated_at": "2025-12-16T14:41:37.998Z",
+    "updated_at": "2025-12-21T13:33:24.673Z",
     "id": 106496322897455,
     "schema": {
       "styles": {
@@ -1724,7 +1951,8 @@
           "bold",
           "italic",
           "list",
-          "link"
+          "link",
+          "image"
         ],
         "id": "A7HzWMIIR9uIUQmyr-WOXQ",
         "rich_markdown": true,
@@ -1761,7 +1989,8 @@
           }
         ],
         "id": "Tr6EY4B2RQ-augcvepa3NA",
-        "pos": 3
+        "pos": 3,
+        "exclude_empty_option": true
       },
       "justify": {
         "type": "option",
@@ -1781,7 +2010,8 @@
           }
         ],
         "id": "dv2TckpFSnCQ6vQ7GnPLBg",
-        "pos": 4
+        "pos": 4,
+        "exclude_empty_option": true
       },
       "small": {
         "type": "boolean",
@@ -1811,7 +2041,7 @@
     "display_name": "Contenitore",
     "description": "",
     "created_at": "2025-10-28T22:57:46.496Z",
-    "updated_at": "2025-11-06T21:35:45.107Z",
+    "updated_at": "2025-12-21T14:08:33.210Z",
     "id": 106506921973459,
     "schema": {
       "body": {
@@ -1823,8 +2053,19 @@
         "component_whitelist": [
           "text",
           "link",
-          "image"
-        ]
+          "image",
+          "group"
+        ],
+        "component_denylist": []
+      },
+      "styles": {
+        "type": "section",
+        "pos": 1,
+        "keys": [
+          "width",
+          "mode"
+        ],
+        "id": "yKg_qkNgSGGasLr31p8Bxw"
       },
       "width": {
         "type": "option",
@@ -1847,20 +2088,13 @@
             "value": "1/1"
           }
         ],
-        "id": "Tr6EY4B2RQ-augcvepa3NA"
-      },
-      "styles": {
-        "type": "section",
-        "pos": 1,
-        "keys": [
-          "width",
-          "mode"
-        ],
-        "id": "yKg_qkNgSGGasLr31p8Bxw"
+        "id": "Tr6EY4B2RQ-augcvepa3NA",
+        "pos": 2,
+        "exclude_empty_option": true
       },
       "mode": {
         "type": "option",
-        "pos": 2,
+        "pos": 3,
         "use_uuid": true,
         "id": "ZURL5epyScOqmTZ2LTWMaQ",
         "display_name": "Modalità",
@@ -1880,7 +2114,8 @@
             "value": "menu",
             "name": "Menu"
           }
-        ]
+        ],
+        "exclude_empty_option": true
       }
     },
     "image": null,

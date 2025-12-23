@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "rm -rf ./next && next dev",
+    "dev": "next dev",
+    "clear": "rm -rf ./next",
     "proxy": "local-ssl-proxy --source 3001 --target 3000 --cert localhost.pem --key localhost-key.pem",
     "build": "next build",
     "start": "next start",

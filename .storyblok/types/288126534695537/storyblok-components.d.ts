@@ -6,7 +6,7 @@ export interface Alias {
   list: "" | "posts" | "projects";
   story?: ISbStoryData<Project> | ISbStoryData<Post> | string;
   styles?: unknown;
-  width?: "" | "1/3" | "1/2" | "2/3" | "1/1";
+  width?: "1/3" | "1/2" | "2/3" | "1/1";
   dark?: boolean;
   component: "alias";
   _uid: string;
@@ -37,9 +37,11 @@ export interface Columns {
   id?: string;
   styles?: unknown;
   body: (Text | Image | Wrapper | Gallery | Alias)[];
-  margin?: "" | "slim" | "thick" | "screen";
+  theme?: "primary" | "secondary";
   dark?: boolean;
-  theme?: "" | "primary" | "secondary";
+  margin?: "slim" | "default" | "thick" | "screen";
+  height?: boolean;
+  align?: "top" | "center" | "bottom" | "fill";
   component: "columns";
   _uid: string;
   [k: string]: unknown;
@@ -48,13 +50,15 @@ export interface Columns {
 export interface Cover {
   id?: string;
   styles?: unknown;
+  theme?: "primary" | "secondary";
+  dark?: boolean;
+  margin?: "slim" | "default" | "thick" | "screen";
+  height?: boolean;
+  justify?: "left" | "center" | "right";
+  align?: "top" | "center" | "bottom";
+  blurred?: boolean;
   body: (Text | Image | Link)[];
   image?: StoryblokAsset;
-  theme?: "" | "primary" | "secondary";
-  margin?: "" | "slim" | "thick" | "screen";
-  justify?: "" | "left" | "center" | "right";
-  dark?: boolean;
-  blurred?: boolean;
   component: "cover";
   _uid: string;
   [k: string]: unknown;
@@ -107,6 +111,13 @@ export interface Grid {
   [k: string]: unknown;
 }
 
+export interface Group {
+  body?: (Image | Link)[];
+  component: "group";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface Header {
   image?: StoryblokAsset;
   links?: Link[];
@@ -118,9 +129,13 @@ export interface Header {
 
 export interface Image {
   asset?: StoryblokAsset;
+  picker?: unknown;
+  color?: string;
+  caption?: string;
   styles?: unknown;
-  width?: "" | "1/3" | "1/2" | "2/3" | "1/1";
-  size?: "" | "small" | "medium" | "large";
+  width?: "default" | "1/3" | "1/2" | "2/3" | "1/1";
+  size?: "small" | "medium" | "large";
+  crop?: boolean;
   component: "image";
   _uid: string;
   [k: string]: unknown;
@@ -185,6 +200,8 @@ export interface Post {
   description: string;
   image?: StoryblokAsset;
   author?: string;
+  header?: ISbStoryData<Header> | string;
+  footer?: ISbStoryData<Footer> | string;
   body?: (Columns | Form)[];
   component: "post";
   _uid: string;
@@ -248,8 +265,8 @@ export interface Text {
   styles?: unknown;
   headline?: string;
   content?: string;
-  width?: "" | "1/4" | "1/3" | "1/2" | "2/3" | "1/1";
-  justify?: "" | "spaced" | "center" | "right";
+  width?: "1/4" | "1/3" | "1/2" | "2/3" | "1/1";
+  justify?: "spaced" | "center" | "right";
   small?: boolean;
   component: "text";
   _uid: string;
@@ -257,10 +274,10 @@ export interface Text {
 }
 
 export interface Wrapper {
-  body?: (Text | Link | Image)[];
-  width?: "" | "1/3" | "1/2" | "2/3" | "1/1";
+  body?: (Text | Link | Image | Group)[];
   styles?: unknown;
-  mode?: "" | "card" | "accordion" | "menu";
+  width?: "1/3" | "1/2" | "2/3" | "1/1";
+  mode?: "card" | "accordion" | "menu";
   component: "wrapper";
   _uid: string;
   [k: string]: unknown;

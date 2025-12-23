@@ -21,33 +21,29 @@ export default function Alias({ blok, lists }: AliasComponent) {
   if (!story || typeof story === "string") return null;
 
   const alias = story.content;
-  const { wrapper, anchor, header, title, description } = classes();
+  const { wrapper, card, anchor, header, title, description } = classes();
 
   return (
     <div
       className={wrapper({ width: blok.width || undefined })}
       {...storyblokEditable(blok)}
     >
-      <HeroCard className="h-full w-full">
-        <NextLink href={story.full_slug} className={anchor()}>
-          <HeroCardHeader className={header({ dark: blok.dark })}>
-            <h4 className={title()}>{alias.title}</h4>
-            <p className={description()}>
-              {alias.description}
-              <br />
-              <span className="text-xs tracking-wide">
-                Continua la lettura...
-              </span>
-            </p>
-          </HeroCardHeader>
-          {!!alias.image?.filename && (
-            <HeroImage
-              removeWrapper
-              className="z-0 w-full h-full object-cover"
-              src={alias.image.filename}
-              loading="lazy"
-            />
-          )}
+      <HeroCard className={card()} key={story.full_slug}>
+        <NextLink href={story.full_slug} className="group block h-full">
+          <div className={anchor()}>
+            <HeroCardHeader className={header()}>
+              <h4 className={title()}>{alias.title}</h4>
+              <p className={description()}>{alias.description}</p>
+            </HeroCardHeader>
+            {!!alias.image?.filename && (
+              <HeroImage
+                removeWrapper
+                className="z-0 w-full h-full object-cover"
+                src={alias.image.filename}
+                loading="lazy"
+              />
+            )}
+          </div>
         </NextLink>
       </HeroCard>
     </div>
@@ -56,14 +52,34 @@ export default function Alias({ blok, lists }: AliasComponent) {
 
 const classes = tv({
   slots: {
-    wrapper: "min-w-80",
-    anchor:
-      "min-h-64 hover:[&_h4]:underline-offset-3 hover:[&_h4]:decoration-background/75 overflow-hidden",
-    header:
-      "text-background absolute z-10 inset-3 md:inset-4 lg:inset-5 flex flex-col justify-end items-start w-auto space-y-2 before:absolute before:-left-1/3 before:-bottom-1/3 before:w-full before:min-h-64 before:min-w-80 before:h-full before:-z-20 before:mask-[url(/mask.png)] before:mask-size-[100%100%] before:backdrop-blur-2xl",
-    title:
-      "font-black text-2xl md:text-3xl lg:text-4xl decoration-2 decoration-background/0 transition-all duration-300 ease-in-out underline underline-offset-6",
-    description: "text-sm md:text-base text-background-200 ",
+    wrapper: "min-h-80",
+    card: "bg-neutral-300 w-full h-full",
+    anchor: `
+      relative h-full min-h-64 overflow-hidden z-0
+      hover:[&_h4]:underline-offset-3
+      hover:[&_h4]:decoration-background/75
+
+      before:absolute before:inset-0 before:w-full before:h-full
+      before:min-h-64 before:min-w-80 before:z-10
+      before:bg-linear-to-tr before:from-neutral-900/70 before:to-neutral-900/0
+
+      before:opacity-100 lg:before:opacity-0
+      group-hover:before:opacity-100
+      before:transition-opacity before:duration-300 before:ease-in-out
+    `,
+    header: `
+      text-background absolute z-20
+      inset-1 md:inset-2 lg:inset-3
+      flex flex-col justify-end items-start w-auto
+      space-y-2
+    `,
+    title: `
+      font-black text-xl/5 lg:text-3xl/7
+      decoration-2 decoration-background/0
+      transition-all duration-300 ease-in-out
+      underline underline-offset-6
+    `,
+    description: "text-xs/4 lg:text-sm/5 line-clamp-2 text-background-200",
   },
   variants: {
     width: widthVariants,

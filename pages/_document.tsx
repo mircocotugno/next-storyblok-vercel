@@ -3,7 +3,7 @@ import { fontSans, fontSerif } from "@/config/font";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="en" className="relative hide-scrollbar">
       <Head />
       <body
         className={`font-sans antialiased ${fontSans.variable} ${fontSerif.variable}`}
