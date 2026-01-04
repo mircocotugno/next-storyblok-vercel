@@ -52,7 +52,7 @@ export default function Columns({ blok, lists, hasHeader }: ColumnsComponent) {
 const classes = tv({
   slots: {
     section: sectionSlot.base,
-    container: containerSlot.base + containerSlot.colums,
+    container: containerSlot.base + containerSlot.columns,
   },
   variants: {
     align: alignVariants,

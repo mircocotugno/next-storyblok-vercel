@@ -9,9 +9,14 @@ import {
   Image as HeroImage,
 } from "@heroui/react";
 import { tv } from "tailwind-variants";
-import { widthVariants } from "@/config/variants";
+import {
+  smallTypographyVariants,
+  widthVariants,
+  wrapperSlot,
+} from "@/config/variants";
 import getResized from "@/lib/sbImage";
 import { StoryblokAsset } from "@/.storyblok/types/storyblok";
+import { small } from "framer-motion/client";
 
 interface AliasComponent {
   blok: Alias & SbBlokData;
@@ -47,7 +52,10 @@ export default function Alias({ blok, lists }: AliasComponent) {
   const alias = resolveAlias(blok, lists);
   const { width } = blok;
   return (
-    <div className={wrapper({ width })} {...storyblokEditable(blok)}>
+    <div
+      className={wrapper({ width, small: true })}
+      {...storyblokEditable(blok)}
+    >
       <Banner
         title={alias.title}
         description={alias.description}
@@ -105,7 +113,7 @@ export const Banner = ({
 
 const classes = tv({
   slots: {
-    wrapper: "min-h-80",
+    wrapper: wrapperSlot.base + "min-h-80",
     card: "bg-neutral-300 w-full h-full col-span-12 md:col-span-6 xl:col-span-4",
     anchor: `
       relative h-full min-h-64 overflow-hidden z-0
@@ -142,5 +150,6 @@ const classes = tv({
         anchor: "hover:[&_h4]:decoration-foreground/75",
       },
     },
+    small: smallTypographyVariants,
   },
 });

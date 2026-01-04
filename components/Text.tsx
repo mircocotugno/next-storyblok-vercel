@@ -2,7 +2,13 @@ import type { Text } from "@/sbComponentType";
 import Markdown from "markdown-to-jsx";
 import { SbBlokData, storyblokEditable } from "@storyblok/react";
 import { tv } from "tailwind-variants";
-import { justifyVariants, widthVariants } from "@/config/variants";
+import {
+  justifyVariants,
+  levelVariants,
+  typographySlots,
+  widthVariants,
+  wrapperSlot,
+} from "@/config/variants";
 import { Typography } from "@/components/Typography";
 
 export interface TextComponent {
@@ -11,63 +17,56 @@ export interface TextComponent {
 }
 
 export default function Text({ blok, parent }: TextComponent) {
-  const { width, justify, small } = blok;
-  const { wrapper, headline, content } = classes();
+  const { width, justify, level } = blok;
+  const { wrapper } = classes();
 
   return (
-    <article
-      className={wrapper({ width, justify, isColumn: parent !== "cover" })}
+    <div
+      className={wrapper({
+        level,
+        width,
+        justify,
+        isColumn: parent !== "cover",
+      })}
+      dir={blok.justify === "right" ? "rtl" : ""}
       {...storyblokEditable(blok)}
     >
       {blok.headline && (
-        <div className={headline({ small })}>
-          <Markdown
-            options={{
-              wrapper: null,
-              overrides: Typography({ small }),
-            }}
-          >
-            {blok.headline}
-          </Markdown>
-        </div>
+        <Markdown
+          options={{
+            wrapper: null,
+            forceBlock: true,
+            overrides: Typography({ level }),
+          }}
+        >
+          {blok.headline}
+        </Markdown>
       )}
       {blok.content && (
-        <div
-          dir={blok.justify === "right" ? "rtl" : ""}
-          className={content({ small })}
+        <Markdown
+          options={{
+            wrapper: null,
+            forceBlock: true,
+            overrides: Typography({ level }),
+          }}
         >
-          <Markdown options={{ wrapper: null, overrides: Typography() }}>
-            {blok.content}
-          </Markdown>
-        </div>
+          {blok.content}
+        </Markdown>
       )}
-    </article>
+    </div>
   );
 }
 
 const classes = tv({
-  slots: {
-    wrapper:
-      "w-full [&_li]:ml-6 wrap-break-word space-y-1 md:space-y-1.5 lg:space-y-2",
-    headline: "space-y-1",
-    content: "text-base lg:text-lg xl:text-xl space-y-1",
-  },
+  slots: typographySlots,
   variants: {
     width: widthVariants,
     justify: justifyVariants,
-    small: {
-      true: {
-        headline: "space-y-1 mb-1 md:mb-2 lg:mb-3",
-        content: "text-xs lg:text-sm xl:text-base space-y-0.5",
-      },
-    },
+    level: levelVariants,
     isColumn: {
       true: {
-        wrapper: "px-2 md:px-3 lg:px-4",
+        wrapper: wrapperSlot.column,
       },
     },
-  },
-  defaultVariants: {
-    width: "default",
   },
 });

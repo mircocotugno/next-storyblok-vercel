@@ -21,6 +21,21 @@
   --breakpoint-md: 40rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --leading-slim: 0.875;
+
+  /* Serif sizes
+  --text-9xl: 8.4em;
+  --text-8xl: 7.6em;
+  --text-7xl: 6.8em;
+  --text-6xl: 6.2em;
+  --text-5xl: 5.6em;
+  --text-4xl: 5em;
+  --text-3xl: 4.4em;
+  --text-2xl: 3.8em;
+  --text-xl: 3.2em;
+  --text-lg: 2.4em;
+  --text-md: 1.6em;
+  --text-sm: 1em; */
 }
 
 body {

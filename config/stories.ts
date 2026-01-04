@@ -15,7 +15,11 @@ import Image from "@/components/Image";
 import Link from "@/components/Link";
 import Wrapper from "@/components/Wrapper";
 import Group from "@/components/Group";
-import Field from "@/components/Field";
+import Checkbox from "@/components/Checkbox";
+import Input from "@/components/Input";
+import Picker from "@/components/Picker";
+import Select from "@/components/Select";
+import Slider from "@/components/Slider";
 
 export const components = {
   page: Page,
@@ -28,14 +32,18 @@ export const components = {
   steps: Steps,
   carousel: Carousel,
   grid: Grid,
-  form: Form,
   alias: Alias,
   text: Text,
   image: Image,
   link: Link,
   wrapper: Wrapper,
   group: Group,
-  field: Field,
+  form: Form,
+  checkbox: Checkbox,
+  input: Input,
+  picker: Picker,
+  select: Select,
+  slider: Slider,
 };
 
 export const relations = [

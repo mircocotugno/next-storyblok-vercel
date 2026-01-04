@@ -194,34 +194,45 @@
     "display_name": "Casella",
     "description": "",
     "created_at": "2025-11-06T22:45:31.489Z",
-    "updated_at": "2025-11-06T22:53:30.798Z",
+    "updated_at": "2025-12-24T09:27:14.589Z",
     "id": 109688960986190,
     "schema": {
       "id": {
         "type": "text",
         "pos": 0,
-        "id": "zAxQLCk2R-eBOqDln7tbbg"
+        "id": "zAxQLCk2R-eBOqDln7tbbg",
+        "required": true
       },
       "label": {
-        "type": "text",
+        "type": "markdown",
         "pos": 1,
-        "id": "JQ_u4-TASR-ZbQtJzh5Rbg"
+        "id": "QGpmfy_OQ6aRSmx6ZacOjA",
+        "rich_markdown": true,
+        "customize_toolbar": true,
+        "toolbar": [
+          "link"
+        ]
       },
       "default": {
         "type": "boolean",
         "pos": 2,
         "id": "kBGpkUMrSkK5PptdNwaljg",
-        "display_name": "Predefinito"
+        "display_name": "È un campo selezionato",
+        "inline_label": true
       },
       "required": {
         "type": "boolean",
         "pos": 3,
-        "id": "5fVJ3MPFTB6ed4PENnt3HQ"
+        "id": "5fVJ3MPFTB6ed4PENnt3HQ",
+        "display_name": "È un campo obbligatorio",
+        "inline_label": true
       },
       "hidden": {
         "type": "boolean",
         "pos": 4,
-        "id": "iU0LRftwSSWYZq3JIY4aHg"
+        "id": "iU0LRftwSSWYZq3JIY4aHg",
+        "display_name": "È un campo nascosto",
+        "inline_label": true
       }
     },
     "image": null,
@@ -401,7 +412,7 @@
     "display_name": "Copertina",
     "description": null,
     "created_at": "2025-10-28T21:24:04.557Z",
-    "updated_at": "2025-12-21T16:52:26.553Z",
+    "updated_at": "2026-01-02T14:13:10.733Z",
     "id": 106483894511018,
     "schema": {
       "id": {
@@ -548,11 +559,13 @@
         "component_whitelist": [
           "text",
           "image",
-          "link"
+          "link",
+          "form"
         ],
         "required": true,
         "id": "H_4TYwWSQEiW4H3CH1CVCQ",
-        "pos": 9
+        "pos": 9,
+        "component_denylist": []
       },
       "image": {
         "type": "asset",
@@ -657,7 +670,7 @@
     "display_name": "Modulo",
     "description": "",
     "created_at": "2025-10-28T23:07:27.613Z",
-    "updated_at": "2025-11-07T08:43:30.270Z",
+    "updated_at": "2026-01-02T14:08:38.711Z",
     "id": 106509302228774,
     "schema": {
       "event": {
@@ -692,13 +705,40 @@
         ],
         "description": "Inserire le liste e relativi id"
       },
-      "label": {
-        "type": "text",
+      "messages": {
+        "type": "section",
         "pos": 2,
-        "display_name": "Etichetta",
-        "description": "",
-        "required": true,
-        "id": "vJi7g7XpREqmWKJBqppRlw"
+        "keys": [
+          "success",
+          "error",
+          "headline"
+        ],
+        "id": "GacU2o8ITMOqG7akN4n0kw"
+      },
+      "headline": {
+        "type": "markdown",
+        "pos": 3,
+        "id": "gyakEgXxTSq6bIFOI7zFBQ",
+        "display_name": "Intestazione",
+        "rich_markdown": true,
+        "customize_toolbar": true,
+        "toolbar": [
+          "link",
+          "italic",
+          "bold",
+          "h4"
+        ],
+        "allow_multiline": false
+      },
+      "success": {
+        "type": "markdown",
+        "pos": 4,
+        "id": "7pb-EKCvQFyIcAQ8x7BQLQ"
+      },
+      "error": {
+        "type": "markdown",
+        "pos": 5,
+        "id": "vpHgsDeUTzS-bHN0pGQXWA"
       },
       "fields": {
         "type": "bloks",
@@ -710,23 +750,24 @@
           "select",
           "slider"
         ],
-        "pos": 3,
+        "pos": 6,
         "id": "d9CVhnRaSAmnYdUttag9Rg",
         "restrict_type": "",
         "component_group_whitelist": []
       },
       "settings": {
         "type": "section",
-        "pos": 4,
+        "pos": 7,
         "id": "gPXWC8o1T9624MtCyTzgFA",
         "keys": [
           "display",
-          "identify"
+          "identify",
+          "label"
         ]
       },
       "display": {
         "type": "option",
-        "pos": 5,
+        "pos": 8,
         "use_uuid": true,
         "display_name": "Mostra",
         "options": [
@@ -741,32 +782,22 @@
             "name": "Lato"
           }
         ],
-        "id": "kmClRfbVTx2f1UZNg2RIOw"
+        "id": "kmClRfbVTx2f1UZNg2RIOw",
+        "exclude_empty_option": true
+      },
+      "label": {
+        "type": "text",
+        "pos": 9,
+        "display_name": "Etichetta",
+        "description": "",
+        "required": false,
+        "id": "vJi7g7XpREqmWKJBqppRlw"
       },
       "identify": {
         "type": "boolean",
-        "pos": 6,
+        "pos": 10,
         "id": "8b6eHTvCRLKOYnGS3RGs9g",
         "display_name": "Identifica utente"
-      },
-      "messages": {
-        "type": "section",
-        "pos": 7,
-        "keys": [
-          "success",
-          "error"
-        ],
-        "id": "GacU2o8ITMOqG7akN4n0kw"
-      },
-      "success": {
-        "type": "markdown",
-        "pos": 8,
-        "id": "7pb-EKCvQFyIcAQ8x7BQLQ"
-      },
-      "error": {
-        "type": "markdown",
-        "pos": 9,
-        "id": "vpHgsDeUTzS-bHN0pGQXWA"
       }
     },
     "image": null,
@@ -1179,13 +1210,14 @@
     "display_name": "Campo",
     "description": "",
     "created_at": "2025-11-06T22:32:28.394Z",
-    "updated_at": "2025-11-07T08:38:32.487Z",
+    "updated_at": "2025-12-24T09:21:07.551Z",
     "id": 109685753433030,
     "schema": {
       "id": {
         "type": "text",
         "pos": 0,
-        "id": "zAxQLCk2R-eBOqDln7tbbg"
+        "id": "zAxQLCk2R-eBOqDln7tbbg",
+        "required": true
       },
       "label": {
         "type": "text",
@@ -1225,23 +1257,29 @@
           }
         ],
         "id": "QTMIlpo4QPaD3M6HHYNLJg",
-        "display_name": "Tipo"
+        "display_name": "Tipo",
+        "exclude_empty_option": true
       },
       "required": {
         "type": "boolean",
         "pos": 4,
-        "id": "5fVJ3MPFTB6ed4PENnt3HQ"
+        "id": "5fVJ3MPFTB6ed4PENnt3HQ",
+        "inline_label": true,
+        "display_name": "È un campo obbligatorio"
       },
       "hidden": {
         "type": "boolean",
         "pos": 5,
-        "id": "iU0LRftwSSWYZq3JIY4aHg"
+        "id": "iU0LRftwSSWYZq3JIY4aHg",
+        "inline_label": true,
+        "display_name": "È un campo nascosto"
       },
       "area": {
         "type": "boolean",
         "pos": 6,
-        "display_name": "Area di testo",
-        "id": "3EAaZs5lQsubLZScYF3IOw"
+        "display_name": "È un campo area di testo",
+        "id": "3EAaZs5lQsubLZScYF3IOw",
+        "inline_label": true
       }
     },
     "image": null,
@@ -1446,13 +1484,14 @@
     "display_name": "Calendario",
     "description": "",
     "created_at": "2025-11-06T22:45:31.572Z",
-    "updated_at": "2025-11-07T08:18:38.593Z",
+    "updated_at": "2025-12-24T09:28:33.295Z",
     "id": 109688961326159,
     "schema": {
       "id": {
         "type": "text",
         "pos": 0,
-        "id": "zAxQLCk2R-eBOqDln7tbbg"
+        "id": "zAxQLCk2R-eBOqDln7tbbg",
+        "required": true
       },
       "label": {
         "type": "text",
@@ -1468,12 +1507,16 @@
       "required": {
         "type": "boolean",
         "pos": 3,
-        "id": "5fVJ3MPFTB6ed4PENnt3HQ"
+        "id": "5fVJ3MPFTB6ed4PENnt3HQ",
+        "display_name": "È un campo obbligatorio",
+        "inline_label": true
       },
       "hidden": {
         "type": "boolean",
         "pos": 4,
-        "id": "iU0LRftwSSWYZq3JIY4aHg"
+        "id": "iU0LRftwSSWYZq3JIY4aHg",
+        "display_name": "È un campo nascosto",
+        "inline_label": true
       }
     },
     "image": null,
@@ -1725,13 +1768,14 @@
     "display_name": "Selezione",
     "description": "",
     "created_at": "2025-11-06T22:45:31.244Z",
-    "updated_at": "2025-11-06T22:49:29.303Z",
+    "updated_at": "2025-12-24T09:24:31.300Z",
     "id": 109688959986765,
     "schema": {
       "id": {
         "type": "text",
         "pos": 0,
-        "id": "zAxQLCk2R-eBOqDln7tbbg"
+        "id": "zAxQLCk2R-eBOqDln7tbbg",
+        "required": true
       },
       "label": {
         "type": "text",
@@ -1757,17 +1801,24 @@
       "multiple": {
         "type": "boolean",
         "pos": 4,
-        "id": "Of6n9LP2QVizFEggpaSRYg"
+        "id": "Of6n9LP2QVizFEggpaSRYg",
+        "display_name": "Scelta multipla",
+        "tooltip": false,
+        "inline_label": true
       },
       "required": {
         "type": "boolean",
         "pos": 5,
-        "id": "5fVJ3MPFTB6ed4PENnt3HQ"
+        "id": "5fVJ3MPFTB6ed4PENnt3HQ",
+        "display_name": "È un campo obbligatorio",
+        "inline_label": true
       },
       "hidden": {
         "type": "boolean",
         "pos": 6,
-        "id": "iU0LRftwSSWYZq3JIY4aHg"
+        "id": "iU0LRftwSSWYZq3JIY4aHg",
+        "display_name": "È un campo nascosto",
+        "inline_label": true
       }
     },
     "image": null,
@@ -1791,13 +1842,14 @@
     "display_name": "Cursore",
     "description": "",
     "created_at": "2025-11-06T22:42:58.948Z",
-    "updated_at": "2025-11-06T23:01:50.198Z",
+    "updated_at": "2026-01-02T14:56:46.351Z",
     "id": 109688336186411,
     "schema": {
       "id": {
         "type": "text",
         "pos": 0,
-        "id": "zAxQLCk2R-eBOqDln7tbbg"
+        "id": "zAxQLCk2R-eBOqDln7tbbg",
+        "required": true
       },
       "label": {
         "type": "text",
@@ -1808,7 +1860,8 @@
         "type": "number",
         "pos": 2,
         "display_name": "Predefinito",
-        "id": "TrHBC3NdQd2LL7Y9AHHpxg"
+        "id": "TrHBC3NdQd2LL7Y9AHHpxg",
+        "required": true
       },
       "step": {
         "type": "number",
@@ -1838,7 +1891,7 @@
           {
             "_uid": "8578ab95-54c5-423f-b9e8-1280d88765db",
             "name": "Distanza",
-            "value": "distance "
+            "value": "distance"
           },
           {
             "_uid": "70252bc5-192b-4247-a040-52451d4c6e7d",
@@ -1852,17 +1905,22 @@
           }
         ],
         "display_name": "Unità",
-        "id": "l4hyFK7FTZqbJub98f9bzA"
+        "id": "l4hyFK7FTZqbJub98f9bzA",
+        "exclude_empty_option": true
       },
       "required": {
         "type": "boolean",
         "pos": 7,
-        "id": "5fVJ3MPFTB6ed4PENnt3HQ"
+        "id": "5fVJ3MPFTB6ed4PENnt3HQ",
+        "display_name": "È un campo obbligatorio",
+        "inline_label": true
       },
       "hidden": {
         "type": "boolean",
         "pos": 8,
-        "id": "iU0LRftwSSWYZq3JIY4aHg"
+        "id": "iU0LRftwSSWYZq3JIY4aHg",
+        "display_name": "È un campo nascosto",
+        "inline_label": true
       }
     },
     "image": null,
@@ -1942,7 +2000,7 @@
     "display_name": "Testo",
     "description": null,
     "created_at": "2025-10-28T22:14:38.831Z",
-    "updated_at": "2025-12-21T13:33:24.673Z",
+    "updated_at": "2026-01-04T11:44:33.308Z",
     "id": 106496322897455,
     "schema": {
       "styles": {
@@ -1951,47 +2009,10 @@
         "keys": [
           "width",
           "justify",
-          "small"
+          "level"
         ],
         "id": "PzuO8GlxTninKVkxrgzExg",
         "pos": 0
-      },
-      "headline": {
-        "type": "markdown",
-        "display_name": "Intestazione",
-        "customize_toolbar": true,
-        "allow_multiline": true,
-        "toolbar": [
-          "h1",
-          "h2",
-          "h3",
-          "h4",
-          "h5",
-          "h6",
-          "bold",
-          "italic",
-          "list",
-          "link"
-        ],
-        "id": "DtfpB0z3QEOIFxqFIJQvSA",
-        "rich_markdown": true,
-        "pos": 1
-      },
-      "content": {
-        "type": "markdown",
-        "display_name": "Contenuto",
-        "customize_toolbar": true,
-        "allow_multiline": false,
-        "toolbar": [
-          "bold",
-          "italic",
-          "list",
-          "link",
-          "image"
-        ],
-        "id": "A7HzWMIIR9uIUQmyr-WOXQ",
-        "rich_markdown": true,
-        "pos": 2
       },
       "width": {
         "type": "option",
@@ -2024,7 +2045,7 @@
           }
         ],
         "id": "Tr6EY4B2RQ-augcvepa3NA",
-        "pos": 3,
+        "pos": 1,
         "exclude_empty_option": true
       },
       "justify": {
@@ -2045,14 +2066,66 @@
           }
         ],
         "id": "dv2TckpFSnCQ6vQ7GnPLBg",
-        "pos": 4,
+        "pos": 2,
         "exclude_empty_option": true
       },
-      "small": {
-        "type": "boolean",
-        "pos": 5,
-        "display_name": "Caratteri piccoli",
-        "id": "O98S5wvkQ42ose5gJGXzSQ"
+      "level": {
+        "type": "option",
+        "pos": 3,
+        "use_uuid": true,
+        "id": "MysIr5EzT-6S4ze5OrzuaQ",
+        "display_name": "Importanza",
+        "options": [
+          {
+            "_uid": "e20f7cde-84f1-4422-a77f-c26b9dcc6a3b",
+            "name": "Alta",
+            "value": "high"
+          },
+          {
+            "_uid": "eb4f8da9-bf2f-4dab-8ba0-7e284258b5ea",
+            "value": "low",
+            "name": "Bassa"
+          }
+        ],
+        "exclude_empty_option": true
+      },
+      "headline": {
+        "type": "markdown",
+        "display_name": "Intestazione",
+        "customize_toolbar": true,
+        "allow_multiline": true,
+        "toolbar": [
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "bold",
+          "italic",
+          "list",
+          "link"
+        ],
+        "id": "DtfpB0z3QEOIFxqFIJQvSA",
+        "rich_markdown": true,
+        "pos": 5
+      },
+      "content": {
+        "type": "markdown",
+        "display_name": "Contenuto",
+        "customize_toolbar": true,
+        "allow_multiline": false,
+        "toolbar": [
+          "bold",
+          "italic",
+          "list",
+          "link",
+          "image",
+          "paragraph"
+        ],
+        "id": "A7HzWMIIR9uIUQmyr-WOXQ",
+        "rich_markdown": true,
+        "pos": 6
       }
     },
     "image": null,

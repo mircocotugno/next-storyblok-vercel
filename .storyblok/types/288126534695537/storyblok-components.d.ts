@@ -28,7 +28,7 @@ export interface Carousel {
 }
 
 export interface Checkbox {
-  id?: string;
+  id: string;
   label?: string;
   default?: boolean;
   required?: boolean;
@@ -62,7 +62,7 @@ export interface Cover {
   height?: boolean;
   justify?: "left" | "center" | "right";
   align?: "top" | "center" | "bottom";
-  body: (Text | Image | Link)[];
+  body: (Text | Image | Link | Form)[];
   image?: StoryblokAsset;
   component: "cover";
   _uid: string;
@@ -82,14 +82,15 @@ export interface Footer {
 export interface Form {
   event: "" | "contact" | "download";
   lists?: ""[];
-  label: string;
-  fields?: (Checkbox | Input | Picker | Select | Slider)[];
-  settings?: unknown;
-  display?: "" | "modal" | "drawer";
-  identify?: boolean;
   messages?: unknown;
+  headline?: string;
   success?: string;
   error?: string;
+  fields?: (Checkbox | Input | Picker | Select | Slider)[];
+  settings?: unknown;
+  display?: "modal" | "drawer";
+  label?: string;
+  identify?: boolean;
   component: "form";
   _uid: string;
   [k: string]: unknown;
@@ -147,10 +148,10 @@ export interface Image {
 }
 
 export interface Input {
-  id?: string;
+  id: string;
   label?: string;
   placeholder?: string;
-  type: "" | "email" | "text" | "tel" | "file";
+  type: "email" | "text" | "tel" | "file";
   required?: boolean;
   hidden?: boolean;
   area?: boolean;
@@ -189,7 +190,7 @@ export interface Page {
 }
 
 export interface Picker {
-  id?: string;
+  id: string;
   label?: string;
   default?: string;
   required?: boolean;
@@ -228,7 +229,7 @@ export interface Project {
 }
 
 export interface Select {
-  id?: string;
+  id: string;
   label?: string;
   placeholder?: string;
   options: Option[];
@@ -241,13 +242,13 @@ export interface Select {
 }
 
 export interface Slider {
-  id?: string;
+  id: string;
   label?: string;
-  default?: string;
+  default: string;
   step?: string;
   min: string;
   max: string;
-  unit?: "" | "distance " | "surface" | "currency";
+  unit?: "distance" | "surface" | "currency";
   required?: boolean;
   hidden?: boolean;
   component: "slider";
@@ -267,11 +268,11 @@ export interface Steps {
 
 export interface Text {
   styles?: unknown;
-  headline?: string;
-  content?: string;
   width?: "1/4" | "1/3" | "1/2" | "2/3" | "1/1";
   justify?: "spaced" | "center" | "right";
-  small?: boolean;
+  level?: "high" | "low";
+  headline?: string;
+  content?: string;
   component: "text";
   _uid: string;
   [k: string]: unknown;

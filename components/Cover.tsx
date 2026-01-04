@@ -21,6 +21,7 @@ import {
   sectionSlot,
   themeCompoundVariants,
   themeVariants,
+  wrapperSlot,
 } from "@/config/variants";
 
 export interface CoverComponent {
@@ -52,7 +53,7 @@ export default function Cover({ blok, hasHeader }: CoverComponent) {
           ))}
         </div>
       </div>
-      {image && (
+      {image?.filename && (
         <HeroImage
           src={getResized({ filename: image.filename, focus: image.focus })}
           classNames={{ wrapper: background(), img: img() }}
@@ -73,9 +74,9 @@ const classes = tv({
     container:
       containerSlot.base +
       containerSlot.spaced +
-      containerSlot.colums +
+      containerSlot.columns +
       " items-end sm:items-center",
-    wrapper: "px-4 w-full sm:w-2/3 md:w-1/2 space-y-3 z-10",
+    wrapper: wrapperSlot.column + " w-full sm:w-2/3 xl:w-1/2 space-y-3 z-10",
     background: "absolute inset-0 -z-1 max-w-full!",
     img: "w-full h-full object-cover",
   },

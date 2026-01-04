@@ -4,7 +4,7 @@ import { default as NextLink } from "next/link";
 import Markdown from "markdown-to-jsx";
 import { default as NextImage } from "next/image";
 import { tv } from "tailwind-variants";
-import { containerSlot, sectionSlot } from "@/config/variants";
+import { containerSlot, sectionSlot, wrapperSlot } from "@/config/variants";
 
 export interface FooterComponent {
   blok: Footer & SbBlokData;
@@ -12,12 +12,12 @@ export interface FooterComponent {
 }
 
 export default function Footer({ blok }: FooterComponent) {
-  const { footer, container, column, copyright, terms } = classes();
+  const { footer, container, wrapper, copyright, terms } = classes();
   return (
     <footer className={footer()} {...storyblokEditable(blok)}>
-      <div className={container({ columns: true })}>
+      <div className={container()}>
         {blok.image?.filename && (
-          <div className="w-full p-2">
+          <div className={wrapper({ class: " w-full" })}>
             <NextLink href="/" className="inline-block w-fit">
               <NextImage
                 className="h-12 w-auto max-h-8 md:max-h-10 lg:max-h-12"
@@ -30,34 +30,41 @@ export default function Footer({ blok }: FooterComponent) {
           </div>
         )}
         {blok.body?.map((child) => (
-          <div className={column()} key={child._uid}>
+          <div
+            className={wrapper({
+              class: " w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6",
+            })}
+            key={child._uid}
+          >
             {child.headline && (
               <h4 className="font-medium mb-2.5">
-                <Markdown options={{ wrapper, overrides }}>
+                <Markdown options={{ wrapper: null, overrides }}>
                   {child.headline}
                 </Markdown>
               </h4>
             )}
             {child.content && (
-              <Markdown options={{ wrapper, overrides }}>
+              <Markdown options={{ wrapper: null, overrides }}>
                 {child.content}
               </Markdown>
             )}
           </div>
         ))}
       </div>
-      <div className={container()}>
+      <div className={containerSlot.base + " justify-between"}>
         {blok.copyright && (
           <p className={copyright()}>
             <span className="text-sm">© </span>
-            <Markdown options={{ wrapper, overrides }}>
+            <Markdown options={{ wrapper: null, overrides }}>
               {blok.copyright}
             </Markdown>
           </p>
         )}
         {blok.terms && (
           <p className={terms()}>
-            <Markdown options={{ wrapper, overrides }}>{blok.terms}</Markdown>
+            <Markdown options={{ wrapper: null, overrides }}>
+              {blok.terms}
+            </Markdown>
           </p>
         )}
       </div>
@@ -67,23 +74,15 @@ export default function Footer({ blok }: FooterComponent) {
 
 const classes = tv({
   slots: {
-    footer: sectionSlot.base + "bg-background text-foreground pb-8",
-    container: containerSlot.base + containerSlot.colums + " justify-between",
-    column: "px-3 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6",
+    footer: sectionSlot.base + "bg-background text-foreground pb-8 space-y-6",
+    container: containerSlot.base + containerSlot.columns,
+    wrapper: wrapperSlot.base + wrapperSlot.column,
     copyright: "text-xs opacity-65 font-bold",
     terms:
       "text-xs opacity-65 hover:opacity-100 transition-all duration-150 ease-in",
   },
-  variants: {
-    columns: {
-      true: {
-        container: "-mx-3 py-4",
-      },
-    },
-  },
 });
 
-const wrapper = null;
 const overrides = {
   a: {
     component: ({ href, children }: { href: string; children: string }) => (
