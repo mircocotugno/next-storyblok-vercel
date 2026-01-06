@@ -12,7 +12,7 @@ export interface BrevoContact {
   listIds?: Array<number>;
   email: string;
   attributes: {
-    [key: string]: any;
+    [key: string]: object;
   };
 }
 
@@ -23,13 +23,13 @@ interface BrevoRequestBody {
 
 const apiUrl = "https://api.brevo.com/v3";
 
-type BrevoResponse = {};
+type BrevoResponse = object;
 
 export default async function sendBrevo(
   req: NextApiRequest,
   res: NextApiResponse<BrevoResponse>
 ): Promise<void> {
-  return console.log(req.body);
+  // return console.log(req.body);
 
   if (req.method !== "POST") {
     res.setHeader("Allow", ["POST", "PUT", "GET"]);

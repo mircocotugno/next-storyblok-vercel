@@ -21,7 +21,7 @@ export const wrapperSlot = {
 
 export const typographySlots = {
   wrapper: wrapperSlot.base + wrapperSlot.level,
-  p: "font-normal letter tracking-wide text-[1.4em] leading-none",
+  p: "font-normal letter tracking-wide text-[1.4em] leading-[0.96]",
   h1: "font-black text-[6.6em] leading-[0.82]",
   h2: "font-extrabold text-[5.2em] leading-[0.82]",
   h3: "font-bold text-[4.8em] leading-[0.82]",
@@ -213,7 +213,7 @@ export const levelVariants = {
     wrapper: "space-y-3 md:space-y-6 lg:space-y-9",
   },
   low: {
-    p: "font-light text-[1.2em]",
+    p: "font-light text-[1.2em] leading-[0.92]",
     h1: "font-extralight text-[4.6em] leading-[0.82]",
     h2: "font-light text-[4em] leading-[0.82]",
     h3: "font-normal text-[3.6em] leading-[0.82]",

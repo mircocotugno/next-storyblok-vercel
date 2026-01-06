@@ -15,11 +15,7 @@ import {
   DrawerContent as HeroDrawerContent,
   useDisclosure,
 } from "@heroui/react";
-import {
-  containerSlot,
-  sectionSlot,
-  typographyVariants,
-} from "@/config/variants";
+import { containerSlot, sectionSlot, wrapperSlot } from "@/config/variants";
 import { getData, FieldData, FormData } from "@/lib/sbForm";
 import getValidation from "@/lib/validations";
 import Markdown from "markdown-to-jsx";
@@ -103,7 +99,7 @@ export default function Form({ blok, parent }: FormComponent) {
           <Markdown
             options={{
               wrapper: ({ children }) => (
-                <div className={wrapper({ small: true })}>{children}</div>
+                <div className={wrapper()}>{children}</div>
               ),
               forceWrapper: true,
               overrides: Typography(),
@@ -116,7 +112,7 @@ export default function Form({ blok, parent }: FormComponent) {
           <Markdown
             options={{
               wrapper: ({ children }) => (
-                <div className={wrapper({ small: true })}>{children}</div>
+                <div className={wrapper()}>{children}</div>
               ),
               forceWrapper: true,
               overrides: Typography(),
@@ -245,9 +241,6 @@ const classes = tv({
   slots: {
     section: sectionSlot.base,
     container: containerSlot.base + containerSlot.spaced,
-    wrapper: "",
-  },
-  variants: {
-    small: typographyVariants,
+    wrapper: wrapperSlot.base + wrapperSlot.level,
   },
 });

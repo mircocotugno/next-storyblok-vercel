@@ -70,8 +70,8 @@ export const getStaticPaths = async () => {
 
   const paths = stories.data.stories
     .filter(
-      ({ content: { component } }) =>
-        !!component && layoutComponents.includes(component)
+      ({ content: { component }, slug }) =>
+        slug !== "home" && !!component && layoutComponents.includes(component)
     )
     .map((story) => {
       const slug = story.full_slug === "home" ? [] : story.full_slug.split("/");
